@@ -74,15 +74,16 @@ function renderProjectSummaryCards(rows){
 }
 
 async function boot(){
-  // Corrigido: converte horário para UTC-3 (Brasília)
+  // Usa horário local do navegador (já no fuso de Brasília)
   const now = new Date();
-  
-  // getTimezoneOffset() retorna minutos para converter *de local para UTC*
-  // Ex: Brasília (-180) → precisamos inverter o sinal
-  const offset = now.getTimezoneOffset() - 180; // -180 = UTC-3
-  const localTime = new Date(now.getTime() - offset * 60000);
-  
-  const ts = localTime.toISOString().slice(0, 19).replace("T", " ");
+  const ts = now.toLocaleString("pt-BR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  }).replace(",", "");
   document.getElementById("build-ts").textContent = ts + " BRT";
 
 
