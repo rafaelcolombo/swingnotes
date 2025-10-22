@@ -74,7 +74,13 @@ function renderProjectSummaryCards(rows){
 }
 
 async function boot(){
-  document.getElementById('build-ts').textContent = new Date().toISOString().slice(0,19).replace('T',' ');
+  // Ajuste de fuso horário (UTC-3 → Brasília)
+  const now = new Date();
+  const offset = now.getTimezoneOffset() + 180; // +180 min = -3h
+  const localTime = new Date(now.getTime() - offset * 60000);
+  const ts = localTime.toISOString().slice(0,19).replace('T',' ');
+  document.getElementById('build-ts').textContent = ts + ' BRT';
+
   const [sell, proj] = await Promise.all([
     fetchJSON('./data/eventos_sell.json'),
     fetchJSON('./data/resumo_projeto.json')
