@@ -7,7 +7,8 @@
     "trades_em_andamento": 0,
     "pnl_realizado": 926.74,
     "capital_inicial": 1999.0,
-    "pnl_realizado_pct": 46.36018009004502
+    "pnl_realizado_pct": 46.36018009004502,
+    "dias_uteis": 0
   },
   {
     "Project": "swingnotes",
@@ -17,7 +18,8 @@
     "trades_em_andamento": 1,
     "pnl_realizado": 481.22,
     "capital_inicial": 1000.0,
-    "pnl_realizado_pct": 48.12200000000001
+    "pnl_realizado_pct": 48.12200000000001,
+    "dias_uteis": 0
   },
   {
     "Project": "TOTAL",
@@ -27,6 +29,7 @@
     "trades_em_andamento": 1,
     "pnl_realizado": 1407.96,
     "capital_inicial": 2999.0,
-    "pnl_realizado_pct": 46.947649216405466
+    "pnl_realizado_pct": 46.947649216405466,
+    "dias_uteis": null
   }
 ]
