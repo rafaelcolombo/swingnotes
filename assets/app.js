@@ -49,29 +49,41 @@ function metric(label, valueHtml){
 }
 
 function renderProjectSummaryCards(rows){
-  const container = document.getElementById("proj-list");
-  const sorted = [...rows].sort((a,b)=> (a.Project==="TOTAL") - (b.Project==="TOTAL") || a.Project.localeCompare(b.Project));
-  container.innerHTML = "";
-  for(const r of sorted){
+  const container = document.getElementById('proj-list');
+  const sorted = [...rows].sort((a,b)=> (a.Project==='TOTAL') - (b.Project==='TOTAL') || a.Project.localeCompare(b.Project));
+  container.innerHTML = '';
+
+  for (const r of sorted) {
     const proj = String(r.Project).toUpperCase();
-    const isTotal = proj === "TOTAL";
-    const pnlPos = Number(r.pnl_realizado)>=0;
-    const pnlPctPos = Number(r.pnl_realizado_pct)>=0;
+    const isTotal = proj === 'TOTAL';
+    const pnlPos = Number(r.pnl_realizado) >= 0;
+    const pnlPctPos = Number(r.pnl_realizado_pct) >= 0;
+
+    // Base comum
     const cards = [
-      metric("Capital Inicial", fmtMoney(r.capital_inicial||0)),
-      metric("Trades Fechados", (r.trades_fechados_totalmente||0)),
-      metric("Trades com Profit", (r.trades_com_profit||0)),
-      metric("Trades com Loss", (r.trades_com_loss||0)),
-      metric("Trades em Andamento", (r.trades_em_andamento||0)),
-      metric('Tempo de Projeto (dias úteis)', (r.dias_uteis ?? 0)),
-      metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
-      metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
+      metric('Capital Inicial', fmtMoney(r.capital_inicial || 0)),
+      metric('Trades Fechados', (r.trades_fechados_totalmente || 0)),
+      metric('Trades com Profit', (r.trades_com_profit || 0)),
+      metric('Trades com Loss', (r.trades_com_loss || 0)),
+      metric('Trades em Andamento', (r.trades_em_andamento || 0)),
     ];
-    const grid = `<div class="sn-proj-grid">${cards.join("")}</div>`;
-    container.insertAdjacentHTML("beforeend", `<h3>📦 ${proj}</h3>${grid}`);
-    if(isTotal) break;
+
+    // 👇 Só adiciona o tempo de projeto quando NÃO for TOTAL
+    if (!isTotal && r.dias_uteis != null) {
+      cards.push(metric('Tempo de Projeto (dias úteis)', (r.dias_uteis ?? 0)));
+    }
+
+    // Demais métricas
+    cards.push(
+      metric('PnL Realizado (USD)', `<span class="${pnlPos ? 'sn-pos' : 'sn-neg'}">${fmtMoney(r.pnl_realizado || 0)}</span>`),
+      metric('PnL Realizado (%)', `<span class="${pnlPctPos ? 'sn-pos' : 'sn-neg'}">${fmtPct(r.pnl_realizado_pct || 0)}</span>`),
+    );
+
+    const grid = `<div class="sn-proj-grid">${cards.join('')}</div>`;
+    container.insertAdjacentHTML('beforeend', `<h3>📦 ${proj}</h3>${grid}`);
   }
 }
+
 
 /* ============================================================
    Última atualização baseada no GITHUB (commits dos JSONs)
