@@ -84,7 +84,7 @@ async function boot(){
     minute: "2-digit",
     second: "2-digit"
   }).replace(",", "");
-  document.getElementById("build-ts").textContent = ts + " BRT";
+  document.getElementById("build-ts").textContent = ts;
 
 
   const [sell, proj] = await Promise.all([
