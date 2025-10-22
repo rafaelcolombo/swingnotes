@@ -63,6 +63,7 @@ function renderProjectSummaryCards(rows){
       metric("Trades com Profit", (r.trades_com_profit||0)),
       metric("Trades com Loss", (r.trades_com_loss||0)),
       metric("Trades em Andamento", (r.trades_em_andamento||0)),
+      metric('Tempo de Projeto (dias úteis)', (r.dias_uteis ?? 0)),
       metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
       metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
     ];
