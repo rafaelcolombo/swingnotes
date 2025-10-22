@@ -1,0 +1,22 @@
+[
+  {
+    "Trade_ID": "20251017-3c9115c004b6",
+    "Ticker": "PLUG",
+    "Data_Trade": "2025-10-17",
+    "Preco_Entrada": 2.1,
+    "Preco_Saida": 2.46,
+    "Qtd_Vendida": 100.0,
+    "PnL_Abs": 36.0,
+    "PnL_Pct": 17.14
+  },
+  {
+    "Trade_ID": "20251011-9ab123ff00ac",
+    "Ticker": "QS",
+    "Data_Trade": "2025-10-18",
+    "Preco_Entrada": 8.74,
+    "Preco_Saida": 14.99,
+    "Qtd_Vendida": 50.0,
+    "PnL_Abs": 312.5,
+    "PnL_Pct": 71.51
+  }
+]
