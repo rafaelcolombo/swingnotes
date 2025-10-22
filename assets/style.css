@@ -111,16 +111,42 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
 }
 
-/* badge do topo */
+/* ====== BADGE DO TOPO (duas linhas) ====== */
 .badge{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:6px 10px; border:1px solid #2a3240; border-radius:999px;
-  background:#111214; color:#cfe1ff; font-size:13px
+  display:flex;                 /* de inline-flex -> flex para permitir expansão vertical */
+  align-items:flex-start;       /* alinha as linhas com a bolinha */
+  gap:10px;
+  padding:8px 12px;
+  border:1px solid #2a3240;
+  border-radius:14px;           /* menos “pílula”, mais cartão */
+  background:#111214;
+  color:#cfe1ff;
+  font-size:13px;
 }
-.badge-dot{width:8px; height:8px; background:var(--pos); border-radius:999px}
+.badge-dot{
+  width:8px; height:8px; background:var(--pos); border-radius:999px;
+  margin-top:4px;               /* centraliza visualmente com as linhas */
+}
+.badge-lines{
+  display:flex;
+  flex-direction:column;
+  line-height:1.28;
+}
+.badge-title{
+  font-weight:600;
+  font-size:.88rem;
+  letter-spacing:.2px;
+  color:#fff;
+}
+.badge-date{
+  font-family:"SFMono-Regular",Consolas,Monaco,monospace;
+  font-size:.84rem;
+  color:#8ae8a1;
+}
 
 /* rodapé */
 footer{margin-top:22px; font-size:13px; color:var(--muted)}
+
 /* links */
 a{color:var(--pos); text-decoration:none}
 a:hover{text-decoration:underline}
