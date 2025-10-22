@@ -83,30 +83,44 @@ function renderProjectSummaryCards(rows){
 /* ============================================================
    Última atualização baseada nos COMMITS dos JSONs no GitHub
    ============================================================ */
+/* Usa o header Last-Modified dos JSONs publicados */
 async function atualizarBuildTime(){
+  // URLs RAW dos arquivos no branch main
+  const urls = [
+    "https://raw.githubusercontent.com/rafaelcolombo/swingnotes/main/data/eventos_sell.json",
+    "https://raw.githubusercontent.com/rafaelcolombo/swingnotes/main/data/resumo_projeto.json"
+  ];
+
+  // helper: busca apenas headers (sem baixar o corpo todo)
+  async function getLastModified(u){
+    const r = await fetch(u, { method: "HEAD", cache: "no-store" });
+    if (!r.ok) throw new Error("HEAD fail " + u);
+    const lm = r.headers.get("last-modified"); // ex: "Wed, 22 Oct 2025 17:59:56 GMT"
+    return lm ? new Date(lm) : null;
+  }
+
   try {
-    const bust = `&_=${Date.now()}`; // evita cache agressivo
-    const urls = [
-      `https://api.github.com/repos/rafaelcolombo/swingnotes/commits?path=data/eventos_sell.json&page=1&per_page=1${bust}`,
-      `https://api.github.com/repos/rafaelcolombo/swingnotes/commits?path=data/resumo_projeto.json&page=1&per_page=1${bust}`
-    ];
-    const [r1, r2] = await Promise.all(urls.map(u => fetch(u, { cache: "no-store" })));
-    const [c1, c2] = await Promise.all([r1.json(), r2.json()]);
+    const results = await Promise.allSettled(urls.map(getLastModified));
+    const dates = results
+      .map(x => x.status === "fulfilled" ? x.value : null)
+      .filter(Boolean);
 
-    const dates = [c1?.[0]?.commit?.author?.date, c2?.[0]?.commit?.author?.date].filter(Boolean);
-    if(dates.length === 0) throw new Error("No commit dates found");
+    if (dates.length === 0) throw new Error("no Last-Modified headers");
 
-    const last = new Date(Math.max(...dates.map(d => new Date(d).getTime())));
+    // pega a mais recente
+    const last = new Date(Math.max(...dates.map(d => d.getTime())));
     const ts = last.toLocaleString("pt-BR", {
-      year:"numeric", month:"2-digit", day:"2-digit",
-      hour:"2-digit", minute:"2-digit", second:"2-digit"
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
     }).replace(",", "");
+
     document.getElementById("build-ts").textContent = ts + " BRT";
-  } catch (e){
-    console.error("Erro ao obter horário de atualização:", e);
+  } catch (e) {
+    console.error("Erro ao obter Last-Modified:", e);
     document.getElementById("build-ts").textContent = "—";
   }
 }
+  
 
 /* ===== Boot ===== */
 async function boot(){
