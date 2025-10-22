@@ -1,22 +1,1202 @@
 [
   {
-    "Trade_ID": "20251017-3c9115c004b6",
-    "Ticker": "PLUG",
-    "Data_Trade": "2025-10-17",
-    "Preco_Entrada": 2.1,
-    "Preco_Saida": 2.46,
-    "Qtd_Vendida": 100.0,
-    "PnL_Abs": 36.0,
-    "PnL_Pct": 17.14
+    "Trade_ID": "20250408-d5b39320bb3b",
+    "Ticker": "AGL",
+    "Data_Trade": "2025-04-17",
+    "Preco_Entrada": 5.588000002311428,
+    "Preco_Saida": 4.499907592620423,
+    "Qtd_Vendida": 17.89370078,
+    "PnL_Abs": -19.47,
+    "PnL_Pct": -19.47
   },
   {
-    "Trade_ID": "20251011-9ab123ff00ac",
+    "Trade_ID": "20250410-866b17fe0df5",
+    "Ticker": "HMY",
+    "Data_Trade": "2025-04-17",
+    "Preco_Entrada": 16.208800001163258,
+    "Preco_Saida": 17.390539667026673,
+    "Qtd_Vendida": 3.08443562,
+    "PnL_Abs": 3.64,
+    "PnL_Pct": 7.29
+  },
+  {
+    "Trade_ID": "20250414-b68b00a1aab6",
+    "Ticker": "YALA",
+    "Data_Trade": "2025-04-22",
+    "Preco_Entrada": 6.46000000041344,
+    "Preco_Saida": 6.996103896103896,
+    "Qtd_Vendida": 7.7,
+    "PnL_Abs": 4.13,
+    "PnL_Pct": 8.3
+  },
+  {
+    "Trade_ID": "20250410-866b17fe0df5",
+    "Ticker": "HMY",
+    "Data_Trade": "2025-04-23",
+    "Preco_Entrada": 16.208800001163258,
+    "Preco_Saida": 15.798676374378909,
+    "Qtd_Vendida": 3.08443561,
+    "PnL_Abs": -1.26,
+    "PnL_Pct": -2.53
+  },
+  {
+    "Trade_ID": "20250411-551d0746d586",
+    "Ticker": "AU",
+    "Data_Trade": "2025-04-24",
+    "Preco_Entrada": 42.722800096750056,
+    "Preco_Saida": 40.36450153140945,
+    "Qtd_Vendida": 2.34067055,
+    "PnL_Abs": -5.52,
+    "PnL_Pct": -5.52
+  },
+  {
+    "Trade_ID": "20250415-f0d3d318d346",
+    "Ticker": "SAND",
+    "Data_Trade": "2025-04-25",
+    "Preco_Entrada": 8.39880000122769,
+    "Preco_Saida": 8.430718633095543,
+    "Qtd_Vendida": 11.90527218,
+    "PnL_Abs": 0.38,
+    "PnL_Pct": 0.38
+  },
+  {
+    "Trade_ID": "20250414-b68b00a1aab6",
+    "Ticker": "YALA",
+    "Data_Trade": "2025-04-29",
+    "Preco_Entrada": 6.46000000041344,
+    "Preco_Saida": 7.716061125579666,
+    "Qtd_Vendida": 7.77987616,
+    "PnL_Abs": 9.77,
+    "PnL_Pct": 19.44
+  },
+  {
+    "Trade_ID": "20250502-54712b349230",
+    "Ticker": "SATL",
+    "Data_Trade": "2025-05-05",
+    "Preco_Entrada": 4.448800001552454,
+    "Preco_Saida": 4.459922001556334,
+    "Qtd_Vendida": 22.47797158,
+    "PnL_Abs": 0.25,
+    "PnL_Pct": 0.25
+  },
+  {
+    "Trade_ID": "20250502-4142f72067ff",
+    "Ticker": "DUOL",
+    "Data_Trade": "2025-05-05",
+    "Preco_Entrada": 479.53882176064695,
+    "Preco_Saida": 494.9320179391637,
+    "Qtd_Vendida": 0.20853369,
+    "PnL_Abs": 3.21,
+    "PnL_Pct": 3.21
+  },
+  {
+    "Trade_ID": "20250516-d53034f96c84",
+    "Ticker": "QUBT",
+    "Data_Trade": "2025-05-19",
+    "Preco_Entrada": 11.117600001292606,
+    "Preco_Saida": 11.503751308004171,
+    "Qtd_Vendida": 13.4921206,
+    "PnL_Abs": 5.21,
+    "PnL_Pct": 3.47
+  },
+  {
+    "Trade_ID": "20250516-a53015395fc9",
+    "Ticker": "ACHR",
+    "Data_Trade": "2025-05-19",
+    "Preco_Entrada": 13.328800001116065,
+    "Preco_Saida": 12.050123787675664,
+    "Qtd_Vendida": 11.2538263,
+    "PnL_Abs": -14.39,
+    "PnL_Pct": -9.59
+  },
+  {
+    "Trade_ID": "20250516-cfe586e1813b",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-05-19",
+    "Preco_Entrada": 11.988800005488631,
+    "Preco_Saida": 12.980673392609392,
+    "Qtd_Vendida": 12.51167756,
+    "PnL_Abs": 12.41,
+    "PnL_Pct": 8.27
+  },
+  {
+    "Trade_ID": "20250519-e619b2acbc86",
+    "Ticker": "ARQQ",
+    "Data_Trade": "2025-05-21",
+    "Preco_Entrada": 21.43790000825774,
+    "Preco_Saida": 28.741077944404203,
+    "Qtd_Vendida": 6.99695399,
+    "PnL_Abs": 51.1,
+    "PnL_Pct": 34.07
+  },
+  {
+    "Trade_ID": "20250520-9d0498701a1d",
+    "Ticker": "QUBT",
+    "Data_Trade": "2025-05-21",
+    "Preco_Entrada": 11.898800001577621,
+    "Preco_Saida": 10.66053154808011,
+    "Qtd_Vendida": 12.60631324,
+    "PnL_Abs": -15.61,
+    "PnL_Pct": -10.41
+  },
+  {
+    "Trade_ID": "20250520-c359a8784554",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-05-21",
+    "Preco_Entrada": 15.768800007260376,
+    "Preco_Saida": 15.750928700585481,
+    "Qtd_Vendida": 9.51245497,
+    "PnL_Abs": -0.17,
+    "PnL_Pct": -0.11
+  },
+  {
+    "Trade_ID": "20250521-82a385bc75c5",
+    "Ticker": "LAES",
+    "Data_Trade": "2025-05-21",
+    "Preco_Entrada": 4.178800000514159,
+    "Preco_Saida": 3.535264800434979,
+    "Qtd_Vendida": 35.89547238,
+    "PnL_Abs": -23.1,
+    "PnL_Pct": -15.4
+  },
+  {
+    "Trade_ID": "20250522-a3c093e82916",
+    "Ticker": "IONQ",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 45.798800045791474,
+    "Preco_Saida": 45.82627932581895,
+    "Qtd_Vendida": 2.18346332,
+    "PnL_Abs": 0.06,
+    "PnL_Pct": 0.06
+  },
+  {
+    "Trade_ID": "20250522-e949a7a726c7",
+    "Ticker": "SBSW",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 5.99880000004799,
+    "Preco_Saida": 6.1011795200488095,
+    "Qtd_Vendida": 25.005001,
+    "PnL_Abs": 2.56,
+    "PnL_Pct": 1.71
+  },
+  {
+    "Trade_ID": "20250522-66beb32ab2ff",
+    "Ticker": "CEP",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 48.67090008967743,
+    "Preco_Saida": 40.35466562768788,
+    "Qtd_Vendida": 3.08192369,
+    "PnL_Abs": -25.63,
+    "PnL_Pct": -17.09
+  },
+  {
+    "Trade_ID": "20250522-475cf09f2000",
+    "Ticker": "SJT",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 7.027500000822218,
+    "Preco_Saida": 6.8424425008005665,
+    "Qtd_Vendida": 21.34471718,
+    "PnL_Abs": -3.95,
+    "PnL_Pct": -2.63
+  },
+  {
+    "Trade_ID": "20250522-c74656ae57d9",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 18.70880000681,
+    "Preco_Saida": 17.43285984634556,
+    "Qtd_Vendida": 5.34507825,
+    "PnL_Abs": -6.82,
+    "PnL_Pct": -6.82
+  },
+  {
+    "Trade_ID": "20250523-ce0a5bda17e5",
+    "Ticker": "QUBT",
+    "Data_Trade": "2025-05-28",
+    "Preco_Entrada": 13.838800005766904,
+    "Preco_Saida": 12.611298445255379,
+    "Qtd_Vendida": 7.22606006,
+    "PnL_Abs": -8.87,
+    "PnL_Pct": -8.87
+  },
+  {
+    "Trade_ID": "20250527-67d66b4dfdf9",
+    "Ticker": "NVDA",
+    "Data_Trade": "2025-05-29",
+    "Preco_Entrada": 135.21880096877814,
+    "Preco_Saida": 139.76574067516825,
+    "Qtd_Vendida": 0.80713628,
+    "PnL_Abs": 3.67,
+    "PnL_Pct": 3.36
+  },
+  {
+    "Trade_ID": "20250529-6c615fdb9981",
+    "Ticker": "APPS",
+    "Data_Trade": "2025-06-02",
+    "Preco_Entrada": 4.758800000507223,
+    "Preco_Saida": 4.3816732209262055,
+    "Qtd_Vendida": 23.70555602,
+    "PnL_Abs": -8.94,
+    "PnL_Pct": -7.92
+  },
+  {
+    "Trade_ID": "20250528-aeba6590bcf4",
+    "Ticker": "NVDA",
+    "Data_Trade": "2025-06-03",
+    "Preco_Entrada": 135.20500042062233,
+    "Preco_Saida": 140.84077215060867,
+    "Qtd_Vendida": 1.86842202,
+    "PnL_Abs": 10.53,
+    "PnL_Pct": 4.17
+  },
+  {
+    "Trade_ID": "20250602-de5e4d52935a",
+    "Ticker": "ATAI",
+    "Data_Trade": "2025-06-05",
+    "Preco_Entrada": 2.579100000183477,
+    "Preco_Saida": 2.3908257001700832,
+    "Qtd_Vendida": 38.77321546,
+    "PnL_Abs": -7.3,
+    "PnL_Pct": -7.3
+  },
+  {
+    "Trade_ID": "20250528-f8b38dd0dd60",
+    "Ticker": "NVDA",
+    "Data_Trade": "2025-06-05",
+    "Preco_Entrada": 135.75500016612247,
+    "Preco_Saida": 140.40027934846114,
+    "Qtd_Vendida": 3.34963721,
+    "PnL_Abs": 15.56,
+    "PnL_Pct": 3.42
+  },
+  {
+    "Trade_ID": "20250602-acabbeceeb14",
+    "Ticker": "ZS",
+    "Data_Trade": "2025-06-23",
+    "Preco_Entrada": 290.4657071538683,
+    "Preco_Saida": 306.8479730373465,
+    "Qtd_Vendida": 0.34427472,
+    "PnL_Abs": 5.64,
+    "PnL_Pct": 5.64
+  },
+  {
+    "Trade_ID": "20250603-22e2af5d1d34",
+    "Ticker": "HOOD",
+    "Data_Trade": "2025-06-23",
+    "Preco_Entrada": 71.51760023110528,
+    "Preco_Saida": 77.17299200322653,
+    "Qtd_Vendida": 1.81773437,
+    "PnL_Abs": 10.28,
+    "PnL_Pct": 7.91
+  },
+  {
+    "Trade_ID": "20250603-052ddc1cc580",
+    "Ticker": "DG",
+    "Data_Trade": "2025-06-23",
+    "Preco_Entrada": 112.658802114091,
+    "Preco_Saida": 113.31059775098323,
+    "Qtd_Vendida": 0.49095143,
+    "PnL_Abs": 0.32,
+    "PnL_Pct": 0.58
+  },
+  {
+    "Trade_ID": "20250604-1ae528bd11ce",
+    "Ticker": "REVG",
+    "Data_Trade": "2025-06-25",
+    "Preco_Entrada": 43.770500081365796,
+    "Preco_Saida": 44.72053196446866,
+    "Qtd_Vendida": 3.04200317,
+    "PnL_Abs": 2.89,
+    "PnL_Pct": 2.17
+  },
+  {
+    "Trade_ID": "20250625-28f521c156ed",
+    "Ticker": "WOLF",
+    "Data_Trade": "2025-06-26",
+    "Preco_Entrada": 0.5817000000071151,
+    "Preco_Saida": 0.5288920391126145,
+    "Qtd_Vendida": 233.86625408,
+    "PnL_Abs": -12.35,
+    "PnL_Pct": -9.08
+  },
+  {
+    "Trade_ID": "20250623-3cbdd68d7b69",
+    "Ticker": "ASTS",
+    "Data_Trade": "2025-07-02",
+    "Preco_Entrada": 50.04690005131799,
+    "Preco_Saida": 44.37648014464979,
+    "Qtd_Vendida": 3.62759731,
+    "PnL_Abs": -20.57,
+    "PnL_Pct": -11.33
+  },
+  {
+    "Trade_ID": "20250605-8c22d8cf7fb3",
+    "Ticker": "NBIS",
+    "Data_Trade": "2025-07-07",
+    "Preco_Entrada": 45.95000003151008,
+    "Preco_Saida": 47.508189638790284,
+    "Qtd_Vendida": 6.10526316,
+    "PnL_Abs": 9.51,
+    "PnL_Pct": 3.39
+  },
+  {
+    "Trade_ID": "20250626-74e3b09c81b7",
+    "Ticker": "AGL",
+    "Data_Trade": "2025-07-09",
+    "Preco_Entrada": 2.269200000216766,
+    "Preco_Saida": 2.3611223742246046,
+    "Qtd_Vendida": 28.06716023,
+    "PnL_Abs": 2.58,
+    "PnL_Pct": 4.05
+  },
+  {
+    "Trade_ID": "20250703-86acc7ac95cd",
+    "Ticker": "SMR",
+    "Data_Trade": "2025-07-09",
+    "Preco_Entrada": 36.15400014679471,
+    "Preco_Saida": 34.98875020380713,
+    "Qtd_Vendida": 2.2398628,
+    "PnL_Abs": -2.61,
+    "PnL_Pct": -3.22
+  },
+  {
+    "Trade_ID": "20250702-1b56bcff6fce",
+    "Ticker": "BBAI",
+    "Data_Trade": "2025-07-09",
+    "Preco_Entrada": 7.448800002788831,
+    "Preco_Saida": 7.330550302744559,
+    "Qtd_Vendida": 10.73998496,
+    "PnL_Abs": -1.27,
+    "PnL_Pct": -1.59
+  },
+  {
+    "Trade_ID": "20250605-f1c423e0b528",
+    "Ticker": "NBIS",
+    "Data_Trade": "2025-07-09",
+    "Preco_Entrada": 45.97050018949071,
+    "Preco_Saida": 46.12968606393328,
+    "Qtd_Vendida": 2.01651058,
+    "PnL_Abs": 0.32,
+    "PnL_Pct": 0.35
+  },
+  {
+    "Trade_ID": "20250605-8c22d8cf7fb3",
+    "Ticker": "NBIS",
+    "Data_Trade": "2025-07-09",
+    "Preco_Entrada": 45.95000003151008,
+    "Preco_Saida": 46.14998330729055,
+    "Qtd_Vendida": 4.12955729,
+    "PnL_Abs": 0.83,
+    "PnL_Pct": 0.44
+  },
+  {
+    "Trade_ID": "20250709-ca5707b96625",
+    "Ticker": "IOVA",
+    "Data_Trade": "2025-07-18",
+    "Preco_Entrada": 1.889300000195145,
+    "Preco_Saida": 2.2607739552659574,
+    "Qtd_Vendida": 35.07648335,
+    "PnL_Abs": 13.03,
+    "PnL_Pct": 19.66
+  },
+  {
+    "Trade_ID": "20250715-d4437dd250dd",
     "Ticker": "QS",
-    "Data_Trade": "2025-10-18",
-    "Preco_Entrada": 8.74,
-    "Preco_Saida": 14.99,
-    "Qtd_Vendida": 50.0,
-    "PnL_Abs": 312.5,
-    "PnL_Pct": 71.51
+    "Data_Trade": "2025-07-21",
+    "Preco_Entrada": 10.618800000801082,
+    "Preco_Saida": 12.711411520958949,
+    "Qtd_Vendida": 14.12588993,
+    "PnL_Abs": 29.56,
+    "PnL_Pct": 19.71
+  },
+  {
+    "Trade_ID": "20250626-5af3ab8a5c09",
+    "Ticker": "OPEN",
+    "Data_Trade": "2025-07-21",
+    "Preco_Entrada": 0.525500000000832,
+    "Preco_Saida": 3.871270916672796,
+    "Qtd_Vendida": 114.17697431,
+    "PnL_Abs": 382.01,
+    "PnL_Pct": 636.68
+  },
+  {
+    "Trade_ID": "20250716-85cc6ee62f1b",
+    "Ticker": "RKLB",
+    "Data_Trade": "2025-07-22",
+    "Preco_Entrada": 46.444000028720396,
+    "Preco_Saida": 46.50969168364079,
+    "Qtd_Vendida": 1.52226337,
+    "PnL_Abs": 0.1,
+    "PnL_Pct": 0.14
+  },
+  {
+    "Trade_ID": "20250715-498a2179c46b",
+    "Ticker": "MP",
+    "Data_Trade": "2025-07-22",
+    "Preco_Entrada": 57.69170015432683,
+    "Preco_Saida": 58.091695942063495,
+    "Qtd_Vendida": 2.60002738,
+    "PnL_Abs": 1.04,
+    "PnL_Pct": 0.69
+  },
+  {
+    "Trade_ID": "20250716-c3d7970e7e5d",
+    "Ticker": "JOBY",
+    "Data_Trade": "2025-07-22",
+    "Preco_Entrada": 15.108800023013725,
+    "Preco_Saida": 16.099505624522767,
+    "Qtd_Vendida": 4.63306152,
+    "PnL_Abs": 4.59,
+    "PnL_Pct": 6.56
+  },
+  {
+    "Trade_ID": "20250623-dbdb32541cfa",
+    "Ticker": "BKSY",
+    "Data_Trade": "2025-07-22",
+    "Preco_Entrada": 15.484400014745795,
+    "Preco_Saida": 20.67683548635722,
+    "Qtd_Vendida": 7.74973521,
+    "PnL_Abs": 40.24,
+    "PnL_Pct": 33.53
+  },
+  {
+    "Trade_ID": "20250725-173ee503028a",
+    "Ticker": "MOH",
+    "Data_Trade": "2025-07-25",
+    "Preco_Entrada": 165.00000165,
+    "Preco_Saida": 164.5600016456,
+    "Qtd_Vendida": 0.9090909,
+    "PnL_Abs": -0.4,
+    "PnL_Pct": -0.27
+  },
+  {
+    "Trade_ID": "20250721-fbd9a9021ce7",
+    "Ticker": "ABCL",
+    "Data_Trade": "2025-07-29",
+    "Preco_Entrada": 5.408800000240429,
+    "Preco_Saida": 4.831234518296394,
+    "Qtd_Vendida": 23.82413844,
+    "PnL_Abs": -13.76,
+    "PnL_Pct": -10.68
+  },
+  {
+    "Trade_ID": "20250723-cc9e39ebc785",
+    "Ticker": "GEV",
+    "Data_Trade": "2025-07-29",
+    "Preco_Entrada": 622.7688010268213,
+    "Preco_Saida": 646.5170513059774,
+    "Qtd_Vendida": 0.24085985,
+    "PnL_Abs": 5.72,
+    "PnL_Pct": 3.81
+  },
+  {
+    "Trade_ID": "20250725-15aadf02cf85",
+    "Ticker": "SBET",
+    "Data_Trade": "2025-07-29",
+    "Preco_Entrada": 24.028800035462663,
+    "Preco_Saida": 20.121717149696433,
+    "Qtd_Vendida": 6.24250898,
+    "PnL_Abs": -24.39,
+    "PnL_Pct": -16.26
+  },
+  {
+    "Trade_ID": "20250707-728390063c73",
+    "Ticker": "WOLF",
+    "Data_Trade": "2025-07-29",
+    "Preco_Entrada": 2.439100000180067,
+    "Preco_Saida": 1.620628691724539,
+    "Qtd_Vendida": 118.91681357,
+    "PnL_Abs": -97.33,
+    "PnL_Pct": -33.56
+  },
+  {
+    "Trade_ID": "20250721-1a1fa20ccaa1",
+    "Ticker": "IREN",
+    "Data_Trade": "2025-07-29",
+    "Preco_Entrada": 20.728800021199504,
+    "Preco_Saida": 16.001039093287464,
+    "Qtd_Vendida": 6.27146771,
+    "PnL_Abs": -29.65,
+    "PnL_Pct": -22.81
+  },
+  {
+    "Trade_ID": "20250731-794d0b99d963",
+    "Ticker": "APLD",
+    "Data_Trade": "2025-09-24",
+    "Preco_Entrada": 13.35880000343339,
+    "Preco_Saida": 24.53199668032281,
+    "Qtd_Vendida": 6.10997963,
+    "PnL_Abs": 68.27,
+    "PnL_Pct": 83.64
+  },
+  {
+    "Trade_ID": "20250731-003775c5efe2",
+    "Ticker": "AMSC",
+    "Data_Trade": "2025-10-03",
+    "Preco_Entrada": 53.3633000755578,
+    "Preco_Saida": 58.937986156784405,
+    "Qtd_Vendida": 2.81092061,
+    "PnL_Abs": 15.67,
+    "PnL_Pct": 10.45
+  },
+  {
+    "Trade_ID": "20250801-8c2e82fc3fa2",
+    "Ticker": "VIXY",
+    "Data_Trade": "2025-10-06",
+    "Preco_Entrada": 45.0176001027232,
+    "Preco_Saida": 32.310283730897176,
+    "Qtd_Vendida": 3.72698677,
+    "PnL_Abs": -47.36,
+    "PnL_Pct": -28.23
+  },
+  {
+    "Trade_ID": "20250731-700ef9b95027",
+    "Ticker": "FFAI",
+    "Data_Trade": "2025-10-06",
+    "Preco_Entrada": 2.375000000163281,
+    "Preco_Saida": 1.6506250001134803,
+    "Qtd_Vendida": 84.21052631,
+    "PnL_Abs": -61.0,
+    "PnL_Pct": -30.5
+  },
+  {
+    "Trade_ID": "20250731-794d0b99d963",
+    "Ticker": "APLD",
+    "Data_Trade": "2025-10-07",
+    "Preco_Entrada": 13.35880000343339,
+    "Preco_Saida": 28.062504277680798,
+    "Qtd_Vendida": 5.11857383,
+    "PnL_Abs": 75.26,
+    "PnL_Pct": 110.07
+  },
+  {
+    "Trade_ID": "20250729-66cf15b801cf",
+    "Ticker": "AMD",
+    "Data_Trade": "2025-10-07",
+    "Preco_Entrada": 177.99640007620738,
+    "Preco_Saida": 210.59644075016476,
+    "Qtd_Vendida": 1.12361823,
+    "PnL_Abs": 36.63,
+    "PnL_Pct": 18.31
+  },
+  {
+    "Trade_ID": "20250731-6c44d45a1b4d",
+    "Ticker": "QS",
+    "Data_Trade": "2025-10-08",
+    "Preco_Entrada": 8.738800001453205,
+    "Preco_Saida": 15.349986326472726,
+    "Qtd_Vendida": 8.16482812,
+    "PnL_Abs": 53.98,
+    "PnL_Pct": 75.65
+  },
+  {
+    "Trade_ID": "20251001-25ded4503c4f",
+    "Ticker": "PLUG",
+    "Data_Trade": "2025-10-08",
+    "Preco_Entrada": 2.789000000000372,
+    "Preco_Saida": 3.6351826000004843,
+    "Qtd_Vendida": 53.78271782,
+    "PnL_Abs": 45.51,
+    "PnL_Pct": 30.34
+  },
+  {
+    "Trade_ID": "20250924-c3c0ac6f95f7",
+    "Ticker": "IREN",
+    "Data_Trade": "2025-10-08",
+    "Preco_Entrada": 48.29760013900326,
+    "Preco_Saida": 58.55064995168645,
+    "Qtd_Vendida": 3.10346683,
+    "PnL_Abs": 31.82,
+    "PnL_Pct": 21.23
+  },
+  {
+    "Trade_ID": "20250729-19495a4c710e",
+    "Ticker": "SOFI",
+    "Data_Trade": "2025-10-09",
+    "Preco_Entrada": 24.39760002679019,
+    "Preco_Saida": 28.370342564485856,
+    "Qtd_Vendida": 4.91851657,
+    "PnL_Abs": 19.54,
+    "PnL_Pct": 16.28
+  },
+  {
+    "Trade_ID": "20251006-2dfeb3a09f35",
+    "Ticker": "IRBT",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 4.568800000800087,
+    "Preco_Saida": 4.021264163893818,
+    "Qtd_Vendida": 28.32691297,
+    "PnL_Abs": -15.51,
+    "PnL_Pct": -11.98
+  },
+  {
+    "Trade_ID": "20250929-68d3f368da73",
+    "Ticker": "BITF",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 2.789000000000372,
+    "Preco_Saida": 4.561150246999093,
+    "Qtd_Vendida": 26.78271782,
+    "PnL_Abs": 47.46,
+    "PnL_Pct": 63.54
+  },
+  {
+    "Trade_ID": "20250731-6c44d45a1b4d",
+    "Ticker": "QS",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 8.738800001453205,
+    "Preco_Saida": 15.871111111111112,
+    "Qtd_Vendida": 4.5,
+    "PnL_Abs": 32.1,
+    "PnL_Pct": 81.62
+  },
+  {
+    "Trade_ID": "20251007-f4cb15a37414",
+    "Ticker": "CRML",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 10.818800007731028,
+    "Preco_Saida": 18.496425801499477,
+    "Qtd_Vendida": 6.27688837,
+    "PnL_Abs": 48.19,
+    "PnL_Pct": 70.97
+  },
+  {
+    "Trade_ID": "20251010-debc8af1e7cf",
+    "Ticker": "LAES",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 6.098800001054106,
+    "Preco_Saida": 5.430614380712123,
+    "Qtd_Vendida": 18.67744474,
+    "PnL_Abs": -12.48,
+    "PnL_Pct": -10.96
+  },
+  {
+    "Trade_ID": "20251009-439a9bfa383a",
+    "Ticker": "NTLA",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 25.3488000058102,
+    "Preco_Saida": 23.372342043482448,
+    "Qtd_Vendida": 5.50479707,
+    "PnL_Abs": -10.88,
+    "PnL_Pct": -7.8
+  },
+  {
+    "Trade_ID": "20251003-899cd6d391c6",
+    "Ticker": "MOB",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 9.537900000251012,
+    "Preco_Saida": 8.314501829155859,
+    "Qtd_Vendida": 17.3696516,
+    "PnL_Abs": -21.25,
+    "PnL_Pct": -12.83
+  },
+  {
+    "Trade_ID": "20251008-9677b75fb047",
+    "Ticker": "BFLY",
+    "Data_Trade": "2025-10-10",
+    "Preco_Entrada": 2.6250000000000004,
+    "Preco_Saida": 2.3609189723320156,
+    "Qtd_Vendida": 80.96,
+    "PnL_Abs": -21.38,
+    "PnL_Pct": -10.06
+  },
+  {
+    "Trade_ID": "20251010-c4303ec2ae21",
+    "Ticker": "INTS",
+    "Data_Trade": "2025-10-13",
+    "Preco_Entrada": 0.32,
+    "Preco_Saida": 0.28039292730844795,
+    "Qtd_Vendida": 381.75,
+    "PnL_Abs": -15.12,
+    "PnL_Pct": -12.38
+  },
+  {
+    "Trade_ID": "20251002-2d379ac88d2c",
+    "Ticker": "RVYL",
+    "Data_Trade": "2025-10-13",
+    "Preco_Entrada": 0.4014000000085418,
+    "Preco_Saida": 0.3390759600072155,
+    "Qtd_Vendida": 373.69207772,
+    "PnL_Abs": -23.29,
+    "PnL_Pct": -15.53
+  },
+  {
+    "Trade_ID": "20251007-f4cb15a37414",
+    "Ticker": "CRML",
+    "Data_Trade": "2025-10-15",
+    "Preco_Entrada": 10.818800007731028,
+    "Preco_Saida": 26.00142857142857,
+    "Qtd_Vendida": 7.0,
+    "PnL_Abs": 106.28,
+    "PnL_Pct": 140.34
+  },
+  {
+    "Trade_ID": "20250929-68d3f368da73",
+    "Ticker": "BITF",
+    "Data_Trade": "2025-10-15",
+    "Preco_Entrada": 2.789000000000372,
+    "Preco_Saida": 5.841481481481481,
+    "Qtd_Vendida": 13.5,
+    "PnL_Abs": 41.21,
+    "PnL_Pct": 109.45
+  },
+  {
+    "Trade_ID": "20250929-cf0a435a1359",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-10-15",
+    "Preco_Entrada": 26.018800026195034,
+    "Preco_Saida": 44.729554689435595,
+    "Qtd_Vendida": 2.76506218,
+    "PnL_Abs": 51.74,
+    "PnL_Pct": 71.91
+  },
+  {
+    "Trade_ID": "20251001-a9754a75a1fd",
+    "Ticker": "SLNH",
+    "Data_Trade": "2025-10-15",
+    "Preco_Entrada": 2.7201000001315983,
+    "Preco_Saida": 4.190092197470759,
+    "Qtd_Vendida": 25.14503143,
+    "PnL_Abs": 36.96,
+    "PnL_Pct": 54.04
+  },
+  {
+    "Trade_ID": "20251008-5d189a03da89",
+    "Ticker": "DFLI",
+    "Data_Trade": "2025-10-15",
+    "Preco_Entrada": 1.275000000004891,
+    "Preco_Saida": 1.9915196294882171,
+    "Qtd_Vendida": 53.34117647,
+    "PnL_Abs": 38.22,
+    "PnL_Pct": 56.2
+  },
+  {
+    "Trade_ID": "20251001-a9754a75a1fd",
+    "Ticker": "SLNH",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 2.7201000001315983,
+    "Preco_Saida": 4.7219999999999995,
+    "Qtd_Vendida": 10.0,
+    "PnL_Abs": 20.02,
+    "PnL_Pct": 73.6
+  },
+  {
+    "Trade_ID": "20250929-68d3f368da73",
+    "Ticker": "BITF",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 2.789000000000372,
+    "Preco_Saida": 5.651851851851852,
+    "Qtd_Vendida": 13.5,
+    "PnL_Abs": 38.65,
+    "PnL_Pct": 102.65
+  },
+  {
+    "Trade_ID": "20251013-aeb3398e7095",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 1.0896000000863093,
+    "Preco_Saida": 0.6500268951264364,
+    "Qtd_Vendida": 107.14941262,
+    "PnL_Abs": -47.1,
+    "PnL_Pct": -40.34
+  },
+  {
+    "Trade_ID": "20250731-6c44d45a1b4d",
+    "Ticker": "QS",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 8.738800001453205,
+    "Preco_Saida": 17.54222222222222,
+    "Qtd_Vendida": 2.25,
+    "PnL_Abs": 19.81,
+    "PnL_Pct": 100.74
+  },
+  {
+    "Trade_ID": "20251008-5d189a03da89",
+    "Ticker": "DFLI",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 1.275000000004891,
+    "Preco_Saida": 1.395,
+    "Qtd_Vendida": 100.0,
+    "PnL_Abs": 12.0,
+    "PnL_Pct": 9.41
+  },
+  {
+    "Trade_ID": "20250729-563bd9ec50e4",
+    "Ticker": "CLS",
+    "Data_Trade": "2025-10-16",
+    "Preco_Entrada": 201.55880202585408,
+    "Preco_Saida": 280.11298580206363,
+    "Qtd_Vendida": 0.7441997,
+    "PnL_Abs": 58.46,
+    "PnL_Pct": 38.97
+  },
+  {
+    "Trade_ID": "20251001-a9754a75a1fd",
+    "Ticker": "SLNH",
+    "Data_Trade": "2025-10-17",
+    "Preco_Entrada": 2.7201000001315983,
+    "Preco_Saida": 3.431,
+    "Qtd_Vendida": 20.0,
+    "PnL_Abs": 14.22,
+    "PnL_Pct": 26.14
+  },
+  {
+    "Trade_ID": "20250929-cf0a435a1359",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-10-17",
+    "Preco_Entrada": 26.018800026195034,
+    "Preco_Saida": 37.13333333333333,
+    "Qtd_Vendida": 1.5,
+    "PnL_Abs": 16.67,
+    "PnL_Pct": 42.72
+  },
+  {
+    "Trade_ID": "20251010-d18f848c4b4e",
+    "Ticker": "ONDS",
+    "Data_Trade": "2025-10-17",
+    "Preco_Entrada": 9.728800005386779,
+    "Preco_Saida": 7.721233510157553,
+    "Qtd_Vendida": 17.47389194,
+    "PnL_Abs": -35.08,
+    "PnL_Pct": -20.64
+  },
+  {
+    "Trade_ID": "20251013-8785617fc6fc",
+    "Ticker": "LGO",
+    "Data_Trade": "2025-10-17",
+    "Preco_Entrada": 2.46910000012833,
+    "Preco_Saida": 1.2904740598961315,
+    "Qtd_Vendida": 47.38568709,
+    "PnL_Abs": -55.85,
+    "PnL_Pct": -47.74
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-20",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 0.9381142857142857,
+    "Qtd_Vendida": 350.0,
+    "PnL_Abs": 111.83,
+    "PnL_Pct": 51.65
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-20",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 1.4728181327364054,
+    "Qtd_Vendida": 317.37795021,
+    "PnL_Abs": 271.11,
+    "PnL_Pct": 138.09
+  },
+  {
+    "Trade_ID": "20251006-d7550354acf8",
+    "Ticker": "USAR",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 26.456400045043445,
+    "Preco_Saida": 28.039713832354504,
+    "Qtd_Vendida": 4.91374487,
+    "PnL_Abs": 7.78,
+    "PnL_Pct": 5.98
+  },
+  {
+    "Trade_ID": "20251003-f55c6b27d035",
+    "Ticker": "LU",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 3.968800000587806,
+    "Preco_Saida": 3.2099654404754174,
+    "Qtd_Vendida": 37.79479943,
+    "PnL_Abs": -28.68,
+    "PnL_Pct": -19.12
+  },
+  {
+    "Trade_ID": "20251006-6a66f8d6e28c",
+    "Ticker": "RR",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 6.517600001605099,
+    "Preco_Saida": 5.3801314184104,
+    "Qtd_Vendida": 30.53271142,
+    "PnL_Abs": -34.73,
+    "PnL_Pct": -17.45
+  },
+  {
+    "Trade_ID": "20250929-cf0a435a1359",
+    "Ticker": "QBTS",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 26.018800026195034,
+    "Preco_Saida": 31.91333333333333,
+    "Qtd_Vendida": 1.5,
+    "PnL_Abs": 8.84,
+    "PnL_Pct": 22.65
+  },
+  {
+    "Trade_ID": "20251006-0c5db4cc9bd3",
+    "Ticker": "BLNK",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 2.1792000002831213,
+    "Preco_Saida": 1.7850553602319144,
+    "Qtd_Vendida": 68.83259911,
+    "PnL_Abs": -27.13,
+    "PnL_Pct": -18.09
+  },
+  {
+    "Trade_ID": "20251015-307f07014c96",
+    "Ticker": "ASYS",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 8.65770000413232,
+    "Preco_Saida": 7.630319603641951,
+    "Qtd_Vendida": 10.39537059,
+    "PnL_Abs": -10.68,
+    "PnL_Pct": -11.87
+  },
+  {
+    "Trade_ID": "20251017-8f4d76eb509f",
+    "Ticker": "LAES",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 6.918800001336365,
+    "Preco_Saida": 6.02997018249444,
+    "Qtd_Vendida": 30.12950222,
+    "PnL_Abs": -26.78,
+    "PnL_Pct": -12.85
+  },
+  {
+    "Trade_ID": "20251010-adea7913ab13",
+    "Ticker": "AMPX",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 12.658800001354342,
+    "Preco_Saida": 12.5597635072261,
+    "Qtd_Vendida": 13.42939299,
+    "PnL_Abs": -1.33,
+    "PnL_Pct": -0.78
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 2.0949999999999998,
+    "Qtd_Vendida": 40.0,
+    "PnL_Abs": 59.06,
+    "PnL_Pct": 238.67
+  },
+  {
+    "Trade_ID": "20251002-81267006318d",
+    "Ticker": "TLRY",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 1.6994000000247886,
+    "Preco_Saida": 1.4900339200217347,
+    "Qtd_Vendida": 88.26644698,
+    "PnL_Abs": -18.48,
+    "PnL_Pct": -12.32
+  },
+  {
+    "Trade_ID": "20251015-8975d6f3fba8",
+    "Ticker": "APLD",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 37.88640005267285,
+    "Preco_Saida": 33.3981731145777,
+    "Qtd_Vendida": 2.42857595,
+    "PnL_Abs": -10.9,
+    "PnL_Pct": -11.85
+  },
+  {
+    "Trade_ID": "20251016-6f7dffe19c36",
+    "Ticker": "ACHR",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 13.228800005898831,
+    "Preco_Saida": 11.539589161466855,
+    "Qtd_Vendida": 2.98364175,
+    "PnL_Abs": -5.04,
+    "PnL_Pct": -12.77
+  },
+  {
+    "Trade_ID": "20251008-616fedfab113",
+    "Ticker": "SKYT",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 18.730000010672892,
+    "Preco_Saida": 15.81015764123193,
+    "Qtd_Vendida": 11.34650293,
+    "PnL_Abs": -33.13,
+    "PnL_Pct": -15.59
+  },
+  {
+    "Trade_ID": "20251006-67db9439c5aa",
+    "Ticker": "CLSK",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 16.348800000041855,
+    "Preco_Saida": 19.453333333333333,
+    "Qtd_Vendida": 3.0,
+    "PnL_Abs": 9.31,
+    "PnL_Pct": 18.99
+  },
+  {
+    "Trade_ID": "20250929-d7af9676c62e",
+    "Ticker": "CABA",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 2.4091000002020753,
+    "Preco_Saida": 2.621,
+    "Qtd_Vendida": 20.0,
+    "PnL_Abs": 4.24,
+    "PnL_Pct": 8.8
+  },
+  {
+    "Trade_ID": "20251015-eee5ba78378f",
+    "Ticker": "PALI",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 1.7150000003218615,
+    "Preco_Saida": 1.8353333333333335,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": 1.8,
+    "PnL_Pct": 7.02
+  },
+  {
+    "Trade_ID": "20251008-6ef00488eafc",
+    "Ticker": "IVVD",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 1.7200000000637952,
+    "Preco_Saida": 2.1109999999999998,
+    "Qtd_Vendida": 20.0,
+    "PnL_Abs": 7.82,
+    "PnL_Pct": 22.73
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 1.9406666666666665,
+    "Qtd_Vendida": 30.0,
+    "PnL_Abs": 39.66,
+    "PnL_Pct": 213.72
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 2.8609999999999998,
+    "Qtd_Vendida": 20.0,
+    "PnL_Abs": 44.85,
+    "PnL_Pct": 362.5
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-21",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 3.8400000000000003,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": 48.32,
+    "PnL_Pct": 520.76
+  },
+  {
+    "Trade_ID": "20251010-26271efe8528",
+    "Ticker": "HUT",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 48.4481002371793,
+    "Preco_Saida": 43.82172046096027,
+    "Qtd_Vendida": 1.47415481,
+    "PnL_Abs": -6.82,
+    "PnL_Pct": -9.55
+  },
+  {
+    "Trade_ID": "20251001-c0e0a9e901cc",
+    "Ticker": "LAC",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 7.228800001850573,
+    "Preco_Saida": 6.480860161659099,
+    "Qtd_Vendida": 20.750332,
+    "PnL_Abs": -15.52,
+    "PnL_Pct": -10.35
+  },
+  {
+    "Trade_ID": "20251021-024f54f602bb",
+    "Ticker": "CRML",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 16.477600002055965,
+    "Preco_Saida": 14.845768348519023,
+    "Qtd_Vendida": 18.20653493,
+    "PnL_Abs": -29.71,
+    "PnL_Pct": -9.9
+  },
+  {
+    "Trade_ID": "20251021-626b9a20cba5",
+    "Ticker": "QSI",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 2.4491000001888503,
+    "Preco_Saida": 2.1608409301666227,
+    "Qtd_Vendida": 122.49397737,
+    "PnL_Abs": -35.31,
+    "PnL_Pct": -11.77
+  },
+  {
+    "Trade_ID": "20251021-033b0e832ac7",
+    "Ticker": "BITF",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 4.828800000040175,
+    "Preco_Saida": 4.191156960034871,
+    "Qtd_Vendida": 41.41815772,
+    "PnL_Abs": -26.41,
+    "PnL_Pct": -13.2
+  },
+  {
+    "Trade_ID": "20251021-8eaaf7dbe92f",
+    "Ticker": "RR",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 5.748800001006638,
+    "Preco_Saida": 4.9412085768652245,
+    "Qtd_Vendida": 43.48733648,
+    "PnL_Abs": -35.12,
+    "PnL_Pct": -14.05
+  },
+  {
+    "Trade_ID": "20251017-3c9115c004b6",
+    "Ticker": "TMC",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 8.1588000012942,
+    "Preco_Saida": 7.220838202290141,
+    "Qtd_Vendida": 7.49497475,
+    "PnL_Abs": -7.03,
+    "PnL_Pct": -11.5
+  },
+  {
+    "Trade_ID": "20251017-ef3d52a35c20",
+    "Ticker": "CIFR",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 18.518800023759294,
+    "Preco_Saida": 16.551898123815104,
+    "Qtd_Vendida": 7.28556925,
+    "PnL_Abs": -14.33,
+    "PnL_Pct": -10.62
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 5.12,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": 67.52,
+    "PnL_Pct": 727.68
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 4.5600000000000005,
+    "Qtd_Vendida": 20.0,
+    "PnL_Abs": 78.83,
+    "PnL_Pct": 637.15
+  },
+  {
+    "Trade_ID": "20251017-27a1df69016b",
+    "Ticker": "BYND",
+    "Data_Trade": "2025-10-22",
+    "Preco_Entrada": 0.6186000000001083,
+    "Preco_Saida": 4.17,
+    "Qtd_Vendida": 60.0,
+    "PnL_Abs": 213.08,
+    "PnL_Pct": 574.1
   }
 ]
