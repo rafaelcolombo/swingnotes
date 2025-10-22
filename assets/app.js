@@ -1,12 +1,11 @@
-
 async function fetchJSON(url){
-  const res = await fetch(url, {cache: 'no-store'});
-  if(!res.ok) throw new Error('fetch fail ' + url);
+  const res = await fetch(url, { cache: "no-store" });
+  if(!res.ok) throw new Error("fetch fail " + url);
   return res.json();
 }
-function fmtMoney(x){ return '$' + Number(x).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
-function fmtPct(x){ return (x>=0?'+':'') + Number(x).toFixed(2) + '%'; }
-function pnlClass(v){ return v>=0 ? 'sn-pnl-pos' : 'sn-pnl-neg'; }
+function fmtMoney(x){ return "$" + Number(x).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function fmtPct(x){ return (x>=0?"+":"") + Number(x).toFixed(2) + "%"; }
+function pnlClass(v){ return v>=0 ? "sn-pnl-pos" : "sn-pnl-neg"; }
 
 function sellCard(label, icon, row, area){
   if(!row){
@@ -35,14 +34,14 @@ function renderSellSummaryCards(rows){
   const ultimo_loss = loss.length ? loss.sort((a,b)=> new Date(a.Data_Trade)-new Date(b.Data_Trade)).at(-1) : null;
 
   const items = [
-    ['Último Trade','🕒',ultimo,'ultimo'],
-    ['Melhor Trade','🚀',melhor,'melhor'],
-    ['Último Trade com Profit','✅',ultimo_profit,'ultimo_profit'],
-    ['Pior Trade','💥',pior,'pior'],
-    ['Último Trade com Loss','⛔',ultimo_loss,'ultimo_loss'],
+    ["Último Trade","🕒",ultimo,"ultimo"],
+    ["Melhor Trade","🚀",melhor,"melhor"],
+    ["Último Trade com Profit","✅",ultimo_profit,"ultimo_profit"],
+    ["Pior Trade","💥",pior,"pior"],
+    ["Último Trade com Loss","⛔",ultimo_loss,"ultimo_loss"],
   ];
-  const html = '<div class="sn-summary-grid">' + items.map(([l,i,r,a])=> sellCard(l,i,r,a)).join('') + '</div>';
-  document.getElementById('sell-cards').innerHTML = html;
+  const html = '<div class="sn-summary-grid">' + items.map(([l,i,r,a])=> sellCard(l,i,r,a)).join("") + "</div>";
+  document.getElementById("sell-cards").innerHTML = html;
 }
 
 function metric(label, valueHtml){
@@ -50,46 +49,70 @@ function metric(label, valueHtml){
 }
 
 function renderProjectSummaryCards(rows){
-  const container = document.getElementById('proj-list');
-  const sorted = [...rows].sort((a,b)=> (a.Project==='TOTAL') - (b.Project==='TOTAL') || a.Project.localeCompare(b.Project));
-  container.innerHTML = '';
+  const container = document.getElementById("proj-list");
+  const sorted = [...rows].sort((a,b)=> (a.Project==="TOTAL") - (b.Project==="TOTAL") || a.Project.localeCompare(b.Project));
+  container.innerHTML = "";
   for(const r of sorted){
     const proj = String(r.Project).toUpperCase();
-    const isTotal = proj === 'TOTAL';
+    const isTotal = proj === "TOTAL";
     const pnlPos = Number(r.pnl_realizado)>=0;
     const pnlPctPos = Number(r.pnl_realizado_pct)>=0;
     const cards = [
-      metric('Capital Inicial', fmtMoney(r.capital_inicial||0)),
-      metric('Trades Fechados', (r.trades_fechados_totalmente||0)),
-      metric('Trades com Profit', (r.trades_com_profit||0)),
-      metric('Trades com Loss', (r.trades_com_loss||0)),
-      metric('Trades em Andamento', (r.trades_em_andamento||0)),
-      metric('PnL Realizado (USD)', `<span class="${pnlPos?'sn-pos':'sn-neg'}">${fmtMoney(r.pnl_realizado||0)}</span>`),
-      metric('PnL Realizado (%)', `<span class="${pnlPctPos?'sn-pos':'sn-neg'}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
+      metric("Capital Inicial", fmtMoney(r.capital_inicial||0)),
+      metric("Trades Fechados", (r.trades_fechados_totalmente||0)),
+      metric("Trades com Profit", (r.trades_com_profit||0)),
+      metric("Trades com Loss", (r.trades_com_loss||0)),
+      metric("Trades em Andamento", (r.trades_em_andamento||0)),
+      metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
+      metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
     ];
-    const grid = `<div class="sn-proj-grid">${cards.join('')}</div>`;
-    container.insertAdjacentHTML('beforeend', `<h3>📦 ${proj}</h3>${grid}`);
+    const grid = `<div class="sn-proj-grid">${cards.join("")}</div>`;
+    container.insertAdjacentHTML("beforeend", `<h3>📦 ${proj}</h3>${grid}`);
     if(isTotal) break;
   }
 }
 
+/* ============================================================
+   Última atualização baseada no GITHUB (commits dos JSONs)
+   ============================================================ */
+async function atualizarBuildTime(){
+  try {
+    const urls = [
+      "https://api.github.com/repos/rafaelcolombo/swingnotes/commits?path=data/eventos_sell.json&page=1&per_page=1",
+      "https://api.github.com/repos/rafaelcolombo/swingnotes/commits?path=data/resumo_projeto.json&page=1&per_page=1"
+    ];
+    const [r1, r2] = await Promise.all(urls.map(u => fetch(u, { cache: "no-store" })));
+    const [c1, c2] = await Promise.all([r1.json(), r2.json()]);
+
+    const dates = [c1?.[0]?.commit?.author?.date, c2?.[0]?.commit?.author?.date].filter(Boolean);
+    if(dates.length === 0) throw new Error("No commit dates found");
+
+    const last = new Date(Math.max(...dates.map(d => new Date(d).getTime())));
+    const ts = last.toLocaleString("pt-BR", {
+      year:"numeric", month:"2-digit", day:"2-digit",
+      hour:"2-digit", minute:"2-digit", second:"2-digit"
+    }).replace(",", "");
+    document.getElementById("build-ts").textContent = ts + " BRT";
+  } catch (e){
+    console.error("Erro ao obter horário de atualização:", e);
+    // fallback: horário local do navegador
+    const now = new Date();
+    const ts = now.toLocaleString("pt-BR", {
+      year:"numeric", month:"2-digit", day:"2-digit",
+      hour:"2-digit", minute:"2-digit", second:"2-digit"
+    }).replace(",", "");
+    document.getElementById("build-ts").textContent = ts + " (local)";
+  }
+}
+
 async function boot(){
-  // Usa horário local do navegador (já no fuso de Brasília)
-  const now = new Date();
-  const ts = now.toLocaleString("pt-BR", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
-  }).replace(",", "");
-  document.getElementById("build-ts").textContent = ts;
+  // 1) mostra horário da última atualização de fato (commit dos JSONs)
+  await atualizarBuildTime();
 
-
+  // 2) carrega dados e renderiza
   const [sell, proj] = await Promise.all([
-    fetchJSON('./data/eventos_sell.json'),
-    fetchJSON('./data/resumo_projeto.json')
+    fetchJSON("./data/eventos_sell.json"),
+    fetchJSON("./data/resumo_projeto.json")
   ]);
   renderSellSummaryCards(sell);
   renderProjectSummaryCards(proj);
