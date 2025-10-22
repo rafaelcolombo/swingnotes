@@ -74,12 +74,17 @@ function renderProjectSummaryCards(rows){
 }
 
 async function boot(){
-  // Ajuste de fuso horário (UTC-3 → Brasília)
+  // Corrigido: converte horário para UTC-3 (Brasília)
   const now = new Date();
-  const offset = now.getTimezoneOffset() + 180; // +180 min = -3h
+  
+  // getTimezoneOffset() retorna minutos para converter *de local para UTC*
+  // Ex: Brasília (-180) → precisamos inverter o sinal
+  const offset = now.getTimezoneOffset() - 180; // -180 = UTC-3
   const localTime = new Date(now.getTime() - offset * 60000);
-  const ts = localTime.toISOString().slice(0,19).replace('T',' ');
-  document.getElementById('build-ts').textContent = ts + ' BRT';
+  
+  const ts = localTime.toISOString().slice(0, 19).replace("T", " ");
+  document.getElementById("build-ts").textContent = ts + " BRT";
+
 
   const [sell, proj] = await Promise.all([
     fetchJSON('./data/eventos_sell.json'),
