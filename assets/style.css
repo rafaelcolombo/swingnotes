@@ -1,78 +1,126 @@
 /* ===========================
-   SwingNotes — Dark Mode Style
+   SwingNotes — Dark layout (ChatGPT-like)
+   Mantém grades e cards da aba REPORT
    =========================== */
 
-/* Fundo estilo ChatGPT */
-body {
-  background-color: #1e1f20;
-  color: #e2e2e2;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  margin: 0;
-  padding: 0;
+:root{
+  --bg:#1e1f20;         /* fundo tipo ChatGPT */
+  --card:#232427;       /* bloco/carta */
+  --text:#e8edf2;
+  --muted:#9aa6b2;
+  --pos:#1ecb7b;
+  --neg:#ff6b6b;
+  --border:rgba(255,255,255,.10);
+  --glow:rgba(0,0,0,.55);
 }
 
-/* Cabeçalhos */
-h1, h2, h3 {
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background-color:var(--bg);
+  color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif;
 }
 
-/* Seções */
-section {
-  max-width: 1080px;
-  margin: 40px auto;
-  padding: 0 16px;
-}
+/* container + títulos */
+.container{max-width:1100px;margin:0 auto;padding:28px 20px}
+h1{font-size:28px;margin:0 0 6px 0}
+h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8px}
+.muted{color:var(--muted)}
 
-/* Cards */
-.sn-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  padding: 14px 16px;
+/* ====== CARTAS/BASE ====== */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:12px 14px;
+  box-shadow: 0 10px 26px var(--glow);
   backdrop-filter: blur(6px);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.sn-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
+.sn-card{ /* card usado nos SELLs */
+  composes: card;
 }
 
-/* Textos internos */
-.sn-head, .sn-metric-head {
-  color: #f5f5f5;
+/* ====== SELL SUMMARY GRID ====== */
+.sn-summary-grid{
+  display:grid;
+  gap:12px;
+  margin-top:8px;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  grid-template-areas:
+    "ultimo ultimo"
+    "melhor ultimo_profit"
+    "pior   ultimo_loss";
 }
-.sn-muted {
-  opacity: .7;
-  color: #b0b0b0;
-}
-
-/* PnL positivo/negativo */
-.sn-pnl-pos, .sn-pos { color: #1ecb7b; font-weight: 700; }
-.sn-pnl-neg, .sn-neg { color: #ff6b6b; font-weight: 700; }
-
-/* Chips */
-.sn-chip {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #f0f0f0;
-}
-
-/* Subheaders */
-.subheader {
-  color: #e2e2e2;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  padding-bottom: 4px;
-  margin-bottom: 12px;
+@media (max-width:900px){
+  .sn-summary-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "ultimo"
+      "melhor"
+      "ultimo_profit"
+      "pior"
+      "ultimo_loss";
+  }
 }
 
-/* Link hover */
-a {
-  color: #1ecb7b;
-  text-decoration: none;
+.sn-card.ultimo{grid-area:ultimo}
+.sn-card.melhor{grid-area:melhor}
+.sn-card.ultimo_profit{grid-area:ultimo_profit}
+.sn-card.pior{grid-area:pior}
+.sn-card.ultimo_loss{grid-area:ultimo_loss}
+
+.sn-head{
+  display:flex; align-items:center; gap:8px;
+  font-weight:600; font-size:.98rem; letter-spacing:.2px;
 }
-a:hover {
-  text-decoration: underline;
+.sn-icon{font-size:1.05rem}
+.sn-row{margin-top:8px; font-size:.92rem; line-height:1.35rem}
+
+/* chips */
+.sn-chip{
+  display:inline-block; padding:2px 8px; border-radius:999px;
+  font-size:.78rem; font-weight:600; margin-right:6px; margin-bottom:6px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+  word-break:break-word;
 }
+
+.sn-pnl-pos,.sn-pos{color:var(--pos); font-weight:700}
+.sn-pnl-neg,.sn-neg{color:var(--neg); font-weight:700}
+.sn-tkr{font-weight:700}
+.sn-muted{opacity:.8; color:var(--muted)}
+
+/* ====== PROJECT SUMMARY GRID ====== */
+.sn-proj-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:12px;
+  margin:8px 0 22px 0;
+}
+.sn-metric-head{font-size:.86rem; opacity:.85; margin-bottom:6px}
+.sn-metric-value{font-size:1.15rem; font-weight:800; letter-spacing:.2px}
+
+/* quadradinhos de métrica */
+.metric{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+}
+
+/* badge do topo */
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border:1px solid #2a3240; border-radius:999px;
+  background:#111214; color:#cfe1ff; font-size:13px
+}
+.badge-dot{width:8px; height:8px; background:var(--pos); border-radius:999px}
+
+/* rodapé */
+footer{margin-top:22px; font-size:13px; color:var(--muted)}
+/* links */
+a{color:var(--pos); text-decoration:none}
+a:hover{text-decoration:underline}
