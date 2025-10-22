@@ -80,16 +80,41 @@ function renderProjectSummaryCards(rows){
   }
 }
 
-/* ============================================================
-   Última atualização baseada nos COMMITS dos JSONs no GitHub
-   ============================================================ */
-/* Usa o header Last-Modified dos JSONs publicados */
-async function atualizarBuildTime(){
-  // URLs RAW dos arquivos no branch main
-  const urls = [
-    "https://raw.githubusercontent.com/rafaelcolombo/swingnotes/main/data/eventos_sell.json",
-    "https://raw.githubusercontent.com/rafaelcolombo/swingnotes/main/data/resumo_projeto.json"
-  ];
+/* Obtém data do último commit ou usa fallback local */
+async function atualizarBuildTime() {
+  const urlApi = "https://api.github.com/repos/rafaelcolombo/swingnotes/commits?path=data&per_page=1";
+  const el = document.getElementById("build-ts");
+
+  try {
+    const r = await fetch(urlApi, { cache: "no-store" });
+    if (!r.ok) throw new Error("GitHub API error");
+    const data = await r.json();
+
+    // pega o timestamp do commit mais recente
+    const iso = data?.[0]?.commit?.committer?.date;
+    if (!iso) throw new Error("No commit date");
+
+    const d = new Date(iso);
+    const ts = d.toLocaleString("pt-BR", {
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
+    }).replace(",", "");
+
+    el.textContent = ts + " BRT";
+  } catch (e) {
+    console.warn("Erro ao obter data do commit:", e);
+
+    // fallback: data/hora local
+    const now = new Date();
+    const tsLocal = now.toLocaleString("pt-BR", {
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
+    }).replace(",", "");
+
+    el.textContent = tsLocal + " (local)";
+  }
+}
+
 
   // helper: busca apenas headers (sem baixar o corpo todo)
   async function getLastModified(u){
@@ -122,15 +147,16 @@ async function atualizarBuildTime(){
 }
   
 
-/* ===== Boot ===== */
-async function boot(){
-  await atualizarBuildTime();  // <- garante que não escrevemos hora local aqui
+async function boot() {
+  await atualizarBuildTime();
 
   const [sell, proj] = await Promise.all([
     fetchJSON("./data/eventos_sell.json"),
     fetchJSON("./data/resumo_projeto.json")
   ]);
+
   renderSellSummaryCards(sell);
   renderProjectSummaryCards(proj);
 }
 boot();
+
