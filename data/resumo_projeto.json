@@ -4,11 +4,11 @@
     "trades_fechados_totalmente": 25,
     "trades_com_profit": 8,
     "trades_com_loss": 17,
-    "trades_em_andamento": 0,
+    "trades_em_andamento": 1,
     "pnl_realizado": 926.74,
     "capital_inicial": 1999.0,
     "pnl_realizado_pct": 46.36018009004502,
-    "dias_uteis": 18
+    "dias_uteis": 19
   },
   {
     "Project": "swingnotes",
@@ -19,14 +19,14 @@
     "pnl_realizado": 481.22,
     "capital_inicial": 1000.0,
     "pnl_realizado_pct": 48.12200000000001,
-    "dias_uteis": 137
+    "dias_uteis": 138
   },
   {
     "Project": "TOTAL",
     "trades_fechados_totalmente": 104,
     "trades_com_profit": 46,
     "trades_com_loss": 58,
-    "trades_em_andamento": 1,
+    "trades_em_andamento": 2,
     "pnl_realizado": 1407.96,
     "capital_inicial": 2999.0,
     "pnl_realizado_pct": 46.947649216405466,
