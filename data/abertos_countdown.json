@@ -6,8 +6,14 @@
     "dias_aberto": 0,
     "quantidade": 20.16860957,
     "preco_entrada": 9.92,
-    "preco_atual": 9.93,
-    "variacao_pct": 0.14
+    "preco_atual": 9.95,
+    "variacao_pct": 0.34,
+    "sl_agressivo": 9.35,
+    "sl_tecnico": null,
+    "sl_conservador": 9.07,
+    "tp_agressivo": 10.48,
+    "tp_tecnico": 11.05,
+    "tp_conservador": 11.62
   },
   {
     "trade_id": "20251023-4e8099e86e16",
@@ -16,8 +22,14 @@
     "dias_aberto": 0,
     "quantidade": 83.01855464,
     "preco_entrada": 2.41,
-    "preco_atual": 2.4,
-    "variacao_pct": -0.59
+    "preco_atual": 2.41,
+    "variacao_pct": 0.04,
+    "sl_agressivo": 2.05,
+    "sl_tecnico": null,
+    "sl_conservador": 1.87,
+    "tp_agressivo": 2.77,
+    "tp_tecnico": 3.13,
+    "tp_conservador": 3.5
   },
   {
     "trade_id": "20251023-f7c7e4189036",
@@ -27,6 +39,12 @@
     "quantidade": 100.03501225,
     "preco_entrada": 2.0,
     "preco_atual": 1.99,
-    "variacao_pct": -0.72
+    "variacao_pct": -0.72,
+    "sl_agressivo": 1.74,
+    "sl_tecnico": 1.66,
+    "sl_conservador": 1.61,
+    "tp_agressivo": 2.26,
+    "tp_tecnico": 2.52,
+    "tp_conservador": 2.78
   }
 ]
