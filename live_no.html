@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live · Swing Notes</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121821; --ink:#e6edf3; --muted:#9aa7b2; --pos:#1ecb7b; --neg:#ff6b6b; --brand:#f59e0b;
+      --ring:#223042; --chip:#1b2430;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:20px}
+
+    header{display:flex; align-items:center; gap:14px; margin-bottom:16px}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 6px rgba(245,158,11,.15)}
+    h1{margin:0; font-weight:800; letter-spacing:.2px; font-size:22px}
+
+    .toolbar{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:8px 0 18px}
+    .right{margin-left:auto; display:flex; gap:10px; align-items:center}
+    .search{background:var(--card); border:1px solid var(--ring); border-radius:10px; padding:8px 10px; color:var(--ink); width:220px}
+    .updated{font-size:12px; color:var(--muted); opacity:.6}
+
+    .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px}
+    .card{background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .card h3{margin:0 0 10px; font-size:16px; display:flex; align-items:center; gap:8px}
+    .badge{font-size:11px; padding:2px 6px; border-radius:999px; background:var(--chip); border:1px solid var(--ring); color:var(--muted)}
+    .rows{display:grid; gap:6px; margin-top:6px}
+    .row{display:flex; justify-content:space-between; gap:8px}
+    .k{color:var(--muted); font-size:12px; opacity:.9}
+    .v{font-weight:700}
+    .pos{color:var(--pos)}
+    .neg{color:var(--neg)}
+
+    .empty{border:1px dashed var(--ring); padding:18px; border-radius:12px; color:var(--muted); text-align:center}
+
+    .footer{margin:18px 0 6px; display:flex; align-items:center; gap:8px; color:var(--muted); font-size:12px}
+    .sort{background:var(--card); border:1px solid var(--ring); color:var(--ink); border-radius:10px; padding:8px 10px}
+
+    @media (max-width:560px){ .search{width:100%; order:3} .right{flex-wrap:wrap} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="dot"></div>
+      <h1>Live — Trades abertos</h1>
+    </header>
+
+    <div class="toolbar">
+      <div class="right">
+        <select id="sort" class="sort" aria-label="Ordenação">
+          <option value="var_desc">Variação (%) — maior primeiro</option>
+          <option value="var_asc">Variação (%) — menor primeiro</option>
+          <option value="dias_desc">Dias abertos — maior primeiro</option>
+          <option value="dias_asc">Dias abertos — menor primeiro</option>
+        </select>
+        <input id="q" class="search" placeholder="Filtrar por ticker…" />
+        <span id="updated" class="updated" title="Última atualização">—</span>
+      </div>
+    </div>
+
+    <section id="mount">
+      <div class="empty">Carregando…</div>
+    </section>
+
+    <div class="footer">
+      <span class="updated">Dica: use a busca para filtrar por ticker.</span>
+    </div>
+  </div>
+
+  <script>
+    // Carrega de ambos os JSONs e junta tudo numa única lista
+    const DATA_URLS = [
+      "/data/abertos_swingnotes.json",
+      "/data/abertos_countdown.json"
+    ];
+
+    async function fetchJSON(url){
+      const res = await fetch(url, { cache: "no-store" });
+      if(!res.ok){
+        const t = await res.text().catch(()=>"(sem corpo)");
+        console.error("Fetch falhou:", url, res.status, t);
+        throw new Error("fetch fail " + url + " (" + res.status + ")");
+      }
+      return res.json();
+    }
+
+    const $ = (sel, el=document)=> el.querySelector(sel);
+    function fmtMoney(x){
+      const n = Number(x);
+      return isFinite(n) ? "$" + n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) : "—";
+    }
+    function fmtQty(x){
+      const n = Number(x);
+      return isFinite(n) ? n.toLocaleString(undefined,{minimumFractionDigits:8,maximumFractionDigits:8}) : "—";
+    }
+    function fmtPct(x){
+      const n = Number(x);
+      if(!isFinite(n)) return "—";
+      return (n>=0?"+":"") + n.toFixed(2) + "%";
+    }
+    const classForPct = n => Number(n) >= 0 ? "pos" : "neg";
+
+    function updatedNow(){
+      const dt = new Date();
+      const pad = n=> String(n).padStart(2,"0");
+      return `${pad(dt.getDate())}/${pad(dt.getMonth()+1)}/${dt.getFullYear()} ${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
+    }
+
+    let STATE = { rows: [], q: "", sort: "var_desc" };
+
+    function normalize(rows){
+      return rows.map(r=>({
+        ticker: (r.ticker ?? r.Ticker ?? "").toString().toUpperCase(),
+        dias_aberto: toNum(r.dias_aberto ?? r["Dias Aberto"] ?? r.dias ?? 0),
+        quantidade: toNum(r.quantidade ?? r.Quantidade ?? r.qty ?? 0),
+        preco_entrada: toNum(r.preco_entrada ?? r.Preco_Entrada ?? r.preco_entrada_unit ?? r.preco_entrada_un ?? r.entry ?? 0),
+        preco_atual: toNum(r.preco_atual ?? r.Preco_Atual ?? r.last_close ?? r.close ?? 0),
+        variacao_pct: toNum(r.variacao_pct ?? r["Variação (%)"] ?? r.var_pct ?? r.ChangePct ?? 0),
+        // SL/TP opcionais — minúsculas
+        sl_agressivo: toNum(r.SL_Agressivo ?? r.sl_agressivo),
+        sl_tecnico: toNum(r.SL_Tecnico ?? r.SL_Técnico ?? r.sl_tecnico),
+        sl_conservador: toNum(r.SL_Conservador ?? r.sl_conservador),
+        tp_agressivo: toNum(r.TP_Agressivo ?? r.tp_agressivo),
+        tp_tecnico: toNum(r.TP_Tecnico ?? r.TP_Técnico ?? r.tp_tecnico),
+        tp_conservador: toNum(r.TP_Conservador ?? r.tp_conservador),
+      }));
+    }
+    function toNum(v){
+      if(v === null || v === undefined || v === "") return NaN;
+      const n = Number(String(v).replace(/[%+,]/g, ""));
+      return isNaN(n) ? NaN : n;
+    }
+
+    function optionalLevels(r){
+      const keys = [
+        ["sl_agressivo","SL Agressivo"], ["sl_tecnico","SL Técnico"], ["sl_conservador","SL Conservador"],
+        ["tp_agressivo","TP Agressivo"], ["tp_tecnico","TP Técnico"], ["tp_conservador","TP Conservador"],
+      ];
+      const out = [];
+      for(const [k,label] of keys){
+        if(k in r && r[k] !== null && r[k] !== undefined && !Number.isNaN(r[k])){
+          out.push(`<div class="row"><span class="k">${label}</span><span class="v">${fmtMoney(r[k])}</span></div>`);
+        }
+      }
+      return out.join("");
+    }
+
+    function render(){
+      const mount = $("#mount");
+      const q = STATE.q.trim().toUpperCase();
+      let rows = STATE.rows.slice();
+
+      if(q){ rows = rows.filter(r => (r.ticker||"").toUpperCase().includes(q)); }
+
+      switch(STATE.sort){
+        case "var_asc": rows.sort((a,b)=> Number(a.variacao_pct) - Number(b.variacao_pct)); break;
+        case "var_desc": rows.sort((a,b)=> Number(b.variacao_pct) - Number(a.variacao_pct)); break;
+        case "dias_asc": rows.sort((a,b)=> Number(a.dias_aberto) - Number(b.dias_aberto)); break;
+        case "dias_desc": rows.sort((a,b)=> Number(b.dias_aberto) - Number(a.dias_aberto)); break;
+      }
+
+      if(!rows.length){
+        mount.innerHTML = `<div class="empty">Nenhuma posição aberta.</div>`;
+        return;
+      }
+
+      const html = [`<div class="grid">`];
+      for(const r of rows){
+        const vp = Number(r.variacao_pct);
+        html.push(`
+          <article class="card" aria-label="${r.ticker}">
+            <h3>
+              <span>${r.ticker || "—"}</span>
+              <span class="badge">${Number(r.dias_aberto)||0}d</span>
+            </h3>
+            <div class="rows">
+              <div class="row"><span class="k">Quantidade</span><span class="v">${fmtQty(r.quantidade)}</span></div>
+              <div class="row"><span class="k">Preço de entrada</span><span class="v">${fmtMoney(r.preco_entrada)}</span></div>
+              <div class="row"><span class="k">Preço atual</span><span class="v">${fmtMoney(r.preco_atual)}</span></div>
+              <div class="row"><span class="k">Variação</span><span class="v ${classForPct(vp)}">${fmtPct(vp)}</span></div>
+              ${optionalLevels(r)}
+            </div>
+          </article>`);
+      }
+      html.push(`</div>`);
+      mount.innerHTML = html.join("");
+    }
+
+    async function loadAll(){
+      const mount = $("#mount");
+      mount.innerHTML = `<div class="empty">Carregando dados…</div>`;
+      try{
+        const results = await Promise.all(DATA_URLS.map(u => fetchJSON(u).catch(e => (console.error(e), []))));
+        // results pode incluir objetos {rows:[...]} ou arrays
+        const merged = results.flatMap(j => Array.isArray(j) ? j : (j && Array.isArray(j.rows) ? j.rows : []));
+        STATE.rows = normalize(merged);
+        $("#updated").textContent = `Atualizado: ${updatedNow()}`;
+        render();
+      }catch(e){
+        mount.innerHTML = `<div class="empty">Falha ao carregar dados.</div>`;
+        console.error(e);
+      }
+    }
+
+    // listeners
+    document.getElementById("q").addEventListener("input", ev=>{ STATE.q = ev.target.value; render(); });
+    document.getElementById("sort").addEventListener("change", ev=>{ STATE.sort = ev.target.value; render(); });
+
+    // Boot
+    loadAll();
+  </script>
+</body>
+</html>
