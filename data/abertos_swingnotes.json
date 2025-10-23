@@ -7,7 +7,13 @@
     "quantidade": 8.11719001,
     "preco_entrada": 21.16,
     "preco_atual": 21.59,
-    "variacao_pct": 2.06
+    "variacao_pct": 2.04,
+    "sl_agressivo": 19.29,
+    "sl_tecnico": 16.49,
+    "sl_conservador": 18.36,
+    "tp_agressivo": 23.03,
+    "tp_tecnico": 24.9,
+    "tp_conservador": 26.76
   },
   {
     "trade_id": "20251023-93fb17ec41cc",
@@ -17,6 +23,12 @@
     "quantidade": 5.67902706,
     "preco_entrada": 35.22,
     "preco_atual": 34.84,
-    "variacao_pct": -1.07
+    "variacao_pct": -1.07,
+    "sl_agressivo": 29.9,
+    "sl_tecnico": null,
+    "sl_conservador": 27.24,
+    "tp_agressivo": 40.53,
+    "tp_tecnico": 45.85,
+    "tp_conservador": 51.17
   }
 ]
