@@ -1,42 +1,22 @@
 [
   {
+    "trade_id": "20251010-29dbd19e6013",
+    "project": "swingnotes",
     "ticker": "UUUU",
     "dias_aberto": 13,
     "quantidade": 8.11719001,
     "preco_entrada": 21.16,
-    "preco_atual": 21.16,
-    "variacao_pct": 0.0
+    "preco_atual": 21.59,
+    "variacao_pct": 2.06
   },
   {
-    "ticker": "ALLT",
-    "dias_aberto": 0,
-    "quantidade": 20.16860957,
-    "preco_entrada": 9.92,
-    "preco_atual": 9.92,
-    "variacao_pct": 0.0
-  },
-  {
-    "ticker": "CABA",
-    "dias_aberto": 0,
-    "quantidade": 83.01855464,
-    "preco_entrada": 2.41,
-    "preco_atual": 2.41,
-    "variacao_pct": 0.0
-  },
-  {
+    "trade_id": "20251023-93fb17ec41cc",
+    "project": "swingnotes",
     "ticker": "IDR",
     "dias_aberto": 0,
     "quantidade": 5.67902706,
     "preco_entrada": 35.22,
-    "preco_atual": 35.22,
-    "variacao_pct": 0.0
-  },
-  {
-    "ticker": "IVVD",
-    "dias_aberto": 0,
-    "quantidade": 100.03501225,
-    "preco_entrada": 2.0,
-    "preco_atual": 2.0,
-    "variacao_pct": 0.0
+    "preco_atual": 34.84,
+    "variacao_pct": -1.07
   }
 ]
