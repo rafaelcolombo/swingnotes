@@ -1308,5 +1308,15 @@
     "Qtd_Vendida": 6.174985319999999,
     "PnL_Abs": 2.0,
     "PnL_Pct": 1.98
+  },
+  {
+    "Trade_ID": "20251023-68de2b7932c1",
+    "Ticker": "ALTS",
+    "Data_Trade": "2025-10-24",
+    "Preco_Entrada": 2.0493200000000003,
+    "Preco_Saida": 2.185,
+    "Qtd_Vendida": 250.0,
+    "PnL_Abs": 33.92,
+    "PnL_Pct": 6.62
   }
 ]
