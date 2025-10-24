@@ -40,12 +40,24 @@
     .sort{background:var(--card); border:1px solid var(--ring); color:var(--ink); border-radius:10px; padding:8px 10px}
 
     /* ===== Cards de Totais (summaries) ===== */
-    .sum-cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px; margin:6px 0 16px}
-    .sum-card{background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .sum-cards{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr)); /* sempre 3 colunas no desktop */
+      grid-auto-rows: 1fr;           /* todas com mesma altura */
+      gap:12px;
+      margin:6px 0 16px;
+    }
+    .sum-card{
+      background:var(--card); border:1px solid var(--ring);
+      border-radius:16px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,.18)
+    }
     .sum-k{font-size:.86rem; opacity:.85; margin-bottom:6px}
     .sum-v{font-size:1.2rem; font-weight:800; letter-spacing:.2px}
+    
+    /* responsivo: abaixo de 960px cai para 2 colunas; abaixo de 560px, 1 coluna */
+    @media (max-width:960px){ .sum-cards{ grid-template-columns: repeat(2, minmax(220px,1fr)); } }
+    @media (max-width:560px){ .sum-cards{ grid-template-columns: 1fr; } }
 
-    @media (max-width:560px){ .search{width:100%; order:3} .right{flex-wrap:wrap} }
   </style>
 </head>
 <body>
