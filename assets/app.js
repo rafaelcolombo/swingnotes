@@ -1,8 +1,8 @@
 /* ===========================
-   Swing Notes — Front (sem data/last updated)
+   Swing Notes — Front
    =========================== */
 
-/* Utilidades */
+/* ---------- Utilidades ---------- */
 async function fetchJSON(url){
   const res = await fetch(url, { cache: "no-store" });
   if(!res.ok) throw new Error("fetch fail " + url);
@@ -12,7 +12,57 @@ function fmtMoney(x){ return "$" + Number(x).toLocaleString(undefined,{minimumFr
 function fmtPct(x){ return (x>=0?"+":"") + Number(x).toFixed(2) + "%"; }
 function pnlClass(v){ return v>=0 ? "sn-pnl-pos" : "sn-pnl-neg"; }
 
-/* ===== Cards SELL ===== */
+function lastFiveMinuteMark(d = new Date()){
+  const mins = d.getMinutes();
+  const nearest = mins - (mins % 5);
+  const dd = new Date(d);
+  dd.setMinutes(nearest, 0, 0);
+  const hh = String(dd.getHours()).padStart(2,"0");
+  const mm = String(dd.getMinutes()).padStart(2,"0");
+  return `${hh}:${mm}`;
+}
+
+/* ---------- Cards de Totais por Projeto (TOP) ---------- */
+async function loadSummary(project){ // "swingnotes" | "countdown"
+  return fetchJSON(`./data/abertos_${project}_summary.json`);
+}
+
+function renderTopCardsFor(projectName, summary){
+  if(!summary) return "";
+  const nice = (summary.project === "swingnotes") ? "Swing Notes" : "Countdown";
+  const klass = (summary.pnl_total_abs >= 0) ? "sn-pos" : "sn-neg";
+  return `
+    <div class="sn-card">
+      <div class="sn-k">Valor alocado (${nice})</div>
+      <div class="sn-v">${fmtMoney(summary.valor_alocado_total)}</div>
+    </div>
+    <div class="sn-card">
+      <div class="sn-k">Valor atual (${nice})</div>
+      <div class="sn-v">${fmtMoney(summary.valor_atual_total)}</div>
+    </div>
+    <div class="sn-card">
+      <div class="sn-k">PnL total (${nice})</div>
+      <div class="sn-v ${klass}">${fmtMoney(summary.pnl_total_abs)} · ${fmtPct(summary.pnl_total_pct)}</div>
+    </div>
+  `;
+}
+
+async function renderCardsTop(){
+  const el = document.getElementById("cards");
+  if(!el) return;
+  try{
+    const [swing, count] = await Promise.all([
+      loadSummary("swingnotes").catch(()=>null),
+      loadSummary("countdown").catch(()=>null),
+    ]);
+    el.innerHTML = renderTopCardsFor("swingnotes", swing) + renderTopCardsFor("countdown", count);
+  }catch(e){
+    console.error("Falha ao renderizar cards de topo", e);
+    el.innerHTML = "";
+  }
+}
+
+/* ---------- Cards SELL ---------- */
 function sellCard(label, icon, row, area){
   if(!row){
     return `<div class="card sn-card ${area}">
@@ -50,10 +100,11 @@ function renderSellSummaryCards(rows){
     ["Último Trade com Loss","⛔",ultimo_loss,"ultimo_loss"],
   ];
   const html = '<div class="sn-summary-grid">' + items.map(([l,i,r,a])=> sellCard(l,i,r,a)).join("") + "</div>";
-  document.getElementById("sell-cards").innerHTML = html;
+  const mount = document.getElementById("sell-cards");
+  if(mount) mount.innerHTML = html;
 }
 
-/* ===== Cards Projeto ===== */
+/* ---------- Cards Projeto (resumo_projeto.json) ---------- */
 function metric(label, valueHtml){
   return `<div class="metric">
     <div class="sn-metric-head">${label}</div>
@@ -63,6 +114,7 @@ function metric(label, valueHtml){
 
 function renderProjectSummaryCards(rows){
   const container = document.getElementById("proj-list");
+  if(!container) return;
   const sorted = [...rows].sort((a,b)=> (a.Project==="TOTAL") - (b.Project==="TOTAL") || a.Project.localeCompare(b.Project));
   container.innerHTML = "";
 
@@ -80,7 +132,6 @@ function renderProjectSummaryCards(rows){
       metric("Trades em Andamento", (r.trades_em_andamento||0)),
     ];
 
-    // Só para projetos individuais
     if (!isTotal && r.dias_uteis != null) {
       cards.push(metric("Tempo de Projeto (dias úteis)", (r.dias_uteis ?? 0)));
     }
@@ -96,13 +147,24 @@ function renderProjectSummaryCards(rows){
   }
 }
 
-/* ===== Boot ===== */
+/* ---------- Boot ---------- */
 async function boot(){
-  const [sell, proj] = await Promise.all([
-    fetchJSON("./data/eventos_sell.json"),
-    fetchJSON("./data/resumo_projeto.json")
-  ]);
-  renderSellSummaryCards(sell);
-  renderProjectSummaryCards(proj);
+  try{
+    // Atualiza legenda "Atualizado a cada 5' (HH:MM)"
+    const up = document.getElementById("updated");
+    if(up) up.textContent = `Atualizado a cada 5' (${lastFiveMinuteMark()})`;
+
+    // Carrega e renderiza:
+    const [sell, proj] = await Promise.all([
+      fetchJSON("./data/eventos_sell.json").catch(()=>[]),
+      fetchJSON("./data/resumo_projeto.json").catch(()=>[]),
+    ]);
+
+    await renderCardsTop();              // <<< novos cards de topo (swingnotes + countdown)
+    renderSellSummaryCards(sell);        // cards de SELL
+    renderProjectSummaryCards(proj);     // cards de resumo por projeto
+  }catch(e){
+    console.error("Boot fail:", e);
+  }
 }
 boot();
