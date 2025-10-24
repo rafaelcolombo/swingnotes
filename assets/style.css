@@ -1,6 +1,5 @@
 /* ===========================
-   SwingNotes — Dark layout (ChatGPT-like)
-   Mantém grades e cards da aba REPORT
+   SwingNotes — Dark layout (Live palette)
    =========================== */
 :root{
   --bg:#0b0f14;
@@ -12,60 +11,34 @@
   --brand:#f59e0b;
   --ring:#223042;
   --chip:#1b2430;
-}
-
-html, body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-:root{
-  --bg:#1e1f20;         /* fundo tipo ChatGPT */
-  --card:#232427;       /* bloco/carta */
-  --text:#e8edf2;
-  --muted:#9aa6b2;
-  --pos:#1ecb7b;
-  --neg:#ff6b6b;
-  --border:rgba(255,255,255,.10);
-  --glow:rgba(0,0,0,.55);
+  /* alias opcional para compatibilidade com regras antigas */
+  --text: var(--ink);
 }
 
 *{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background-color:var(--bg);
-  color:var(--text);
-  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-}
+html,body{height:100%; margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif}
 
 /* container + títulos */
 .container{max-width:1100px;margin:0 auto;padding:28px 20px}
-h1{font-size:28px;margin:0 0 6px 0}
-h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8px}
+h1{font-size:28px;margin:0 0 6px 0; color:var(--ink)}
+h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8px; color:var(--ink)}
 .muted{color:var(--muted)}
 
 /* ====== CARTAS/BASE ====== */
-.card{
+.card,
+.sn-card{ /* .sn-card herda o mesmo visual de .card */
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border:1px solid var(--border);
+  border:1px solid var(--ring);
   border-radius:18px;
   padding:12px 14px;
-  box-shadow: 0 10px 26px var(--glow);
+  box-shadow: 0 10px 26px rgba(0,0,0,.55);
   backdrop-filter: blur(6px);
-}
-.sn-card{ /* card usado nos SELLs */
-  composes: card;
 }
 
 /* ====== SELL SUMMARY GRID ====== */
 .sn-summary-grid{
-  display:grid;
-  gap:12px;
-  margin-top:8px;
+  display:grid; gap:12px; margin-top:8px;
   grid-template-columns: repeat(2, minmax(260px, 1fr));
   grid-template-areas:
     "ultimo ultimo"
@@ -83,17 +56,13 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
       "ultimo_loss";
   }
 }
-
 .sn-card.ultimo{grid-area:ultimo}
 .sn-card.melhor{grid-area:melhor}
 .sn-card.ultimo_profit{grid-area:ultimo_profit}
 .sn-card.pior{grid-area:pior}
 .sn-card.ultimo_loss{grid-area:ultimo_loss}
 
-.sn-head{
-  display:flex; align-items:center; gap:8px;
-  font-weight:600; font-size:.98rem; letter-spacing:.2px;
-}
+.sn-head{display:flex; align-items:center; gap:8px; font-weight:600; font-size:.98rem; letter-spacing:.2px}
 .sn-icon{font-size:1.05rem}
 .sn-row{margin-top:8px; font-size:.92rem; line-height:1.35rem}
 
@@ -101,9 +70,9 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
 .sn-chip{
   display:inline-block; padding:2px 8px; border-radius:999px;
   font-size:.78rem; font-weight:600; margin-right:6px; margin-bottom:6px;
-  border:1px solid var(--border);
+  border:1px solid var(--ring);
   background: rgba(255,255,255,.06);
-  color:var(--text);
+  color:var(--ink);
   word-break:break-word;
 }
 
@@ -124,26 +93,14 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
 
 /* quadradinhos de métrica */
 .metric{
-  border:1px solid var(--border);
+  border:1px solid var(--ring);
   border-radius:14px;
   padding:10px 12px;
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
 }
 
-/* rodapé */
-footer{margin-top:22px; font-size:13px; color:var(--muted)}
-
-/* links */
-a{color:var(--pos); text-decoration:none}
-a:hover{text-decoration:underline}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-header, section, footer {
+/* seções “cardificadas” (opcional) */
+header, section, footer{
   background: var(--card);
   border: 1px solid var(--ring);
   border-radius: 16px;
@@ -152,13 +109,9 @@ header, section, footer {
   margin-bottom: 16px;
 }
 
-h1, h2 {
-  color: var(--ink);
-}
+/* rodapé */
+footer{margin-top:22px; font-size:13px; color:var(--muted); text-align:center; opacity:.7}
 
-footer {
-  text-align: center;
-  color: var(--muted);
-  font-size: .85rem;
-  opacity: .7;
-}
+/* links */
+a{color:var(--pos); text-decoration:none}
+a:hover{text-decoration:underline}
