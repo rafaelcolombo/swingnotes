@@ -7,13 +7,7 @@
     "quantidade": 20.16860957,
     "preco_entrada": 9.916400002977499,
     "preco_atual": 10.12,
-    "variacao_pct": 2.0531644241999825,
-    "sl_agressivo": 9.35,
-    "sl_tecnico": null,
-    "sl_conservador": 9.07,
-    "tp_agressivo": 10.48,
-    "tp_tecnico": 11.05,
-    "tp_conservador": 11.62
+    "variacao_pct": 2.0531644241999825
   },
   {
     "trade_id": "20251023-4e8099e86e16",
@@ -23,13 +17,7 @@
     "quantidade": 83.01855464,
     "preco_entrada": 2.4091000002020753,
     "preco_atual": 2.475,
-    "variacao_pct": 2.7354613670000028,
-    "sl_agressivo": 2.05,
-    "sl_tecnico": null,
-    "sl_conservador": 1.87,
-    "tp_agressivo": 2.77,
-    "tp_tecnico": 3.13,
-    "tp_conservador": 3.5
+    "variacao_pct": 2.7354613670000028
   },
   {
     "trade_id": "20251023-f7c7e4189036",
@@ -39,13 +27,7 @@
     "quantidade": 100.03501225,
     "preco_entrada": 1.9993000000857202,
     "preco_atual": 2.245,
-    "variacao_pct": 12.289301250624995,
-    "sl_agressivo": 1.74,
-    "sl_tecnico": 1.66,
-    "sl_conservador": 1.61,
-    "tp_agressivo": 2.26,
-    "tp_tecnico": 2.52,
-    "tp_conservador": 2.78
+    "variacao_pct": 12.289301250624995
   },
   {
     "trade_id": "20251024-e89b03e4ae1b",
@@ -55,13 +37,7 @@
     "quantidade": 8.08930593,
     "preco_entrada": 24.72400002307738,
     "preco_atual": 23.58,
-    "variacao_pct": -4.627083085299999,
-    "sl_agressivo": 19.47,
-    "sl_tecnico": null,
-    "sl_conservador": 16.85,
-    "tp_agressivo": 29.97,
-    "tp_tecnico": 35.22,
-    "tp_conservador": 40.47
+    "variacao_pct": -4.627083085299999
   },
   {
     "trade_id": "20251024-f2ad4c53ec58",
@@ -71,13 +47,7 @@
     "quantidade": 86.986778,
     "preco_entrada": 2.2992000002575104,
     "preco_atual": 2.285,
-    "variacao_pct": -0.6176061349999928,
-    "sl_agressivo": 1.97,
-    "sl_tecnico": 2.04,
-    "sl_conservador": 1.81,
-    "tp_agressivo": 2.62,
-    "tp_tecnico": 2.95,
-    "tp_conservador": 3.28
+    "variacao_pct": -0.6176061349999928
   },
   {
     "trade_id": "20251024-1327e0487b46",
@@ -87,13 +57,7 @@
     "quantidade": 5.97079089,
     "preco_entrada": 33.49640000539359,
     "preco_atual": 33.44,
-    "variacao_pct": -0.16837631920000318,
-    "sl_agressivo": 29.39,
-    "sl_tecnico": 30.64,
-    "sl_conservador": 27.34,
-    "tp_agressivo": 37.6,
-    "tp_tecnico": 41.7,
-    "tp_conservador": 45.81
+    "variacao_pct": -0.16837631920000318
   },
   {
     "trade_id": "20251024-d3b620295257",
@@ -103,13 +67,7 @@
     "quantidade": 23.25527313,
     "preco_entrada": 8.60020000117711,
     "preco_atual": 8.33,
-    "variacao_pct": -3.1417874135500012,
-    "sl_agressivo": 7.42,
-    "sl_tecnico": 8.33,
-    "sl_conservador": 6.83,
-    "tp_agressivo": 9.78,
-    "tp_tecnico": 10.96,
-    "tp_conservador": 12.13
+    "variacao_pct": -3.1417874135500012
   },
   {
     "trade_id": "20251024-51167ea5ddd5",
@@ -119,13 +77,7 @@
     "quantidade": 2.82656977,
     "preco_entrada": 185.99930048781354,
     "preco_atual": 186.07001,
-    "variacao_pct": 0.03801600973820651,
-    "sl_agressivo": 172.79,
-    "sl_tecnico": 131.45,
-    "sl_conservador": 166.19,
-    "tp_agressivo": 199.21,
-    "tp_tecnico": 212.42,
-    "tp_conservador": 225.63
+    "variacao_pct": 0.03801600973820651
   },
   {
     "trade_id": "20251024-77cff700cb8d",
@@ -135,13 +87,7 @@
     "quantidade": 24.19105124,
     "preco_entrada": 20.66880000540233,
     "preco_atual": 20.655,
-    "variacao_pct": -0.06676732755999115,
-    "sl_agressivo": 18.13,
-    "sl_tecnico": 17.07,
-    "sl_conservador": 16.86,
-    "tp_agressivo": 23.21,
-    "tp_tecnico": 25.75,
-    "tp_conservador": 28.29
+    "variacao_pct": -0.06676732755999115
   },
   {
     "trade_id": "20251024-5c4bf257e11c",
@@ -151,12 +97,6 @@
     "quantidade": 29.76403076,
     "preco_entrada": 16.79880000231528,
     "preco_atual": 16.985,
-    "variacao_pct": 1.1084124917200011,
-    "sl_agressivo": 16.15,
-    "sl_tecnico": 13.47,
-    "sl_conservador": 15.82,
-    "tp_agressivo": 17.45,
-    "tp_tecnico": 18.11,
-    "tp_conservador": 18.76
+    "variacao_pct": 1.1084124917200011
   }
 ]
