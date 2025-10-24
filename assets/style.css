@@ -1,5 +1,5 @@
 /* ===========================
-   SwingNotes — Dark layout (Live palette)
+   SwingNotes — Dark layout (Live + Index)
    =========================== */
 :root{
   --bg:#0b0f14;
@@ -14,7 +14,7 @@
   --text: var(--ink); /* alias p/ compatibilidade */
 }
 
-*{box-sizing:border-box}
+*{ box-sizing:border-box }
 
 html, body{
   height:100%;
@@ -26,15 +26,20 @@ html, body{
 }
 
 /* ====== LAYOUT ====== */
-.container{max-width:1100px; margin:0 auto; padding:28px 20px}
-.muted{color:var(--muted)}
+.container{ max-width:1100px; margin:0 auto; padding:28px 20px }
+.muted{ color:var(--muted) }
+.updated{ font-size:.9rem; color:var(--muted); opacity:.7 }
+
+/* ====== UTILS ====== */
+.pos{ color:var(--pos) }
+.neg{ color:var(--neg) }
 
 /* ====== HEADER (sem moldura) ====== */
 header{
   background:none;
   border:none;
   box-shadow:none;
-  text-align:center;        /* centraliza conteúdo */
+  text-align:center;
   margin:30px 0 25px;
   padding:0;
 }
@@ -45,20 +50,20 @@ header h1{
   color:var(--ink);
 }
 header > div{
-  font-size:.85rem;         /* “Last Updated” menor */
+  font-size:.85rem;        /* “Atualizado…” menor */
   color:var(--muted);
   opacity:.6;
   font-weight:500;
 }
+
 /* ====== MENU SUPERIOR ====== */
 .top-menu{
   display:flex;
   justify-content:center;
-  margin: 8px 0 22px;   /* tirei a margem negativa */
-  position: relative;   /* cria contexto p/ z-index funcionar */
-  z-index: 5;           /* garante ficar acima dos cards */
+  margin: 8px 0 22px;
+  position: relative;
+  z-index: 5;
 }
-
 .sn-btn{
   display:inline-block;
   background:var(--card);
@@ -110,7 +115,38 @@ h2{
   backdrop-filter:blur(6px);
 }
 
-/* ====== SELL SUMMARY GRID ====== */
+/* ====== GRID genérico (index cards de tickers) ====== */
+.grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px }
+.badge{ font-size:11px; padding:2px 6px; border-radius:999px; background:var(--chip); border:1px solid var(--ring); color:var(--muted) }
+.rows{ display:grid; gap:6px; margin-top:6px }
+.row{ display:flex; justify-content:space-between; gap:8px }
+.k{ color:var(--muted); font-size:12px; opacity:.9 }
+.v{ font-weight:700 }
+.empty{ border:1px dashed var(--ring); padding:18px; border-radius:12px; color:var(--muted); text-align:center }
+.sort{ background:var(--card); border:1px solid var(--ring); color:var(--ink); border-radius:10px; padding:8px 10px }
+
+/* ====== CARDS DE TOTAIS (summaries 3×2) — index ====== */
+.sum-cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr)); /* força 3 colunas no desktop */
+  grid-auto-rows: 1fr;  /* altura uniforme */
+  gap:12px;
+  margin:6px 0 16px;
+}
+.sum-card{
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+.sum-k{ font-size:.86rem; opacity:.85; margin-bottom:6px }
+.sum-v{ font-size:1.2rem; font-weight:800; letter-spacing:.2px }
+
+@media (max-width:960px){ .sum-cards{ grid-template-columns: repeat(2, minmax(220px,1fr)); } }
+@media (max-width:560px){ .sum-cards{ grid-template-columns: 1fr; } }
+
+/* ====== SELL SUMMARY GRID — live ====== */
 .sn-summary-grid{
   display:grid;
   gap:12px;
@@ -132,15 +168,15 @@ h2{
       "ultimo_loss";
   }
 }
-.sn-card.ultimo{grid-area:ultimo}
-.sn-card.melhor{grid-area:melhor}
-.sn-card.ultimo_profit{grid-area:ultimo_profit}
-.sn-card.pior{grid-area:pior}
-.sn-card.ultimo_loss{grid-area:ultimo_loss}
+.sn-card.ultimo{ grid-area:ultimo }
+.sn-card.melhor{ grid-area:melhor }
+.sn-card.ultimo_profit{ grid-area:ultimo_profit }
+.sn-card.pior{ grid-area:pior }
+.sn-card.ultimo_loss{ grid-area:ultimo_loss }
 
-.sn-head{display:flex; align-items:center; gap:8px; font-weight:600; font-size:.98rem; letter-spacing:.2px}
-.sn-icon{font-size:1.05rem}
-.sn-row{margin-top:8px; font-size:.92rem; line-height:1.35rem}
+.sn-head{ display:flex; align-items:center; gap:8px; font-weight:600; font-size:.98rem; letter-spacing:.2px }
+.sn-icon{ font-size:1.05rem }
+.sn-row{ margin-top:8px; font-size:.92rem; line-height:1.35rem }
 
 /* chips */
 .sn-chip{
@@ -153,20 +189,20 @@ h2{
 }
 
 /* estados */
-.sn-pnl-pos,.sn-pos{color:var(--pos); font-weight:700}
-.sn-pnl-neg,.sn-neg{color:var(--neg); font-weight:700}
-.sn-tkr{font-weight:700}
-.sn-muted{opacity:.8; color:var(--muted)}
+.sn-pnl-pos,.sn-pos{ color:var(--pos); font-weight:700 }
+.sn-pnl-neg,.sn-neg{ color:var(--neg); font-weight:700 }
+.sn-tkr{ font-weight:700 }
+.sn-muted{ opacity:.8; color:var(--muted) }
 
-/* ====== PROJECT SUMMARY GRID ====== */
+/* ====== PROJECT SUMMARY GRID — live ====== */
 .sn-proj-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
   gap:12px;
   margin:8px 0 22px 0;
 }
-.sn-metric-head{font-size:.86rem; opacity:.85; margin-bottom:6px}
-.sn-metric-value{font-size:1.15rem; font-weight:800; letter-spacing:.2px}
+.sn-metric-head{ font-size:.86rem; opacity:.85; margin-bottom:6px }
+.sn-metric-value{ font-size:1.15rem; font-weight:800; letter-spacing:.2px }
 
 /* quadradinhos de métrica */
 .metric{
@@ -185,5 +221,5 @@ footer{
 }
 
 /* ====== LINKS ====== */
-a{color:var(--pos); text-decoration:none}
-a:hover{text-decoration:underline}
+a{ color:var(--pos); text-decoration:none }
+a:hover{ text-decoration:underline }
