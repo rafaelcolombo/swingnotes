@@ -54,7 +54,9 @@ header > div{
 .top-menu{
   display:flex;
   justify-content:center;
-  margin:-5px 0 25px; /* aproxima um pouco do título */
+  margin: 8px 0 22px;   /* tirei a margem negativa */
+  position: relative;   /* cria contexto p/ z-index funcionar */
+  z-index: 5;           /* garante ficar acima dos cards */
 }
 
 .sn-btn{
@@ -67,17 +69,16 @@ header > div{
   font-size:.95rem;
   font-weight:600;
   letter-spacing:.3px;
-  text-decoration:none;         /* sem sublinhado */
+  text-decoration:none;
   box-shadow:0 4px 14px rgba(0,0,0,.25);
   transition:all .15s ease-in-out;
 }
-
 .sn-btn:hover{
   background:var(--ring);
   border-color:var(--brand);
   color:var(--pos);
   transform:translateY(-1px);
-  text-decoration:none;         /* mantém sem sublinhado no hover */
+  text-decoration:none;
 }
 
 /* ====== SEÇÕES E RODAPÉ COMO CARDS ====== */
