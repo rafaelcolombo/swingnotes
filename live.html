@@ -46,7 +46,7 @@
   <div class="wrap">
     <header>
       <div class="dot"></div>
-      <h1>Portfolio Tracker — Trades Abertos (atualizado a cada 5')</h1>
+      <h1>Portfolio Tracker — Trades Abertos</h1>
     </header>
 
     <div class="toolbar">
@@ -198,7 +198,7 @@
         // results pode incluir objetos {rows:[...]} ou arrays
         const merged = results.flatMap(j => Array.isArray(j) ? j : (j && Array.isArray(j.rows) ? j.rows : []));
         STATE.rows = normalize(merged);
-        $("#updated").textContent = `Atualizado: ${updatedNow()}`;
+        $("#updated").textContent = `Atualizado a cada 5'`;
         render();
       }catch(e){
         mount.innerHTML = `<div class="empty">Falha ao carregar dados.</div>`;
