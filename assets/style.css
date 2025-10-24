@@ -11,35 +11,81 @@
   --brand:#f59e0b;
   --ring:#223042;
   --chip:#1b2430;
-  /* alias opcional para compatibilidade com regras antigas */
-  --text: var(--ink);
+  --text: var(--ink); /* alias p/ compatibilidade */
 }
 
 *{box-sizing:border-box}
-html,body{height:100%; margin:0; padding:0; background:var(--bg); color:var(--ink);
-  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif}
 
-/* container + títulos */
-.container{max-width:1100px;margin:0 auto;padding:28px 20px}
-h1{font-size:28px;margin:0 0 6px 0; color:var(--ink)}
-h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8px; color:var(--ink)}
+html, body{
+  height:100%;
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+}
+
+/* ====== LAYOUT ====== */
+.container{max-width:1100px; margin:0 auto; padding:28px 20px}
 .muted{color:var(--muted)}
 
-/* ====== CARTAS/BASE ====== */
+/* ====== HEADER (sem moldura) ====== */
+header{
+  background:none;
+  border:none;
+  box-shadow:none;
+  text-align:center;        /* centraliza conteúdo */
+  margin:60px 0 30px;
+  padding:0;
+}
+header h1{
+  font-size:2rem;
+  font-weight:800;
+  margin:0 0 6px 0;
+  color:var(--ink);
+}
+header > div{
+  font-size:.85rem;         /* “Last Updated” menor */
+  color:var(--muted);
+  opacity:.6;
+  font-weight:500;
+}
+
+/* ====== SEÇÕES E RODAPÉ COMO CARDS ====== */
+section, footer{
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:16px;
+  padding:14px 18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  margin-bottom:16px;
+}
+h2{
+  font-size:22px;
+  margin:6px 0 10px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--ink);
+}
+
+/* ====== CARDS BASE ====== */
 .card,
-.sn-card{ /* .sn-card herda o mesmo visual de .card */
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+.sn-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border:1px solid var(--ring);
   border-radius:18px;
   padding:12px 14px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.55);
-  backdrop-filter: blur(6px);
+  box-shadow:0 10px 26px rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
 }
 
 /* ====== SELL SUMMARY GRID ====== */
 .sn-summary-grid{
-  display:grid; gap:12px; margin-top:8px;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  display:grid;
+  gap:12px;
+  margin-top:8px;
+  grid-template-columns:repeat(2, minmax(260px, 1fr));
   grid-template-areas:
     "ultimo ultimo"
     "melhor ultimo_profit"
@@ -71,11 +117,12 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
   display:inline-block; padding:2px 8px; border-radius:999px;
   font-size:.78rem; font-weight:600; margin-right:6px; margin-bottom:6px;
   border:1px solid var(--ring);
-  background: rgba(255,255,255,.06);
+  background:rgba(255,255,255,.06);
   color:var(--ink);
   word-break:break-word;
 }
 
+/* estados */
 .sn-pnl-pos,.sn-pos{color:var(--pos); font-weight:700}
 .sn-pnl-neg,.sn-neg{color:var(--neg); font-weight:700}
 .sn-tkr{font-weight:700}
@@ -84,7 +131,7 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
 /* ====== PROJECT SUMMARY GRID ====== */
 .sn-proj-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
   gap:12px;
   margin:8px 0 22px 0;
 }
@@ -96,22 +143,17 @@ h2{font-size:22px;margin:24px 0 10px 0; display:flex; align-items:center; gap:8p
   border:1px solid var(--ring);
   border-radius:14px;
   padding:10px 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
 }
 
-/* seções “cardificadas” (opcional) */
-header, section, footer{
-  background: var(--card);
-  border: 1px solid var(--ring);
-  border-radius: 16px;
-  padding: 14px 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-  margin-bottom: 16px;
+/* ====== RODAPÉ ====== */
+footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:.85rem;
+  opacity:.7;
 }
 
-/* rodapé */
-footer{margin-top:22px; font-size:13px; color:var(--muted); text-align:center; opacity:.7}
-
-/* links */
+/* ====== LINKS ====== */
 a{color:var(--pos); text-decoration:none}
 a:hover{text-decoration:underline}
