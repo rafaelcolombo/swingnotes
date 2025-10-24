@@ -189,6 +189,14 @@
       html.push(`</div>`);
       mount.innerHTML = html.join("");
     }
+    
+    function lastFiveStamp(d = new Date()){
+      d = new Date(d);           // cópia
+      d.setSeconds(0, 0);        // zera segundos/ms
+      d.setMinutes(Math.floor(d.getMinutes()/5)*5);
+      const pad = n => String(n).padStart(2, "0");
+      return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
 
     async function loadAll(){
       const mount = $("#mount");
@@ -198,7 +206,7 @@
         // results pode incluir objetos {rows:[...]} ou arrays
         const merged = results.flatMap(j => Array.isArray(j) ? j : (j && Array.isArray(j.rows) ? j.rows : []));
         STATE.rows = normalize(merged);
-        $("#updated").textContent = `Atualizado a cada 5'`;
+        $("#updated").textContent = `Atualizado a cada 5' (${lastFiveStamp()})`;
         render();
       }catch(e){
         mount.innerHTML = `<div class="empty">Falha ao carregar dados.</div>`;
