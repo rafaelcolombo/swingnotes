@@ -112,7 +112,61 @@ function metric(label, valueHtml){
   </div>`;
 }
 
+/* ------ Separa PROJETOS de TOTAIS ------ */
 function renderProjectSummaryCards(rows){
+  const projContainer  = document.getElementById("proj-list");
+  const totalContainer = document.getElementById("total-card"); // nova seção
+
+  if (projContainer) projContainer.innerHTML = "";
+  if (totalContainer) totalContainer.innerHTML = "";
+
+  // separa TOTAL dos demais
+  const totalRow = rows.find(r => String(r.Project).toUpperCase() === "TOTAL");
+  const projects = rows
+    .filter(r => String(r.Project).toUpperCase() !== "TOTAL")
+    .sort((a,b)=> String(a.Project).localeCompare(String(b.Project)));
+
+  // helper pra montar cards
+  const buildCards = (r, isTotal=false) => {
+    const pnlPos    = Number(r.pnl_realizado)      >= 0;
+    const pnlPctPos = Number(r.pnl_realizado_pct)  >= 0;
+
+    const cards = [
+      metric("Capital Inicial", fmtMoney(r.capital_inicial||0)),
+      metric("Trades Fechados", (r.trades_fechados_totalmente||0)),
+      metric("Trades com Profit", (r.trades_com_profit||0)),
+      metric("Trades com Loss", (r.trades_com_loss||0)),
+      metric("Trades em Andamento", (r.trades_em_andamento||0)),
+    ];
+
+    if (!isTotal && r.dias_uteis != null) {
+      cards.push(metric("Tempo de Projeto (dias úteis)", (r.dias_uteis ?? 0)));
+    }
+
+    cards.push(
+      metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
+      metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
+    );
+
+    return `<div class="sn-proj-grid">${cards.join("")}</div>`;
+  };
+
+  // renderiza projetos (dentro de PROJETOS)
+  if (projContainer){
+    for (const r of projects){
+      const projName = String(r.Project).toUpperCase();
+      projContainer.insertAdjacentHTML("beforeend", `<h3>📦 ${projName}</h3>${buildCards(r,false)}`);
+    }
+  }
+
+  // renderiza TOTAL (fora, na seção própria)
+  if (totalContainer && totalRow){
+    // seção "TOTAL" já tem <h2>TOTAL</h2> no HTML; aqui só os cards
+    totalContainer.insertAdjacentHTML("beforeend", buildCards(totalRow,true));
+  }
+}
+
+/*function renderProjectSummaryCards(rows){
   const container = document.getElementById("proj-list");
   if(!container) return;
   const sorted = [...rows].sort((a,b)=> (a.Project==="TOTAL") - (b.Project==="TOTAL") || a.Project.localeCompare(b.Project));
