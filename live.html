@@ -121,12 +121,12 @@
         preco_atual: toNum(r.preco_atual ?? r.Preco_Atual ?? r.last_close ?? r.close ?? 0),
         variacao_pct: toNum(r.variacao_pct ?? r["Variação (%)"] ?? r.var_pct ?? r.ChangePct ?? 0),
         // SL/TP opcionais — minúsculas
-        sl_agressivo: toNum(r.SL_Agressivo ?? r.sl_agressivo),
-        sl_tecnico: toNum(r.SL_Tecnico ?? r.SL_Técnico ?? r.sl_tecnico),
-        sl_conservador: toNum(r.SL_Conservador ?? r.sl_conservador),
-        tp_agressivo: toNum(r.TP_Agressivo ?? r.tp_agressivo),
-        tp_tecnico: toNum(r.TP_Tecnico ?? r.TP_Técnico ?? r.tp_tecnico),
-        tp_conservador: toNum(r.TP_Conservador ?? r.tp_conservador),
+        // sl_agressivo: toNum(r.SL_Agressivo ?? r.sl_agressivo),
+        // sl_tecnico: toNum(r.SL_Tecnico ?? r.SL_Técnico ?? r.sl_tecnico),
+        // sl_conservador: toNum(r.SL_Conservador ?? r.sl_conservador),
+        // tp_agressivo: toNum(r.TP_Agressivo ?? r.tp_agressivo),
+        // tp_tecnico: toNum(r.TP_Tecnico ?? r.TP_Técnico ?? r.tp_tecnico),
+        // tp_conservador: toNum(r.TP_Conservador ?? r.tp_conservador),
       }));
     }
     function toNum(v){
