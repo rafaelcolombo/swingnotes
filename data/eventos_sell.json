@@ -1348,5 +1348,15 @@
     "Qtd_Vendida": 12.89889843,
     "PnL_Abs": -41.29,
     "PnL_Pct": -20.65
+  },
+  {
+    "Trade_ID": "20251023-93fb17ec41cc",
+    "Ticker": "IDR",
+    "Data_Trade": "2025-10-27",
+    "Preco_Entrada": 35.21730005632338,
+    "Preco_Saida": 30.672507484054847,
+    "Qtd_Vendida": 5.67902706,
+    "PnL_Abs": -25.81,
+    "PnL_Pct": -12.91
   }
 ]
