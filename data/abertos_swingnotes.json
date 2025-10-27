@@ -6,8 +6,8 @@
     "dias_aberto": 3,
     "quantidade": 156.25,
     "preco_entrada": 1.28,
-    "preco_atual": 1.235,
-    "variacao_pct": -3.515624999999989,
+    "preco_atual": 1.24,
+    "variacao_pct": -3.125,
     "sl_agressivo": 0.95,
     "sl_tecnico": 1.16,
     "sl_conservador": 0.78,
@@ -22,8 +22,8 @@
     "dias_aberto": 3,
     "quantidade": 32.53779626,
     "preco_entrada": 6.058800000611964,
-    "preco_atual": 5.99,
-    "variacao_pct": -1.1355384004260727,
+    "preco_atual": 6.01,
+    "variacao_pct": -0.8054400311453658,
     "sl_agressivo": 5.26,
     "sl_tecnico": 5.53,
     "sl_conservador": 4.86,
@@ -46,5 +46,21 @@
     "tp_agressivo": 31.66,
     "tp_tecnico": 33.83,
     "tp_conservador": 35.99
+  },
+  {
+    "trade_id": "20251027-6533200dc798",
+    "project": "swingnotes",
+    "ticker": "AMD",
+    "dias_aberto": 0,
+    "quantidade": 2.85466665,
+    "preco_entrada": 256.26810051534386,
+    "preco_atual": 255.35,
+    "variacao_pct": -0.3582578219831545,
+    "sl_agressivo": 243.38,
+    "sl_tecnico": 220.84,
+    "sl_conservador": 236.94,
+    "tp_agressivo": 269.15,
+    "tp_tecnico": 282.04,
+    "tp_conservador": 294.92
   }
 ]
