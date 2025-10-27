@@ -1358,5 +1358,15 @@
     "Qtd_Vendida": 5.67902706,
     "PnL_Abs": -25.81,
     "PnL_Pct": -12.91
+  },
+  {
+    "Trade_ID": "20251027-c05d7498a917",
+    "Ticker": "IRBT",
+    "Data_Trade": "2025-10-27",
+    "Preco_Entrada": 4.108800000438645,
+    "Preco_Saida": 3.671305102060027,
+    "Qtd_Vendida": 39.97760903,
+    "PnL_Abs": -17.49,
+    "PnL_Pct": -10.65
   }
 ]
