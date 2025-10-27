@@ -12,24 +12,24 @@
   },
   {
     "Project": "swingnotes",
-    "trades_fechados_totalmente": 82,
+    "trades_fechados_totalmente": 83,
     "trades_com_profit": 39,
-    "trades_com_loss": 43,
-    "trades_em_andamento": 4,
-    "pnl_realizado": 454.51,
+    "trades_com_loss": 44,
+    "trades_em_andamento": 3,
+    "pnl_realizado": 428.7,
     "capital_inicial": 1000.0,
-    "pnl_realizado_pct": 45.45099999999999,
+    "pnl_realizado_pct": 42.87,
     "dias_uteis": 140
   },
   {
     "Project": "TOTAL",
-    "trades_fechados_totalmente": 108,
+    "trades_fechados_totalmente": 109,
     "trades_com_profit": 47,
-    "trades_com_loss": 61,
-    "trades_em_andamento": 13,
-    "pnl_realizado": 1345.51,
+    "trades_com_loss": 62,
+    "trades_em_andamento": 12,
+    "pnl_realizado": 1319.7,
     "capital_inicial": 2999.0,
-    "pnl_realizado_pct": 44.86528842947649,
+    "pnl_realizado_pct": 44.00466822274092,
     "dias_uteis": null
   }
 ]
