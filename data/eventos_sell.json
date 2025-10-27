@@ -1318,5 +1318,35 @@
     "Qtd_Vendida": 250.0,
     "PnL_Abs": 33.92,
     "PnL_Pct": 6.62
+  },
+  {
+    "Trade_ID": "20251010-29dbd19e6013",
+    "Ticker": "UUUU",
+    "Data_Trade": "2025-10-27",
+    "Preco_Entrada": 21.15880000202188,
+    "Preco_Saida": 18.776202086219243,
+    "Qtd_Vendida": 8.11719001,
+    "PnL_Abs": -19.34,
+    "PnL_Pct": -11.26
+  },
+  {
+    "Trade_ID": "20251024-e89b03e4ae1b",
+    "Ticker": "USAR",
+    "Data_Trade": "2025-10-27",
+    "Preco_Entrada": 24.72400002307738,
+    "Preco_Saida": 20.30582121895345,
+    "Qtd_Vendida": 8.08930593,
+    "PnL_Abs": -35.74,
+    "PnL_Pct": -17.87
+  },
+  {
+    "Trade_ID": "20251024-37167b0f1ba5",
+    "Ticker": "CRML",
+    "Data_Trade": "2025-10-27",
+    "Preco_Entrada": 15.505200004896853,
+    "Preco_Saida": 12.304151463885898,
+    "Qtd_Vendida": 12.89889843,
+    "PnL_Abs": -41.29,
+    "PnL_Pct": -20.65
   }
 ]
