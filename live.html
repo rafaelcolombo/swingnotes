@@ -206,7 +206,7 @@
         // results pode incluir objetos {rows:[...]} ou arrays
         const merged = results.flatMap(j => Array.isArray(j) ? j : (j && Array.isArray(j.rows) ? j.rows : []));
         STATE.rows = normalize(merged);
-        $("#updated").textContent = `Atualizado a cada 5' (${lastFiveStamp()})`;
+       // $("#updated").textContent = `Atualizado a cada 5' (${lastFiveStamp()})`;
         render();
       }catch(e){
         mount.innerHTML = `<div class="empty">Falha ao carregar dados.</div>`;
