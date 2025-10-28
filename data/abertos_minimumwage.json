@@ -1,0 +1,18 @@
+[
+  {
+    "trade_id": "20251028-019ebef59ebb",
+    "project": "minimumwage",
+    "ticker": "UUUU",
+    "dias_aberto": 0,
+    "quantidade": 14.8818382,
+    "preco_entrada": 20.158800006305672,
+    "preco_atual": 20.045,
+    "variacao_pct": -0.5645177603333162,
+    "sl_agressivo": 16.85,
+    "sl_tecnico": 20.05,
+    "sl_conservador": 15.19,
+    "tp_agressivo": 23.47,
+    "tp_tecnico": 26.78,
+    "tp_conservador": 30.09
+  }
+]
