@@ -1418,5 +1418,25 @@
     "Qtd_Vendida": 32.53779626,
     "PnL_Abs": -44.17,
     "PnL_Pct": -22.41
+  },
+  {
+    "Trade_ID": "20251024-d3b620295257",
+    "Ticker": "MOB",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 8.60020000117711,
+    "Preco_Saida": 7.537215281031619,
+    "Qtd_Vendida": 23.25527313,
+    "PnL_Abs": -24.72,
+    "PnL_Pct": -12.36
+  },
+  {
+    "Trade_ID": "20251023-f7c7e4189036",
+    "Ticker": "IVVD",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 1.9993000000857202,
+    "Preco_Saida": 1.7705800800759137,
+    "Qtd_Vendida": 100.03501225,
+    "PnL_Abs": -22.88,
+    "PnL_Pct": -11.44
   }
 ]
