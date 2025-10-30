@@ -14,5 +14,21 @@
     "tp_agressivo": 269.15,
     "tp_tecnico": 282.04,
     "tp_conservador": 294.92
+  },
+  {
+    "trade_id": "20251030-71ef7757018e",
+    "project": "swingnotes",
+    "ticker": "GSAT",
+    "dias_aberto": 0,
+    "quantidade": 4.78152038,
+    "preco_entrada": 41.82770000030827,
+    "preco_atual": 41.8,
+    "variacao_pct": -0.06622405800000841,
+    "sl_agressivo": 39.13,
+    "sl_tecnico": null,
+    "sl_conservador": 37.78,
+    "tp_agressivo": 44.52,
+    "tp_tecnico": 47.22,
+    "tp_conservador": 49.92
   }
 ]
