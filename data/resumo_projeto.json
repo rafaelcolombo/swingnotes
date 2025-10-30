@@ -5,9 +5,9 @@
     "trades_com_profit": 8,
     "trades_com_loss": 23,
     "trades_em_andamento": 8,
-    "pnl_realizado": 748.72,
+    "pnl_realizado": 769.19,
     "capital_inicial": 1999.0,
-    "pnl_realizado_pct": 37.45472736368185,
+    "pnl_realizado_pct": 38.478739369684845,
     "dias_uteis": 24
   },
   {
@@ -38,9 +38,9 @@
     "trades_com_profit": 47,
     "trades_com_loss": 70,
     "trades_em_andamento": 11,
-    "pnl_realizado": 1050.62,
+    "pnl_realizado": 1071.0900000000001,
     "capital_inicial": 3299.0,
-    "pnl_realizado_pct": 31.846620187935738,
+    "pnl_realizado_pct": 32.46711124583207,
     "dias_uteis": null
   }
 ]
