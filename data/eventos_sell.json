@@ -1438,5 +1438,15 @@
     "Qtd_Vendida": 100.03501225,
     "PnL_Abs": -22.88,
     "PnL_Pct": -11.44
+  },
+  {
+    "Trade_ID": "20251024-51167ea5ddd5",
+    "Ticker": "SNDK",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 185.99930048781354,
+    "Preco_Saida": 200.34771941087746,
+    "Qtd_Vendida": 1.42656977,
+    "PnL_Abs": 20.47,
+    "PnL_Pct": 7.71
   }
 ]
