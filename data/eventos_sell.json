@@ -1368,5 +1368,55 @@
     "Qtd_Vendida": 39.97760903,
     "PnL_Abs": -17.49,
     "PnL_Pct": -10.65
+  },
+  {
+    "Trade_ID": "20251024-77cff700cb8d",
+    "Ticker": "CIFR",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 20.66880000540233,
+    "Preco_Saida": 18.443596996820713,
+    "Qtd_Vendida": 24.19105124,
+    "PnL_Abs": -53.83,
+    "PnL_Pct": -10.77
+  },
+  {
+    "Trade_ID": "20251024-f2ad4c53ec58",
+    "Ticker": "QSI",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 2.2992000002575104,
+    "Preco_Saida": 2.030653440227433,
+    "Qtd_Vendida": 86.986778,
+    "PnL_Abs": -23.36,
+    "PnL_Pct": -11.68
+  },
+  {
+    "Trade_ID": "20251027-080abff27dc5",
+    "Ticker": "GEOS",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 29.489400003713303,
+    "Preco_Saida": 24.74357256311571,
+    "Qtd_Vendida": 10.17314696,
+    "PnL_Abs": -48.28,
+    "PnL_Pct": -16.09
+  },
+  {
+    "Trade_ID": "20251024-16f9d0472c3d",
+    "Ticker": "DFLI",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 1.28,
+    "Preco_Saida": 1.06016,
+    "Qtd_Vendida": 156.25,
+    "PnL_Abs": -34.35,
+    "PnL_Pct": -17.18
+  },
+  {
+    "Trade_ID": "20251024-b9b26a517175",
+    "Ticker": "RR",
+    "Data_Trade": "2025-10-30",
+    "Preco_Entrada": 6.058800000611964,
+    "Preco_Saida": 4.70130179615305,
+    "Qtd_Vendida": 32.53779626,
+    "PnL_Abs": -44.17,
+    "PnL_Pct": -22.41
   }
 ]
