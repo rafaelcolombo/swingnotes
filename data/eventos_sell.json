@@ -1448,5 +1448,15 @@
     "Qtd_Vendida": 1.42656977,
     "PnL_Abs": 20.47,
     "PnL_Pct": 7.71
+  },
+  {
+    "Trade_ID": "20251023-4e8099e86e16",
+    "Ticker": "CABA",
+    "Data_Trade": "2025-10-31",
+    "Preco_Entrada": 2.4091000002020753,
+    "Preco_Saida": 3.0710014364543925,
+    "Qtd_Vendida": 13.01855464,
+    "PnL_Abs": 8.62,
+    "PnL_Pct": 27.48
   }
 ]
