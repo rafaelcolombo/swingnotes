@@ -1458,5 +1458,15 @@
     "Qtd_Vendida": 13.01855464,
     "PnL_Abs": 8.62,
     "PnL_Pct": 27.48
+  },
+  {
+    "Trade_ID": "20251030-71ef7757018e",
+    "Ticker": "GSAT",
+    "Data_Trade": "2025-10-31",
+    "Preco_Entrada": 41.82770000030827,
+    "Preco_Saida": 53.510474014336005,
+    "Qtd_Vendida": 1.78152038,
+    "PnL_Abs": 20.81,
+    "PnL_Pct": 27.93
   }
 ]
