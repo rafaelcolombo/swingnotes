@@ -6,8 +6,8 @@
     "dias_aberto": 5,
     "quantidade": 2.85466665,
     "preco_entrada": 256.26810051534386,
-    "preco_atual": 256.1,
-    "variacao_pct": -0.06559556769094588,
+    "preco_atual": 255.61,
+    "variacao_pct": -0.25680157382851343,
     "sl_agressivo": 243.38,
     "sl_tecnico": 220.84,
     "sl_conservador": 236.94,
@@ -22,8 +22,8 @@
     "dias_aberto": 2,
     "quantidade": 3.0,
     "preco_entrada": 41.82770000030827,
-    "preco_atual": 55.45,
-    "variacao_pct": 32.5676525355,
+    "preco_atual": 55.48,
+    "variacao_pct": 32.63937534120001,
     "sl_agressivo": 39.13,
     "sl_tecnico": null,
     "sl_conservador": 37.78,
@@ -46,5 +46,21 @@
     "tp_agressivo": 2.12,
     "tp_tecnico": 2.37,
     "tp_conservador": 2.62
+  },
+  {
+    "trade_id": "20251031-e6f50b29c64b",
+    "project": "swingnotes",
+    "ticker": "VIAV",
+    "dias_aberto": 0,
+    "quantidade": 5.35297156,
+    "preco_entrada": 17.808800015369407,
+    "preco_atual": 17.795,
+    "variacao_pct": -0.07748986656874735,
+    "sl_agressivo": 17.15,
+    "sl_tecnico": 13.98,
+    "sl_conservador": 16.82,
+    "tp_agressivo": 18.47,
+    "tp_tecnico": 19.12,
+    "tp_conservador": 19.78
   }
 ]
