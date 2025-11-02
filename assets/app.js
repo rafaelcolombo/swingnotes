@@ -143,10 +143,26 @@ function renderProjectSummaryCards(rows){
       cards.push(metric("Tempo de Projeto (dias úteis)", (r.dias_uteis ?? 0)));
     }
 
+    // PnL
     cards.push(
       metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
       metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
     );
+
+    // >>> NOVOS CARDS (somente TOTAL)
+    if (isTotal && r.meta != null) {
+      const metaVal = Number(r.meta);
+      // usa r.meta_atingido_pct; se não vier, calcula com fallback seguro
+      const pctRaw = (r.meta_atingido_pct != null)
+        ? Number(r.meta_atingido_pct)
+        : (metaVal > 0 ? (Number(r.pnl_realizado||0) / metaVal) * 100 : 0);
+      const pctPos = pctRaw >= 0;
+
+      cards.push(
+        metric("Meta", fmtMoney(metaVal)),
+        metric("% Meta Atingido", `<span class="${pctPos ? "sn-pos":"sn-neg"}">${fmtPct(pctRaw)}</span>`),
+      );
+    }
 
     return `<div class="sn-proj-grid">${cards.join("")}</div>`;
   };
@@ -161,43 +177,7 @@ function renderProjectSummaryCards(rows){
 
   // renderiza TOTAL (fora, na seção própria)
   if (totalContainer && totalRow){
-    // seção "TOTAL" já tem <h2>TOTAL</h2> no HTML; aqui só os cards
     totalContainer.insertAdjacentHTML("beforeend", buildCards(totalRow,true));
-  }
-}
-
-/*function renderProjectSummaryCards(rows){
-  const container = document.getElementById("proj-list");
-  if(!container) return;
-  const sorted = [...rows].sort((a,b)=> (a.Project==="TOTAL") - (b.Project==="TOTAL") || a.Project.localeCompare(b.Project));
-  container.innerHTML = "";
-
-  for(const r of sorted){
-    const proj = String(r.Project).toUpperCase();
-    const isTotal = proj === "TOTAL";
-    const pnlPos = Number(r.pnl_realizado)>=0;
-    const pnlPctPos = Number(r.pnl_realizado_pct)>=0;
-
-    const cards = [
-      metric("Capital Inicial", fmtMoney(r.capital_inicial||0)),
-      metric("Trades Fechados", (r.trades_fechados_totalmente||0)),
-      metric("Trades com Profit", (r.trades_com_profit||0)),
-      metric("Trades com Loss", (r.trades_com_loss||0)),
-      metric("Trades em Andamento", (r.trades_em_andamento||0)),
-    ];
-
-    if (!isTotal && r.dias_uteis != null) {
-      cards.push(metric("Tempo de Projeto (dias úteis)", (r.dias_uteis ?? 0)));
-    }
-
-    cards.push(
-      metric("PnL Realizado (USD)", `<span class="${pnlPos?"sn-pos":"sn-neg"}">${fmtMoney(r.pnl_realizado||0)}</span>`),
-      metric("PnL Realizado (%)", `<span class="${pnlPctPos?"sn-pos":"sn-neg"}">${fmtPct(r.pnl_realizado_pct||0)}</span>`),
-    );
-
-    const grid = `<div class="sn-proj-grid">${cards.join("")}</div>`;
-    container.insertAdjacentHTML("beforeend", `<h3>📦 ${proj}</h3>${grid}`);
-    if (isTotal) break;
   }
 }
 
@@ -214,9 +194,9 @@ async function boot(){
       fetchJSON("./data/resumo_projeto.json").catch(()=>[]),
     ]);
 
-    await renderCardsTop();              // <<< novos cards de topo (swingnotes + countdown)
+    await renderCardsTop();              // cards de topo (swingnotes + countdown)
     renderSellSummaryCards(sell);        // cards de SELL
-    renderProjectSummaryCards(proj);     // cards de resumo por projeto
+    renderProjectSummaryCards(proj);     // cards por projeto + TOTAL (com META)
   }catch(e){
     console.error("Boot fail:", e);
   }
