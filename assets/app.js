@@ -4,10 +4,18 @@
 
 /* ---------- Utilidades ---------- */
 async function fetchJSON(url){
+  const bust = (url.includes("?") ? "&" : "?") + "v=" + Date.now();
+  const res = await fetch(url + bust, { cache: "no-store" });
+  if(!res.ok) throw new Error("fetch fail " + url + " [" + res.status + "]");
+  return res.json();
+}
+/* async function fetchJSON(url){
   const res = await fetch(url, { cache: "no-store" });
   if(!res.ok) throw new Error("fetch fail " + url);
   return res.json();
-}
+} */
+
+
 function fmtMoney(x){ return "$" + Number(x).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function fmtPct(x){ return (x>=0?"+":"") + Number(x).toFixed(2) + "%"; }
 function pnlClass(v){ return v>=0 ? "sn-pnl-pos" : "sn-pnl-neg"; }
@@ -184,6 +192,42 @@ function renderProjectSummaryCards(rows){
 /* ---------- Boot ---------- */
 async function boot(){
   try{
+    const up = document.getElementById("updated");
+    if(up) up.textContent = `Atualizado a cada 5' (${lastFiveMinuteMark()})`;
+
+    const [sell, projRaw] = await Promise.all([
+      fetchJSON("./data/eventos_sell.json").catch(()=>[]),
+      fetchJSON("./data/resumo_projeto.json").catch(()=>null),
+    ]);
+
+    // normaliza formato
+    const proj = Array.isArray(projRaw) ? projRaw :
+                 (projRaw && Array.isArray(projRaw.rows) ? projRaw.rows : []);
+
+    await renderCardsTop();
+    renderSellSummaryCards(sell);
+
+    if (proj && proj.length){
+      renderProjectSummaryCards(proj);
+    } else {
+      console.warn("resumo_projeto.json vazio ou não encontrado");
+      const projContainer  = document.getElementById("proj-list");
+      const totalContainer = document.getElementById("total-card");
+      if (projContainer)  projContainer.innerHTML  = `<div class="sn-muted">Nenhum dado de projeto para exibir.</div>`;
+      if (totalContainer) totalContainer.innerHTML = `<div class="sn-muted">Total indisponível.</div>`;
+    }
+  }catch(e){
+    console.error("Boot fail:", e);
+    const projContainer  = document.getElementById("proj-list");
+    const totalContainer = document.getElementById("total-card");
+    if (projContainer)  projContainer.innerHTML  = `<div class="sn-muted">Erro ao carregar projetos.</div>`;
+    if (totalContainer) totalContainer.innerHTML = `<div class="sn-muted">Erro ao carregar total.</div>`;
+  }
+}
+boot();
+
+/* async function boot(){
+  try{
     // Atualiza legenda "Atualizado a cada 5' (HH:MM)"
     const up = document.getElementById("updated");
     if(up) up.textContent = `Atualizado a cada 5' (${lastFiveMinuteMark()})`;
@@ -201,4 +245,5 @@ async function boot(){
     console.error("Boot fail:", e);
   }
 }
-boot();
+boot(); */
+ 
