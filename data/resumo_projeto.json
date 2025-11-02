@@ -8,7 +8,9 @@
     "pnl_realizado": 793.14,
     "capital_inicial": 1999.0,
     "pnl_realizado_pct": 39.6768384192096,
-    "dias_uteis": 25
+    "dias_uteis": 25,
+    "meta": NaN,
+    "meta_atingido_pct": NaN
   },
   {
     "Project": "minimumwage",
@@ -19,7 +21,9 @@
     "pnl_realizado": 0.0,
     "capital_inicial": 300.0,
     "pnl_realizado_pct": 0.0,
-    "dias_uteis": 4
+    "dias_uteis": 4,
+    "meta": NaN,
+    "meta_atingido_pct": NaN
   },
   {
     "Project": "swingnotes",
@@ -30,7 +34,9 @@
     "pnl_realizado": 322.71,
     "capital_inicial": 1000.0,
     "pnl_realizado_pct": 32.271,
-    "dias_uteis": 144
+    "dias_uteis": 144,
+    "meta": NaN,
+    "meta_atingido_pct": NaN
   },
   {
     "Project": "TOTAL",
@@ -41,6 +47,8 @@
     "pnl_realizado": 1115.85,
     "capital_inicial": 3299.0,
     "pnl_realizado_pct": 33.8238860260685,
-    "dias_uteis": null
+    "dias_uteis": null,
+    "meta": 15000.0,
+    "meta_atingido_pct": 7.439
   }
 ]
