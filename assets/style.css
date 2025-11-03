@@ -34,6 +34,45 @@ html, body{
 .pos{ color:var(--pos) }
 .neg{ color:var(--neg) }
 
+/* ===== Goal / Meta progress ===== */
+.goalbar {
+  margin: 16px 0 8px 0;
+  padding: 16px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 10px 25px rgba(0,0,0,0.25);
+}
+.goalbar-head, .goalbar-foot {
+  display:flex; align-items:center; justify-content:space-between;
+  font-weight:600;
+}
+.goalbar-head { margin-bottom:10px; }
+.goalbar-foot { margin-top:10px; font-size:12px; color:var(--muted); }
+
+.goalbar-track {
+  position:relative;
+  height:14px;
+  background: var(--ring);
+  border-radius: 999px;
+  overflow:hidden;
+}
+.goalbar-fill {
+  position:absolute; left:0; top:0; height:100%;
+  width:0%;
+  background: linear-gradient(90deg, var(--neg), #f59e0b, var(--pos));
+  border-radius:999px;
+  transition:width .6s ease;
+}
+.goalbar-marker { /* alvo (100%) */
+  position:absolute; top:-2px; width:2px; height:18px;
+  background: rgba(255,255,255,.25); border-radius:2px;
+}
+.goalbar-badge {
+  display:inline-flex; gap:6px; align-items:center;
+  font-size:12px; padding:4px 8px; border-radius:999px;
+  background:var(--chip); color:var(--ink);
+}
+
 /* ====== HEADER (sem moldura) ====== */
 header{
   background:none;
