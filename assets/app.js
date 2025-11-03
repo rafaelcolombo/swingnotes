@@ -9,12 +9,6 @@ async function fetchJSON(url){
   if(!res.ok) throw new Error("fetch fail " + url + " [" + res.status + "]");
   return res.json();
 }
-/* async function fetchJSON(url){
-  const res = await fetch(url, { cache: "no-store" });
-  if(!res.ok) throw new Error("fetch fail " + url);
-  return res.json();
-} */
-
 
 function fmtMoney(x){ return "$" + Number(x).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function fmtPct(x){ return (x>=0?"+":"") + Number(x).toFixed(2) + "%"; }
@@ -160,7 +154,6 @@ function renderProjectSummaryCards(rows){
     // >>> NOVOS CARDS (somente TOTAL)
     if (isTotal && r.meta != null) {
       const metaVal = Number(r.meta);
-      // usa r.meta_atingido_pct; se não vier, calcula com fallback seguro
       const pctRaw = (r.meta_atingido_pct != null)
         ? Number(r.meta_atingido_pct)
         : (metaVal > 0 ? (Number(r.pnl_realizado||0) / metaVal) * 100 : 0);
@@ -175,7 +168,6 @@ function renderProjectSummaryCards(rows){
     return `<div class="sn-proj-grid">${cards.join("")}</div>`;
   };
 
-  // renderiza projetos (dentro de PROJETOS)
   if (projContainer){
     for (const r of projects){
       const projName = String(r.Project).toUpperCase();
@@ -183,26 +175,12 @@ function renderProjectSummaryCards(rows){
     }
   }
 
-  // renderiza TOTAL (fora, na seção própria)
   if (totalContainer && totalRow){
     totalContainer.insertAdjacentHTML("beforeend", buildCards(totalRow,true));
   }
 }
-// Helpers de formatação / parse
-function fmtMoneyUS(n){
-  try { return n.toLocaleString('en-US', {style:'currency', currency:'USD'}); }
-  catch { return `$${Number(n||0).toFixed(2)}`; }
-}
-function parseBRMoney(txt){
-  // remove tudo que não número/ponto/vírgula/sinal
-  const raw = String(txt||'').replace(/[^\d.,-]/g,'').trim();
-  // padrão BR: milhar ponto e decimal vírgula
-  const asEN = raw.replace(/\./g,'').replace(',', '.');
-  const v = parseFloat(asEN);
-  return isNaN(v) ? 0 : v;
-}
 
-/* ===== Helpers ===== */
+/* ===== Helpers barra da Meta ===== */
 function fmtMoneyUS(n){
   try { return n.toLocaleString('en-US', {style:'currency', currency:'USD'}); }
   catch { return `$${Number(n||0).toFixed(2)}`; }
@@ -214,7 +192,7 @@ function parseBRMoney(txt){
   return isNaN(v) ? 0 : v;
 }
 
-/* ===== Render ===== */
+/* ===== Render barra ===== */
 function renderGoalBar({ target, achieved }){
   const elFill = document.querySelector('#goalbar-fill');
   const elPct  = document.querySelector('#goalbar-pct');
@@ -234,36 +212,47 @@ function renderGoalBar({ target, achieved }){
   elMax.textContent  = fmtMoneyUS(T);
 }
 
+/* ===== Marcadores 25/50/75% ===== */
+function ensureGoalTicks(){
+  const track = document.querySelector('.goalbar-track');
+  if (!track || track.dataset.ticks === '1') return;
+
+  [25,50,75].forEach(pct => {
+    const t = document.createElement('div');
+    t.className = 'goalbar-tick';
+    t.style.left = pct + '%';
+
+    const lbl = document.createElement('span');
+    lbl.textContent = pct + '%';
+    t.appendChild(lbl);
+
+    track.appendChild(t);
+  });
+
+  track.dataset.ticks = '1';
+}
+
 /* ===== Busca robusta no DOM ===== */
 function findValueByNearbyLabel(root, labelCandidates){
-  // varre o container TOTAL procurando um nó com texto igual ao label e
-  // pega o número “mais próximo” no mesmo card/linha
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null);
   const norm = s => String(s||'').trim().toLowerCase();
   const isLabelMatch = txt => labelCandidates.some(l => norm(txt) === norm(l));
-
-  const numberRegex = /[$€R\$]?\s*[-+]?(\d{1,3}(\.\d{3})*|\d+)(,\d{2})?/; // BR-style
+  const numberRegex = /[$€R\$]?\s*[-+]?(\d{1,3}(\.\d{3})*|\d+)(,\d{2})?/;
 
   while (walker.nextNode()){
     const el = walker.currentNode;
     if (el.children?.length) {
-      // tenta achar um “rótulo” isolado dentro do elemento
       const labelEl = [...el.children].find(ch => isLabelMatch(ch.textContent));
       if (labelEl){
-        // 1) tenta irmão com número
         const sibVal = labelEl.parentElement?.querySelector('.value, .kpi-value, .stat-value');
         if (sibVal && numberRegex.test(sibVal.textContent)) return sibVal.textContent;
 
-        // 2) tenta qualquer número dentro do mesmo card
         const card = labelEl.closest('.card, .metric, .kpi, .stat') || el;
-        const numEl = card.querySelector('*:not(script):not(style)');
         const candidates = [...card.querySelectorAll('*')].filter(n => numberRegex.test(n.textContent));
         if (candidates.length) return candidates[0].textContent;
       }
     }
-    // fallback: se o próprio nó é o label
     if (isLabelMatch(el.textContent)){
-      // busca um número no mesmo bloco
       const parent = el.closest('.card, .metric, .kpi, .stat') || el.parentElement || document;
       const candidates = [...parent.querySelectorAll('*')].filter(n => numberRegex.test(n.textContent));
       if (candidates.length) return candidates[0].textContent;
@@ -273,25 +262,19 @@ function findValueByNearbyLabel(root, labelCandidates){
 }
 
 function getTotalsContainer(){
-  // se tiver um cabeçalho “TOTAL”, usa o bloco seguinte como container
   const headers = [...document.querySelectorAll('h2,h3,h4,strong,b,span,div')]
     .filter(n => n.childElementCount===0 && n.textContent.trim().toUpperCase()==='TOTAL');
   if (headers.length){
-    // tenta pegar o contêiner pai com várias métricas
     return headers[0].closest('.cards, .grid, .totals, .section') || headers[0].parentElement || document;
   }
-  // fallback: documento todo
   return document;
 }
 
 function readTotalsAndRender(){
   const root = getTotalsContainer();
-
-  // aceite variações de rótulo
   const metaTxt = findValueByNearbyLabel(root, ['Meta','Goal']);
   const pnlTxt  = findValueByNearbyLabel(root, ['PnL Realizado (USD)','PnL Realizado']);
 
-  // fallback por data-attributes no #goalbar (você pode setar no HTML se quiser)
   const gb = document.querySelector('#goalbar');
   const targetAttr   = gb?.getAttribute('data-goal-target');
   const achievedAttr = gb?.getAttribute('data-goal-achieved');
@@ -301,16 +284,17 @@ function readTotalsAndRender(){
 
   if (target > 0){
     renderGoalBar({ target, achieved });
+    ensureGoalTicks();                // <— adiciona os marcadores aqui
     return true;
   }
   return false;
 }
 
 /* ===== Estratégias de inicialização ===== */
-// 1) tenta ao carregar
-document.addEventListener('DOMContentLoaded', () => { readTotalsAndRender(); });
+document.addEventListener('DOMContentLoaded', () => {
+  readTotalsAndRender();
+});
 
-// 2) se sua página re-renderiza via função global, intercepta
 const _oldRender = typeof window.render === 'function' ? window.render : null;
 if (_oldRender){
   window.render = function(){
@@ -320,16 +304,10 @@ if (_oldRender){
   };
 }
 
-// 3) observa o DOM até encontrar os números (para páginas que montam tudo async)
 const observer = new MutationObserver(() => {
   if (readTotalsAndRender()){ observer.disconnect(); }
 });
 observer.observe(document.documentElement, { childList:true, subtree:true });
-
-// 4) último recurso: set manual (exponha no HTML se preferir)
-// <div id="goalbar" data-goal-target="9000" data-goal-achieved="1130.88"></div>
-// Se usar data-attrs, o bloco acima já lê automaticamente.
-
 
 /* ---------- Boot ---------- */
 async function boot(){
@@ -342,7 +320,6 @@ async function boot(){
       fetchJSON("./data/resumo_projeto.json").catch(()=>null),
     ]);
 
-    // normaliza formato
     const proj = Array.isArray(projRaw) ? projRaw :
                  (projRaw && Array.isArray(projRaw.rows) ? projRaw.rows : []);
 
@@ -367,25 +344,3 @@ async function boot(){
   }
 }
 boot();
-
-/* async function boot(){
-  try{
-    // Atualiza legenda "Atualizado a cada 5' (HH:MM)"
-    const up = document.getElementById("updated");
-    if(up) up.textContent = `Atualizado a cada 5' (${lastFiveMinuteMark()})`;
-
-    // Carrega e renderiza:
-    const [sell, proj] = await Promise.all([
-      fetchJSON("./data/eventos_sell.json").catch(()=>[]),
-      fetchJSON("./data/resumo_projeto.json").catch(()=>[]),
-    ]);
-
-    await renderCardsTop();              // cards de topo (swingnotes + countdown)
-    renderSellSummaryCards(sell);        // cards de SELL
-    renderProjectSummaryCards(proj);     // cards por projeto + TOTAL (com META)
-  }catch(e){
-    console.error("Boot fail:", e);
-  }
-}
-boot(); */
- 
