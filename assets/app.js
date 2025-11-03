@@ -202,79 +202,134 @@ function parseBRMoney(txt){
   return isNaN(v) ? 0 : v;
 }
 
-// Desenha a barra
+/* ===== Helpers ===== */
+function fmtMoneyUS(n){
+  try { return n.toLocaleString('en-US', {style:'currency', currency:'USD'}); }
+  catch { return `$${Number(n||0).toFixed(2)}`; }
+}
+function parseBRMoney(txt){
+  const raw = String(txt||'').replace(/[^\d.,-]/g,'').trim();
+  const asEN = raw.replace(/\./g,'').replace(',', '.');
+  const v = parseFloat(asEN);
+  return isNaN(v) ? 0 : v;
+}
+
+/* ===== Render ===== */
 function renderGoalBar({ target, achieved }){
   const elFill = document.querySelector('#goalbar-fill');
   const elPct  = document.querySelector('#goalbar-pct');
   const elMin  = document.querySelector('#goalbar-min');
   const elMid  = document.querySelector('#goalbar-mid');
   const elMax  = document.querySelector('#goalbar-max');
-
   if (!elFill) return;
 
-  const safeTarget   = Math.max(0, Number(target||0));
-  const safeAchieved = Math.max(0, Number(achieved||0));
-  const pct = safeTarget > 0 ? Math.min(100, (safeAchieved / safeTarget) * 100) : 0;
+  const T = Math.max(0, Number(target||0));
+  const A = Math.max(0, Number(achieved||0));
+  const pct = T > 0 ? Math.min(100, (A/T)*100) : 0;
 
   elFill.style.width = pct.toFixed(2) + '%';
   elPct.textContent  = pct.toFixed(2) + '%';
-
-  elMin.textContent = '$0';
-  elMid.textContent = fmtMoneyUS(safeAchieved);
-  elMax.textContent = fmtMoneyUS(safeTarget);
+  elMin.textContent  = '$0';
+  elMid.textContent  = fmtMoneyUS(A);
+  elMax.textContent  = fmtMoneyUS(T);
 }
 
-// Tenta ler os valores dos cards do bloco "TOTAL"
-function renderGoalBarFromTotals(){
-  // encontra os cards pela legenda exibida
-  const findValueByLabel = (label) => {
-    const cards = Array.from(document.querySelectorAll('.metric, .card .metric, .kpi, .stat'));
-    for (const c of cards){
-      const lbl = (c.querySelector('.label, .title, .kpi-label, .stat-label')||{}).textContent || '';
-      if (lbl.trim().toLowerCase() === label.trim().toLowerCase()){
-        const val = (c.querySelector('.value, .kpi-value, .stat-value')||{}).textContent || '';
-        return val;
+/* ===== Busca robusta no DOM ===== */
+function findValueByNearbyLabel(root, labelCandidates){
+  // varre o container TOTAL procurando um nó com texto igual ao label e
+  // pega o número “mais próximo” no mesmo card/linha
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null);
+  const norm = s => String(s||'').trim().toLowerCase();
+  const isLabelMatch = txt => labelCandidates.some(l => norm(txt) === norm(l));
+
+  const numberRegex = /[$€R\$]?\s*[-+]?(\d{1,3}(\.\d{3})*|\d+)(,\d{2})?/; // BR-style
+
+  while (walker.nextNode()){
+    const el = walker.currentNode;
+    if (el.children?.length) {
+      // tenta achar um “rótulo” isolado dentro do elemento
+      const labelEl = [...el.children].find(ch => isLabelMatch(ch.textContent));
+      if (labelEl){
+        // 1) tenta irmão com número
+        const sibVal = labelEl.parentElement?.querySelector('.value, .kpi-value, .stat-value');
+        if (sibVal && numberRegex.test(sibVal.textContent)) return sibVal.textContent;
+
+        // 2) tenta qualquer número dentro do mesmo card
+        const card = labelEl.closest('.card, .metric, .kpi, .stat') || el;
+        const numEl = card.querySelector('*:not(script):not(style)');
+        const candidates = [...card.querySelectorAll('*')].filter(n => numberRegex.test(n.textContent));
+        if (candidates.length) return candidates[0].textContent;
       }
     }
-    // fallback: procura por elementos cujo texto seja exatamente o label (ex.: "Meta")
-    const nodes = Array.from(document.querySelectorAll('*'));
-    const node = nodes.find(n => n.childElementCount===0 && n.textContent.trim().toLowerCase()===label.trim().toLowerCase());
-    if (node){
-      const sibling = node.parentElement?.querySelector(':scope .value') || node.parentElement?.nextElementSibling;
-      return sibling ? sibling.textContent : '';
+    // fallback: se o próprio nó é o label
+    if (isLabelMatch(el.textContent)){
+      // busca um número no mesmo bloco
+      const parent = el.closest('.card, .metric, .kpi, .stat') || el.parentElement || document;
+      const candidates = [...parent.querySelectorAll('*')].filter(n => numberRegex.test(n.textContent));
+      if (candidates.length) return candidates[0].textContent;
     }
-    return '';
-  };
+  }
+  return '';
+}
 
-  const metaTxt = findValueByLabel('Meta');
-  const pnlTxt  = findValueByLabel('PnL Realizado (USD)');
+function getTotalsContainer(){
+  // se tiver um cabeçalho “TOTAL”, usa o bloco seguinte como container
+  const headers = [...document.querySelectorAll('h2,h3,h4,strong,b,span,div')]
+    .filter(n => n.childElementCount===0 && n.textContent.trim().toUpperCase()==='TOTAL');
+  if (headers.length){
+    // tenta pegar o contêiner pai com várias métricas
+    return headers[0].closest('.cards, .grid, .totals, .section') || headers[0].parentElement || document;
+  }
+  // fallback: documento todo
+  return document;
+}
 
-  const target   = parseBRMoney(metaTxt);
-  const achieved = parseBRMoney(pnlTxt);
+function readTotalsAndRender(){
+  const root = getTotalsContainer();
+
+  // aceite variações de rótulo
+  const metaTxt = findValueByNearbyLabel(root, ['Meta','Goal']);
+  const pnlTxt  = findValueByNearbyLabel(root, ['PnL Realizado (USD)','PnL Realizado']);
+
+  // fallback por data-attributes no #goalbar (você pode setar no HTML se quiser)
+  const gb = document.querySelector('#goalbar');
+  const targetAttr   = gb?.getAttribute('data-goal-target');
+  const achievedAttr = gb?.getAttribute('data-goal-achieved');
+
+  const target   = targetAttr ? Number(targetAttr) : parseBRMoney(metaTxt);
+  const achieved = achievedAttr ? Number(achievedAttr) : parseBRMoney(pnlTxt);
 
   if (target > 0){
     renderGoalBar({ target, achieved });
+    return true;
   }
+  return false;
 }
 
-// 1) Chame uma vez após sua renderização de página
-document.addEventListener('DOMContentLoaded', () => {
-  // tenta renderizar usando os cards existentes
-  renderGoalBarFromTotals();
-});
+/* ===== Estratégias de inicialização ===== */
+// 1) tenta ao carregar
+document.addEventListener('DOMContentLoaded', () => { readTotalsAndRender(); });
 
-// 2) Se você já tem um ciclo de atualização (ex.: loadAll -> render),
-//    basta chamar novamente após atualizar o DOM:
-const _oldRender = typeof render === 'function' ? render : null;
+// 2) se sua página re-renderiza via função global, intercepta
+const _oldRender = typeof window.render === 'function' ? window.render : null;
 if (_oldRender){
   window.render = function(){
-    _oldRender.apply(this, arguments);
-    renderGoalBarFromTotals();
+    const r = _oldRender.apply(this, arguments);
+    readTotalsAndRender();
+    return r;
   };
 }
 
-// 3) Se preferir setar manualmente (ex.: já tem os números em JS), use:
-// renderGoalBar({ target: 9000, achieved: 1130.88 });
+// 3) observa o DOM até encontrar os números (para páginas que montam tudo async)
+const observer = new MutationObserver(() => {
+  if (readTotalsAndRender()){ observer.disconnect(); }
+});
+observer.observe(document.documentElement, { childList:true, subtree:true });
+
+// 4) último recurso: set manual (exponha no HTML se preferir)
+// <div id="goalbar" data-goal-target="9000" data-goal-achieved="1130.88"></div>
+// Se usar data-attrs, o bloco acima já lê automaticamente.
+
 
 /* ---------- Boot ---------- */
 async function boot(){
