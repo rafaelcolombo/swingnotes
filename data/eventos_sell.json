@@ -1498,5 +1498,15 @@
     "Qtd_Vendida": 1.84030492,
     "PnL_Abs": 4.54,
     "PnL_Pct": 12.06
+  },
+  {
+    "Trade_ID": "20251031-79494215eaa9",
+    "Ticker": "HKD",
+    "Data_Trade": "2025-11-03",
+    "Preco_Entrada": 3.054200000137856,
+    "Preco_Saida": 2.315042827861514,
+    "Qtd_Vendida": 77.99423744,
+    "PnL_Abs": -57.65,
+    "PnL_Pct": -24.2
   }
 ]
