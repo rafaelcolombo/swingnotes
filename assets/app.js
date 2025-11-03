@@ -188,6 +188,93 @@ function renderProjectSummaryCards(rows){
     totalContainer.insertAdjacentHTML("beforeend", buildCards(totalRow,true));
   }
 }
+// Helpers de formatação / parse
+function fmtMoneyUS(n){
+  try { return n.toLocaleString('en-US', {style:'currency', currency:'USD'}); }
+  catch { return `$${Number(n||0).toFixed(2)}`; }
+}
+function parseBRMoney(txt){
+  // remove tudo que não número/ponto/vírgula/sinal
+  const raw = String(txt||'').replace(/[^\d.,-]/g,'').trim();
+  // padrão BR: milhar ponto e decimal vírgula
+  const asEN = raw.replace(/\./g,'').replace(',', '.');
+  const v = parseFloat(asEN);
+  return isNaN(v) ? 0 : v;
+}
+
+// Desenha a barra
+function renderGoalBar({ target, achieved }){
+  const elFill = document.querySelector('#goalbar-fill');
+  const elPct  = document.querySelector('#goalbar-pct');
+  const elMin  = document.querySelector('#goalbar-min');
+  const elMid  = document.querySelector('#goalbar-mid');
+  const elMax  = document.querySelector('#goalbar-max');
+
+  if (!elFill) return;
+
+  const safeTarget   = Math.max(0, Number(target||0));
+  const safeAchieved = Math.max(0, Number(achieved||0));
+  const pct = safeTarget > 0 ? Math.min(100, (safeAchieved / safeTarget) * 100) : 0;
+
+  elFill.style.width = pct.toFixed(2) + '%';
+  elPct.textContent  = pct.toFixed(2) + '%';
+
+  elMin.textContent = '$0';
+  elMid.textContent = fmtMoneyUS(safeAchieved);
+  elMax.textContent = fmtMoneyUS(safeTarget);
+}
+
+// Tenta ler os valores dos cards do bloco "TOTAL"
+function renderGoalBarFromTotals(){
+  // encontra os cards pela legenda exibida
+  const findValueByLabel = (label) => {
+    const cards = Array.from(document.querySelectorAll('.metric, .card .metric, .kpi, .stat'));
+    for (const c of cards){
+      const lbl = (c.querySelector('.label, .title, .kpi-label, .stat-label')||{}).textContent || '';
+      if (lbl.trim().toLowerCase() === label.trim().toLowerCase()){
+        const val = (c.querySelector('.value, .kpi-value, .stat-value')||{}).textContent || '';
+        return val;
+      }
+    }
+    // fallback: procura por elementos cujo texto seja exatamente o label (ex.: "Meta")
+    const nodes = Array.from(document.querySelectorAll('*'));
+    const node = nodes.find(n => n.childElementCount===0 && n.textContent.trim().toLowerCase()===label.trim().toLowerCase());
+    if (node){
+      const sibling = node.parentElement?.querySelector(':scope .value') || node.parentElement?.nextElementSibling;
+      return sibling ? sibling.textContent : '';
+    }
+    return '';
+  };
+
+  const metaTxt = findValueByLabel('Meta');
+  const pnlTxt  = findValueByLabel('PnL Realizado (USD)');
+
+  const target   = parseBRMoney(metaTxt);
+  const achieved = parseBRMoney(pnlTxt);
+
+  if (target > 0){
+    renderGoalBar({ target, achieved });
+  }
+}
+
+// 1) Chame uma vez após sua renderização de página
+document.addEventListener('DOMContentLoaded', () => {
+  // tenta renderizar usando os cards existentes
+  renderGoalBarFromTotals();
+});
+
+// 2) Se você já tem um ciclo de atualização (ex.: loadAll -> render),
+//    basta chamar novamente após atualizar o DOM:
+const _oldRender = typeof render === 'function' ? render : null;
+if (_oldRender){
+  window.render = function(){
+    _oldRender.apply(this, arguments);
+    renderGoalBarFromTotals();
+  };
+}
+
+// 3) Se preferir setar manualmente (ex.: já tem os números em JS), use:
+// renderGoalBar({ target: 9000, achieved: 1130.88 });
 
 /* ---------- Boot ---------- */
 async function boot(){
