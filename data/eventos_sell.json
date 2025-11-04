@@ -1508,5 +1508,15 @@
     "Qtd_Vendida": 77.99423744,
     "PnL_Abs": -57.65,
     "PnL_Pct": -24.2
+  },
+  {
+    "Trade_ID": "20251103-35fb1961cbce",
+    "Ticker": "OPAD",
+    "Data_Trade": "2025-11-04",
+    "Preco_Entrada": 2.329000000143027,
+    "Preco_Saida": 1.8508837763751127,
+    "Qtd_Vendida": 95.64620008,
+    "PnL_Abs": -45.73,
+    "PnL_Pct": -20.53
   }
 ]
