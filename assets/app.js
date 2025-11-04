@@ -65,48 +65,43 @@ async function renderCardsTop(){
 }
 
 /* ---------- RESUMO PORTFÓLIO (4 CARDS) ---------- */
-/* Preenche: Valor Investido | Valor Atual | PnL (USD) | PnL (%) */
+/* Soma todos os projetos existentes (swingnotes, countdown, minimumwage) */
 async function renderPortfolioSummary(){
-  const hasMount =
-    document.getElementById("summary-invested") &&
-    document.getElementById("summary-current") &&
-    document.getElementById("summary-pnl-usd") &&
-    document.getElementById("summary-pnl-pct");
-  if(!hasMount) return; // HTML ainda não existe
+  const ids = ["summary-invested", "summary-current", "summary-pnl-usd", "summary-pnl-pct"];
+  if(!ids.every(id => document.getElementById(id))) return;
 
-  try{
-    const [swing, count] = await Promise.all([
-      loadSummary("swingnotes").catch(()=>null),
-      loadSummary("countdown").catch(()=>null),
-    ]);
+  const projects = ["swingnotes", "countdown", "minimumwage"];
+  let invested = 0, current = 0;
 
-    const invested =
-      (swing ? Number(swing.valor_alocado_total||0) : 0) +
-      (count ? Number(count.valor_alocado_total||0) : 0);
-
-    const current =
-      (swing ? Number(swing.valor_atual_total||0) : 0) +
-      (count ? Number(count.valor_atual_total||0) : 0);
-
-    const pnlUsd = current - invested;
-    const pnlPct = invested ? (pnlUsd / invested) * 100 : 0;
-
-    const investedEl = document.getElementById("summary-invested");
-    const currentEl  = document.getElementById("summary-current");
-    const pnlUsdEl   = document.getElementById("summary-pnl-usd");
-    const pnlPctEl   = document.getElementById("summary-pnl-pct");
-
-    investedEl.textContent = fmtMoney(invested);
-    currentEl.textContent  = fmtMoney(current);
-    pnlUsdEl.textContent   = fmtMoney(pnlUsd);
-    pnlPctEl.textContent   = fmtPct(pnlPct);
-
-    pnlUsdEl.className = "sn-summary-value " + (pnlUsd >= 0 ? "pos" : "neg");
-    pnlPctEl.className = "sn-summary-value " + (pnlPct >= 0 ? "pos" : "neg");
-  }catch(e){
-    console.error("Falha no resumo do portfólio:", e);
+  for(const p of projects){
+    try{
+      const data = await fetchJSON(`./data/abertos_${p}_summary.json`);
+      if(data){
+        invested += Number(data.valor_alocado_total || 0);
+        current  += Number(data.valor_atual_total || 0);
+      }
+    }catch{
+      console.warn(`Resumo ausente para projeto: ${p}`);
+    }
   }
+
+  const pnlUsd = current - invested;
+  const pnlPct = invested ? (pnlUsd / invested) * 100 : 0;
+
+  const investedEl = document.getElementById("summary-invested");
+  const currentEl  = document.getElementById("summary-current");
+  const pnlUsdEl   = document.getElementById("summary-pnl-usd");
+  const pnlPctEl   = document.getElementById("summary-pnl-pct");
+
+  investedEl.textContent = fmtMoney(invested);
+  currentEl.textContent  = fmtMoney(current);
+  pnlUsdEl.textContent   = fmtMoney(pnlUsd);
+  pnlPctEl.textContent   = fmtPct(pnlPct);
+
+  pnlUsdEl.className = "sn-summary-value " + (pnlUsd >= 0 ? "pos" : "neg");
+  pnlPctEl.className = "sn-summary-value " + (pnlPct >= 0 ? "pos" : "neg");
 }
+
 
 /* ---------- Cards SELL ---------- */
 function sellCard(label, icon, row, area){
