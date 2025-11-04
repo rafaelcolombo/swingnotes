@@ -400,7 +400,7 @@
         const results = await Promise.all(DATA_URLS.map(u => fetchJSON(u).catch(()=>[])));
         const merged = results.flatMap(j => Array.isArray(j) ? j : (j && Array.isArray(j.rows) ? j.rows : []));
         STATE.rows = normalize(merged);
-        document.getElementById("updated").textContent = `Atualizado a cada 5' (${lastFiveStamp()})`;
+        // document.getElementById("updated").textContent = `Atualizado a cada 5' (${lastFiveStamp()})`;
         render();
       }catch(e){
         mount.innerHTML = `<div class="empty">Falha ao carregar dados.</div>`;
