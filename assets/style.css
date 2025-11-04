@@ -140,6 +140,36 @@ header > div{
   text-decoration:none;
 }
 
+/* SUMMARY GRID */
+.sn-summary-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap:12px;
+  margin:20px 0;
+}
+
+.sn-summary-card{
+  background:var(--card);
+  border-radius:16px;
+  padding:12px 16px;
+  box-shadow:0 0 0 1px var(--ring);
+  text-align:center;
+}
+
+.sn-summary-label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.sn-summary-value{
+  font-size:18px;
+  font-weight:600;
+  margin-top:4px;
+}
+
+.sn-summary-value.pos{ color:var(--pos); }
+.sn-summary-value.neg{ color:var(--neg); }
+
 /* ====== SEÇÕES E RODAPÉ COMO CARDS ====== */
 section, footer{
   background:var(--card);
