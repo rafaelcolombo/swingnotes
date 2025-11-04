@@ -64,6 +64,50 @@ async function renderCardsTop(){
   }
 }
 
+/* ---------- RESUMO PORTFÓLIO (4 CARDS) ---------- */
+/* Preenche: Valor Investido | Valor Atual | PnL (USD) | PnL (%) */
+async function renderPortfolioSummary(){
+  const hasMount =
+    document.getElementById("summary-invested") &&
+    document.getElementById("summary-current") &&
+    document.getElementById("summary-pnl-usd") &&
+    document.getElementById("summary-pnl-pct");
+  if(!hasMount) return; // HTML ainda não existe
+
+  try{
+    const [swing, count] = await Promise.all([
+      loadSummary("swingnotes").catch(()=>null),
+      loadSummary("countdown").catch(()=>null),
+    ]);
+
+    const invested =
+      (swing ? Number(swing.valor_alocado_total||0) : 0) +
+      (count ? Number(count.valor_alocado_total||0) : 0);
+
+    const current =
+      (swing ? Number(swing.valor_atual_total||0) : 0) +
+      (count ? Number(count.valor_atual_total||0) : 0);
+
+    const pnlUsd = current - invested;
+    const pnlPct = invested ? (pnlUsd / invested) * 100 : 0;
+
+    const investedEl = document.getElementById("summary-invested");
+    const currentEl  = document.getElementById("summary-current");
+    const pnlUsdEl   = document.getElementById("summary-pnl-usd");
+    const pnlPctEl   = document.getElementById("summary-pnl-pct");
+
+    investedEl.textContent = fmtMoney(invested);
+    currentEl.textContent  = fmtMoney(current);
+    pnlUsdEl.textContent   = fmtMoney(pnlUsd);
+    pnlPctEl.textContent   = fmtPct(pnlPct);
+
+    pnlUsdEl.className = "sn-summary-value " + (pnlUsd >= 0 ? "pos" : "neg");
+    pnlPctEl.className = "sn-summary-value " + (pnlPct >= 0 ? "pos" : "neg");
+  }catch(e){
+    console.error("Falha no resumo do portfólio:", e);
+  }
+}
+
 /* ---------- Cards SELL ---------- */
 function sellCard(label, icon, row, area){
   if(!row){
@@ -323,7 +367,12 @@ async function boot(){
     const proj = Array.isArray(projRaw) ? projRaw :
                  (projRaw && Array.isArray(projRaw.rows) ? projRaw.rows : []);
 
+    // Resumos do topo por projeto (opcional, mantém)
     await renderCardsTop();
+
+    // **NOVO**: 4 cards do portfólio (investido/atual/PnL USD/PnL %)
+    await renderPortfolioSummary();
+
     renderSellSummaryCards(sell);
 
     if (proj && proj.length){
