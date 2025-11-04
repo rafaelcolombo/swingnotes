@@ -4,8 +4,202 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio · Swing Notes</title>
-  <link rel="stylesheet" href="live.css" />
+
+  <style>
+  /* ===========================
+     SwingNotes — Dark layout (Live + Index)
+     =========================== */
+  :root{
+    --bg:#0b0f14;
+    --card:#121821;
+    --ink:#e6edf3;
+    --muted:#9aa7b2;
+    --pos:#1ecb7b;
+    --neg:#ff6b6b;
+    --brand:#f59e0b;
+    --ring:#223042;
+    --chip:#1b2430;
+    --text: var(--ink);
+  }
+
+  *{ box-sizing:border-box }
+
+  html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  }
+
+  /* ====== LAYOUT ====== */
+  .container{ max-width:1100px; margin:0 auto; padding:28px 20px }
+  .muted{ color:var(--muted) }
+  .updated{ font-size:.9rem; color:var(--muted); opacity:.7 }
+
+  /* ====== UTILS ====== */
+  .pos{ color:var(--pos) }
+  .neg{ color:var(--neg) }
+
+  /* ====== HEADER ====== */
+  header{
+    background:none;
+    border:none;
+    box-shadow:none;
+    margin:0 0 10px;
+    padding:0;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+  }
+  header h1{
+    font-size:2rem;
+    font-weight:800;
+    margin:0;
+    color:var(--ink);
+  }
+
+  /* ====== MENU SUPERIOR ====== */
+  .top-menu{
+    display:flex;
+    gap:10px;
+    margin: 8px 0 14px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .sort{
+    background:var(--card);
+    border:1px solid var(--ring);
+    color:var(--ink);
+    border-radius:10px;
+    padding:8px 10px;
+  }
+  .search{
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:10px;
+    padding:8px 10px;
+    color:var(--ink);
+    width:220px;
+  }
+  @media (max-width:560px){ .search{ width:100% } }
+
+  /* ====== SUMMARY GRID (4 cards do topo) ====== */
+  .sn-summary-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap:12px;
+    margin:16px 0 18px;
+  }
+  .sn-summary-card{
+    background:var(--card);
+    border-radius:16px;
+    padding:12px 16px;
+    box-shadow:0 0 0 1px var(--ring);
+    text-align:center;
+  }
+  .sn-summary-label{ color:var(--muted); font-size:13px; }
+  .sn-summary-value{ font-size:18px; font-weight:600; margin-top:4px; }
+  .sn-summary-value.pos{ color:var(--pos); }
+  .sn-summary-value.neg{ color:var(--neg); }
+
+  /* ====== SEÇÕES ====== */
+  section, footer{
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:16px;
+    padding:14px 18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+    margin-bottom:16px;
+  }
+
+  /* ====== CARDS BASE ====== */
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border:1px solid var(--ring);
+    border-radius:18px;
+    padding:12px 14px;
+    box-shadow:0 10px 26px rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+  }
+
+  /* ====== GRID genérico (cards de tickers) ====== */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px }
+  .badge{ font-size:11px; padding:2px 6px; border-radius:999px; background:var(--chip); border:1px solid var(--ring); color:var(--muted) }
+  .rows{ display:grid; gap:6px; margin-top:6px }
+  .row{ display:flex; justify-content:space-between; gap:8px }
+  .k{ color:var(--muted); font-size:12px; opacity:.9 }
+  .v{ font-weight:700 }
+  .empty{ border:1px dashed var(--ring); padding:18px; border-radius:12px; color:var(--muted); text-align:center }
+
+  /* ====== SELL SUMMARY GRID — escopado (se usar) ====== */
+  #sell-cards .sn-summary-grid{
+    display:grid;
+    gap:12px;
+    margin-top:8px;
+    grid-template-columns:repeat(2, minmax(260px, 1fr));
+    grid-template-areas:
+      "ultimo ultimo"
+      "melhor ultimo_profit"
+      "pior   ultimo_loss";
+  }
+  @media (max-width:900px){
+    #sell-cards .sn-summary-grid{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "ultimo"
+        "melhor"
+        "ultimo_profit"
+        "pior"
+        "ultimo_loss";
+    }
+  }
+  .sn-card.ultimo{ grid-area:ultimo }
+  .sn-card.melhor{ grid-area:melhor }
+  .sn-card.ultimo_profit{ grid-area:ultimo_profit }
+  .sn-card.pior{ grid-area:pior }
+  .sn-card.ultimo_loss{ grid-area:ultimo_loss }
+
+  .sn-head{ display:flex; align-items:center; gap:8px; font-weight:600; font-size:.98rem; letter-spacing:.2px }
+  .sn-icon{ font-size:1.05rem }
+  .sn-row{ margin-top:8px; font-size:.92rem; line-height:1.35rem }
+
+  /* chips */
+  .sn-chip{
+    display:inline-block; padding:2px 8px; border-radius:999px;
+    font-size:.78rem; font-weight:600; margin-right:6px; margin-bottom:6px;
+    border:1px solid var(--ring);
+    background:rgba(255,255,255,.06);
+    color:var(--ink);
+    word-break:break-word;
+  }
+
+  /* estados */
+  .sn-pnl-pos,.sn-pos{ color:var(--pos); font-weight:700 }
+  .sn-pnl-neg,.sn-neg{ color:var(--neg); font-weight:700 }
+  .sn-tkr{ font-weight:700 }
+  .sn-muted{ opacity:.8; color:var(--muted) }
+
+  /* ====== PROJECT SUMMARY GRID — live (se usar) ====== */
+  .sn-proj-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:12px;
+    margin:8px 0 22px 0;
+  }
+  .sn-metric-head{ font-size:.86rem; opacity:.85; margin-bottom:6px }
+  .sn-metric-value{ font-size:1.15rem; font-weight:800; letter-spacing:.2px }
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:.85rem;
+    opacity:.7;
+  }
+  a{ color:var(--pos); text-decoration:none }
+  a:hover{ text-decoration:underline }
+  </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -54,7 +248,7 @@
   </div>
 
   <script>
-    // Arquivos com as posições abertas por projeto
+    // ---- CONFIG: arquivos com as posições por projeto
     const DATA_URLS = [
       "/data/abertos_swingnotes.json",
       "/data/abertos_countdown.json",
@@ -63,10 +257,7 @@
 
     async function fetchJSON(url){
       const res = await fetch(url, { cache: "no-store" });
-      if(!res.ok){
-        console.warn("Falha ao buscar:", url, res.status);
-        throw new Error("fetch fail " + url);
-      }
+      if(!res.ok){ throw new Error("fetch fail " + url + " [" + res.status + "]"); }
       return res.json();
     }
 
@@ -82,8 +273,7 @@
     }
     function fmtPct(x){
       const n = Number(x);
-      if(!isFinite(n)) return "—";
-      return (n>=0?"+":"") + n.toFixed(2) + "%";
+      return isFinite(n) ? ((n>=0?"+":"") + n.toFixed(2) + "%") : "—";
     }
     const classForPct = n => Number(n) >= 0 ? "pos" : "neg";
 
@@ -99,6 +289,7 @@
 
     function toNum(v){
       if(v === null || v === undefined || v === "") return NaN;
+      // remove espaços, % e vírgulas de milhar
       const s = String(v).trim().replace(/[%\s]/g,'').replace(/,/g,'');
       const n = Number(s);
       return isNaN(n) ? NaN : n;
@@ -147,8 +338,6 @@
       const currentEl  = $("#summary-current");
       const pnlUsdEl   = $("#summary-pnl-usd");
       const pnlPctEl   = $("#summary-pnl-pct");
-
-      if(!investedEl || !currentEl || !pnlUsdEl || !pnlPctEl) return;
 
       investedEl.textContent = fmtMoney(invested);
       currentEl.textContent  = fmtMoney(current);
@@ -200,7 +389,7 @@
       html.push(`</div>`);
       mount.innerHTML = html.join("");
 
-      // resumo sempre reflete TODAS as posições carregadas
+      // Resumo sempre com TODAS as posições carregadas
       renderPortfolioSummaryFrom(STATE.rows);
     }
 
