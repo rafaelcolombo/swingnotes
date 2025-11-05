@@ -1568,5 +1568,15 @@
     "Qtd_Vendida": 14.8818382,
     "PnL_Abs": -66.31,
     "PnL_Pct": -22.1
+  },
+  {
+    "Trade_ID": "20251105-767c3593c7cb",
+    "Ticker": "SLDP",
+    "Data_Trade": "2025-11-05",
+    "Preco_Entrada": 6.837200001213648,
+    "Preco_Saida": 8.431333333333333,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": 23.91,
+    "PnL_Pct": 23.32
   }
 ]
