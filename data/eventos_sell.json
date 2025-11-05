@@ -1558,5 +1558,15 @@
     "Qtd_Vendida": 0.4,
     "PnL_Abs": 10.5,
     "PnL_Pct": 14.11
+  },
+  {
+    "Trade_ID": "20251028-019ebef59ebb",
+    "Ticker": "UUUU",
+    "Data_Trade": "2025-11-05",
+    "Preco_Entrada": 20.158800006305672,
+    "Preco_Saida": 15.703033244911907,
+    "Qtd_Vendida": 14.8818382,
+    "PnL_Abs": -66.31,
+    "PnL_Pct": -22.1
   }
 ]
