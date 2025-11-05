@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "trade_id": "20251105-a71138934863",
+    "project": "minimumwage",
+    "ticker": "FTRE",
+    "dias_aberto": 0,
+    "quantidade": 20.11586268,
+    "preco_entrada": 11.617200003673917,
+    "preco_atual": 11.61,
+    "variacao_pct": -0.06197710008987167,
+    "sl_agressivo": 10.8,
+    "sl_tecnico": 10.26,
+    "sl_conservador": 10.39,
+    "tp_agressivo": 12.44,
+    "tp_tecnico": 13.26,
+    "tp_conservador": 14.08
+  }
+]
