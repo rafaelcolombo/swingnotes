@@ -1520,16 +1520,6 @@
     "PnL_Pct": -20.53
   },
   {
-    "Trade_ID": "20251023-4e8099e86e16",
-    "Ticker": "CABA",
-    "Data_Trade": "2025-11-05",
-    "Preco_Entrada": 2.4091000002020753,
-    "Preco_Saida": 2.531090909090909,
-    "Qtd_Vendida": 55.0,
-    "PnL_Abs": 6.71,
-    "PnL_Pct": 5.06
-  },
-  {
     "Trade_ID": "20251031-bfe6f48ed8ae",
     "Ticker": "CSIQ",
     "Data_Trade": "2025-11-05",
@@ -1538,5 +1528,15 @@
     "Qtd_Vendida": 1.5,
     "PnL_Abs": 7.4,
     "PnL_Pct": 24.12
+  },
+  {
+    "Trade_ID": "20251023-4e8099e86e16",
+    "Ticker": "CABA",
+    "Data_Trade": "2025-11-05",
+    "Preco_Entrada": 2.4091000002020753,
+    "Preco_Saida": 2.531090909090909,
+    "Qtd_Vendida": 55.0,
+    "PnL_Abs": 6.71,
+    "PnL_Pct": 5.06
   }
 ]
