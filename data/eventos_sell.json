@@ -1608,5 +1608,15 @@
     "Qtd_Vendida": 5.0,
     "PnL_Abs": 1.92,
     "PnL_Pct": 5.63
+  },
+  {
+    "Trade_ID": "20251027-03608cbcc1fc",
+    "Ticker": "RGTI",
+    "Data_Trade": "2025-11-06",
+    "Preco_Entrada": 40.32760002371352,
+    "Preco_Saida": 35.19219875340484,
+    "Qtd_Vendida": 3.63944296,
+    "PnL_Abs": -18.69,
+    "PnL_Pct": -12.73
   }
 ]
