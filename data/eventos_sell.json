@@ -1588,5 +1588,15 @@
     "Qtd_Vendida": 1.25,
     "PnL_Abs": 7.71,
     "PnL_Pct": 30.14
+  },
+  {
+    "Trade_ID": "20251105-3bc7c43ff898",
+    "Ticker": "APPS",
+    "Data_Trade": "2025-11-06",
+    "Preco_Entrada": 7.588600003352224,
+    "Preco_Saida": 6.461116314345898,
+    "Qtd_Vendida": 6.6165037,
+    "PnL_Abs": -7.46,
+    "PnL_Pct": -14.86
   }
 ]
