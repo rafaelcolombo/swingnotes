@@ -8,7 +8,7 @@
     "pnl_realizado": 752.75,
     "capital_inicial": 1999.0,
     "pnl_realizado_pct": 37.65632816408204,
-    "dias_uteis": 28.0,
+    "dias_uteis": 29.0,
     "meta": null,
     "meta_atingido_pct": null
   },
@@ -21,7 +21,7 @@
     "pnl_realizado": -66.31,
     "capital_inicial": 300.0,
     "pnl_realizado_pct": -22.10333333333333,
-    "dias_uteis": 7.0,
+    "dias_uteis": 8.0,
     "meta": null,
     "meta_atingido_pct": null
   },
@@ -34,7 +34,7 @@
     "pnl_realizado": 333.2,
     "capital_inicial": 1000.0,
     "pnl_realizado_pct": 33.32,
-    "dias_uteis": 147.0,
+    "dias_uteis": 148.0,
     "meta": null,
     "meta_atingido_pct": null
   },
