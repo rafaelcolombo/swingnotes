@@ -1708,5 +1708,15 @@
     "Qtd_Vendida": 1.0,
     "PnL_Abs": 15.81,
     "PnL_Pct": 37.8
+  },
+  {
+    "Trade_ID": "20251031-bfe6f48ed8ae",
+    "Ticker": "CSIQ",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 20.464000017122043,
+    "Preco_Saida": 30.0,
+    "Qtd_Vendida": 0.25,
+    "PnL_Abs": 2.38,
+    "PnL_Pct": 46.6
   }
 ]
