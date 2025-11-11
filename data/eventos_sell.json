@@ -1688,5 +1688,15 @@
     "Qtd_Vendida": 5.0,
     "PnL_Abs": -8.73,
     "PnL_Pct": -8.36
+  },
+  {
+    "Trade_ID": "20251031-e1598bcfea34",
+    "Ticker": "SSTK",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 25.220900005983996,
+    "Preco_Saida": 22.020367795224626,
+    "Qtd_Vendida": 11.89489669,
+    "PnL_Abs": -38.07,
+    "PnL_Pct": -12.69
   }
 ]
