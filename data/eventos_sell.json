@@ -1618,5 +1618,15 @@
     "Qtd_Vendida": 3.63944296,
     "PnL_Abs": -18.69,
     "PnL_Pct": -12.73
+  },
+  {
+    "Trade_ID": "20251105-b00bb3bc9329",
+    "Ticker": "FLNC",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 20.881400009416055,
+    "Preco_Saida": 23.47155042592314,
+    "Qtd_Vendida": 1.66669859,
+    "PnL_Abs": 4.32,
+    "PnL_Pct": 12.4
   }
 ]
