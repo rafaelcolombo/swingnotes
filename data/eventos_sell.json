@@ -1658,5 +1658,35 @@
     "Qtd_Vendida": 198.11694217,
     "PnL_Abs": -59.46,
     "PnL_Pct": -16.06
+  },
+  {
+    "Trade_ID": "20251103-2b89e6528a53",
+    "Ticker": "BE",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 142.49880022874996,
+    "Preco_Saida": 130.4581828131301,
+    "Qtd_Vendida": 0.36709081,
+    "PnL_Abs": -4.42,
+    "PnL_Pct": -8.45
+  },
+  {
+    "Trade_ID": "20251024-1327e0487b46",
+    "Ticker": "APLD",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 33.49640000539359,
+    "Preco_Saida": 28.100129964524683,
+    "Qtd_Vendida": 5.97079089,
+    "PnL_Abs": -32.22,
+    "PnL_Pct": -16.11
+  },
+  {
+    "Trade_ID": "20251105-b00bb3bc9329",
+    "Ticker": "FLNC",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 20.881400009416055,
+    "Preco_Saida": 19.136000000000003,
+    "Qtd_Vendida": 5.0,
+    "PnL_Abs": -8.73,
+    "PnL_Pct": -8.36
   }
 ]
