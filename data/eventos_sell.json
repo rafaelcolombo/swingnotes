@@ -1628,5 +1628,35 @@
     "Qtd_Vendida": 1.66669859,
     "PnL_Abs": 4.32,
     "PnL_Pct": 12.4
+  },
+  {
+    "Trade_ID": "20251105-e24641515bee",
+    "Ticker": "IREN",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 70.7388004882871,
+    "Preco_Saida": 56.66530684783523,
+    "Qtd_Vendida": 0.53860116,
+    "PnL_Abs": -7.58,
+    "PnL_Pct": -19.9
+  },
+  {
+    "Trade_ID": "20251031-6996eddadf12",
+    "Ticker": "SYM",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 81.19990073008444,
+    "Preco_Saida": 64.79269327733763,
+    "Qtd_Vendida": 0.63386777,
+    "PnL_Abs": -10.4,
+    "PnL_Pct": -20.21
+  },
+  {
+    "Trade_ID": "20251030-3a98495fa25c",
+    "Ticker": "IVVD",
+    "Data_Trade": "2025-11-11",
+    "Preco_Entrada": 1.8693000000081719,
+    "Preco_Saida": 1.569174229093645,
+    "Qtd_Vendida": 198.11694217,
+    "PnL_Abs": -59.46,
+    "PnL_Pct": -16.06
   }
 ]
