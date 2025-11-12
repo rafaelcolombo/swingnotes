@@ -1738,5 +1738,15 @@
     "Qtd_Vendida": 0.93249469,
     "PnL_Abs": 2.5,
     "PnL_Pct": 3.29
+  },
+  {
+    "Trade_ID": "20251111-2026e0dd4ae8",
+    "Ticker": "PESI",
+    "Data_Trade": "2025-11-12",
+    "Preco_Entrada": 16.0,
+    "Preco_Saida": 14.347333333333333,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": -24.79,
+    "PnL_Pct": -10.33
   }
 ]
