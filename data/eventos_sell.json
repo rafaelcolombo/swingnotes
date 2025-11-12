@@ -1748,5 +1748,15 @@
     "Qtd_Vendida": 15.0,
     "PnL_Abs": -24.79,
     "PnL_Pct": -10.33
+  },
+  {
+    "Trade_ID": "20251030-faa2035e9a37",
+    "Ticker": "ALGN",
+    "Data_Trade": "2025-11-12",
+    "Preco_Entrada": 142.76300028467688,
+    "Preco_Saida": 142.93990062888514,
+    "Qtd_Vendida": 2.2611601,
+    "PnL_Abs": 0.4,
+    "PnL_Pct": 0.12
   }
 ]
