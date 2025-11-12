@@ -1,13 +1,13 @@
 [
   {
     "Project": "countdown",
-    "trades_fechados_totalmente": 44,
+    "trades_fechados_totalmente": 45,
     "trades_com_profit": 12,
-    "trades_com_loss": 32,
-    "trades_em_andamento": 11,
-    "pnl_realizado": 648.84,
+    "trades_com_loss": 33,
+    "trades_em_andamento": 10,
+    "pnl_realizado": 631.77,
     "capital_inicial": 1999.0,
-    "pnl_realizado_pct": 32.45822911455728,
+    "pnl_realizado_pct": 31.604302151075537,
     "dias_uteis": 33.0,
     "meta": null,
     "meta_atingido_pct": null
@@ -40,15 +40,15 @@
   },
   {
     "Project": "TOTAL",
-    "trades_fechados_totalmente": 134,
+    "trades_fechados_totalmente": 135,
     "trades_com_profit": 51,
-    "trades_com_loss": 83,
-    "trades_em_andamento": 17,
-    "pnl_realizado": 844.8800000000001,
+    "trades_com_loss": 84,
+    "trades_em_andamento": 16,
+    "pnl_realizado": 827.81,
     "capital_inicial": 3299.0,
-    "pnl_realizado_pct": 25.610184904516526,
+    "pnl_realizado_pct": 25.092755380418307,
     "dias_uteis": null,
     "meta": 10000,
-    "meta_atingido_pct": 8.4488
+    "meta_atingido_pct": 8.278099999999998
   }
 ]
