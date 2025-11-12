@@ -1758,5 +1758,15 @@
     "Qtd_Vendida": 2.2611601,
     "PnL_Abs": 0.4,
     "PnL_Pct": 0.12
+  },
+  {
+    "Trade_ID": "20251023-44ebc6227954",
+    "Ticker": "ALLT",
+    "Data_Trade": "2025-11-12",
+    "Preco_Entrada": 9.916400002977499,
+    "Preco_Saida": 9.07003526272337,
+    "Qtd_Vendida": 20.16860957,
+    "PnL_Abs": -17.07,
+    "PnL_Pct": -8.54
   }
 ]
