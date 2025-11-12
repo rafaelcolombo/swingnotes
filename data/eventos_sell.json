@@ -1728,5 +1728,15 @@
     "Qtd_Vendida": 5.11586268,
     "PnL_Abs": 2.01,
     "PnL_Pct": 3.38
+  },
+  {
+    "Trade_ID": "20251106-8f2ef9a7d168",
+    "Ticker": "HCC",
+    "Data_Trade": "2025-11-12",
+    "Preco_Entrada": 81.54470027062568,
+    "Preco_Saida": 84.22568068457313,
+    "Qtd_Vendida": 0.93249469,
+    "PnL_Abs": 2.5,
+    "PnL_Pct": 3.29
   }
 ]
