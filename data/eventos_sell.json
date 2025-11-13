@@ -1858,5 +1858,15 @@
     "Qtd_Vendida": 1.12734995,
     "PnL_Abs": 0.28,
     "PnL_Pct": 0.13
+  },
+  {
+    "Trade_ID": "20251111-574caedc1d60",
+    "Ticker": "FIGS",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 9.589902470017227,
+    "Preco_Saida": 9.580077421383235,
+    "Qtd_Vendida": 15.2671,
+    "PnL_Abs": -0.15,
+    "PnL_Pct": -0.1
   }
 ]
