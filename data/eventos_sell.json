@@ -1888,5 +1888,15 @@
     "Qtd_Vendida": 15.0,
     "PnL_Abs": 5.57,
     "PnL_Pct": 2.21
+  },
+  {
+    "Trade_ID": "20251106-b40d42ea4870",
+    "Ticker": "COHR",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 154.92880397194378,
+    "Preco_Saida": 143.00130258612256,
+    "Qtd_Vendida": 0.2330748,
+    "PnL_Abs": -2.78,
+    "PnL_Pct": -7.7
   }
 ]
