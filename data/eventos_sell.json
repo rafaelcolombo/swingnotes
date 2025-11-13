@@ -1898,5 +1898,15 @@
     "Qtd_Vendida": 0.2330748,
     "PnL_Abs": -2.78,
     "PnL_Pct": -7.7
+  },
+  {
+    "Trade_ID": "20251111-ab5337ce6428",
+    "Ticker": "SGHT",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 6.938823529411764,
+    "Preco_Saida": 7.1,
+    "Qtd_Vendida": 8.0,
+    "PnL_Abs": 1.29,
+    "PnL_Pct": 2.32
   }
 ]
