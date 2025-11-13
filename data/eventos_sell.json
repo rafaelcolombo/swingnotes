@@ -1968,5 +1968,25 @@
     "Qtd_Vendida": 2.85466665,
     "PnL_Abs": -23.6,
     "PnL_Pct": -3.23
+  },
+  {
+    "Trade_ID": "20251111-0a880880b9e4",
+    "Ticker": "FLGT",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 28.159918298690375,
+    "Preco_Saida": 29.31,
+    "Qtd_Vendida": 4.0,
+    "PnL_Abs": 4.6,
+    "PnL_Pct": 4.08
+  },
+  {
+    "Trade_ID": "20251031-bfe6f48ed8ae",
+    "Ticker": "CSIQ",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 20.464000017122043,
+    "Preco_Saida": 29.61,
+    "Qtd_Vendida": 1.0,
+    "PnL_Abs": 9.15,
+    "PnL_Pct": 44.69
   }
 ]
