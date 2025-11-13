@@ -1958,5 +1958,15 @@
     "Qtd_Vendida": 58.0,
     "PnL_Abs": -9.27,
     "PnL_Pct": -4.7
+  },
+  {
+    "Trade_ID": "20251027-6533200dc798",
+    "Ticker": "AMD",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 256.26810051534386,
+    "Preco_Saida": 248.00093559085087,
+    "Qtd_Vendida": 2.85466665,
+    "PnL_Abs": -23.6,
+    "PnL_Pct": -3.23
   }
 ]
