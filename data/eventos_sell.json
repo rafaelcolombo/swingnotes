@@ -1928,5 +1928,15 @@
     "Qtd_Vendida": 5.35297156,
     "PnL_Abs": -5.51,
     "PnL_Pct": -5.78
+  },
+  {
+    "Trade_ID": "20251105-a71138934863",
+    "Ticker": "FTRE",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 11.617200003673917,
+    "Preco_Saida": 10.46,
+    "Qtd_Vendida": 15.0,
+    "PnL_Abs": -17.36,
+    "PnL_Pct": -9.96
   }
 ]
