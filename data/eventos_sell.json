@@ -1938,5 +1938,25 @@
     "Qtd_Vendida": 15.0,
     "PnL_Abs": -17.36,
     "PnL_Pct": -9.96
+  },
+  {
+    "Trade_ID": "20251030-1002f563f971",
+    "Ticker": "GRAL",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 92.12660004212212,
+    "Preco_Saida": 82.50858299772457,
+    "Qtd_Vendida": 3.25638849,
+    "PnL_Abs": -31.32,
+    "PnL_Pct": -10.44
+  },
+  {
+    "Trade_ID": "20251111-973b41f59b86",
+    "Ticker": "BORR",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 3.3998275862068965,
+    "Preco_Saida": 3.2399999999999998,
+    "Qtd_Vendida": 58.0,
+    "PnL_Abs": -9.27,
+    "PnL_Pct": -4.7
   }
 ]
