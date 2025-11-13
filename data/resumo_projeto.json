@@ -14,13 +14,13 @@
   },
   {
     "Project": "minimumwage",
-    "trades_fechados_totalmente": 1,
+    "trades_fechados_totalmente": 2,
     "trades_com_profit": 0,
-    "trades_com_loss": 1,
-    "trades_em_andamento": 2,
-    "pnl_realizado": -64.3,
+    "trades_com_loss": 2,
+    "trades_em_andamento": 1,
+    "pnl_realizado": -81.66,
     "capital_inicial": 300.0,
-    "pnl_realizado_pct": -21.433333333333334,
+    "pnl_realizado_pct": -27.22,
     "dias_uteis": 13.0,
     "meta": null,
     "meta_atingido_pct": null
@@ -40,15 +40,15 @@
   },
   {
     "Project": "TOTAL",
-    "trades_fechados_totalmente": 145,
+    "trades_fechados_totalmente": 146,
     "trades_com_profit": 57,
-    "trades_com_loss": 88,
-    "trades_em_andamento": 8,
-    "pnl_realizado": 966.8700000000001,
+    "trades_com_loss": 89,
+    "trades_em_andamento": 7,
+    "pnl_realizado": 949.5100000000001,
     "capital_inicial": 3299.0,
-    "pnl_realizado_pct": 29.307972112761448,
+    "pnl_realizado_pct": 28.781752046074573,
     "dias_uteis": null,
     "meta": 10000,
-    "meta_atingido_pct": 9.668700000000001
+    "meta_atingido_pct": 9.4951
   }
 ]
