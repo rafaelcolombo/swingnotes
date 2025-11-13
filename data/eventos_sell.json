@@ -1768,5 +1768,15 @@
     "Qtd_Vendida": 20.16860957,
     "PnL_Abs": -17.07,
     "PnL_Pct": -8.54
+  },
+  {
+    "Trade_ID": "20251112-0bacb6e79e97",
+    "Ticker": "INTS",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 0.39690476190476187,
+    "Preco_Saida": 0.46200980392156865,
+    "Qtd_Vendida": 204.0,
+    "PnL_Abs": 13.28,
+    "PnL_Pct": 16.4
   }
 ]
