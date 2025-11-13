@@ -6,13 +6,29 @@
     "dias_aberto": 7,
     "quantidade": 15.0,
     "preco_entrada": 11.617200003673917,
-    "preco_atual": 11.0,
-    "variacao_pct": -5.312812067268602,
+    "preco_atual": 11.045,
+    "variacao_pct": -4.925455389361977,
     "sl_agressivo": 10.8,
     "sl_tecnico": 10.26,
     "sl_conservador": 10.39,
     "tp_agressivo": 12.44,
     "tp_tecnico": 13.26,
     "tp_conservador": 14.08
+  },
+  {
+    "trade_id": "20251113-7572c145ddea",
+    "project": "minimumwage",
+    "ticker": "DHC",
+    "dias_aberto": 0,
+    "quantidade": 12.0,
+    "preco_entrada": 4.93,
+    "preco_atual": 4.91,
+    "variacao_pct": -0.40567951318457585,
+    "sl_agressivo": 4.71,
+    "sl_tecnico": 4.39,
+    "sl_conservador": 4.61,
+    "tp_agressivo": 5.14,
+    "tp_tecnico": 5.36,
+    "tp_conservador": 5.57
   }
 ]
