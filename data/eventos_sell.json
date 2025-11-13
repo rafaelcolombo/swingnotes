@@ -1848,5 +1848,15 @@
     "Qtd_Vendida": 150.0,
     "PnL_Abs": 6.46,
     "PnL_Pct": 10.86
+  },
+  {
+    "Trade_ID": "20251106-76fd9fb95cb0",
+    "Ticker": "DDOG",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 187.49280114839232,
+    "Preco_Saida": 187.74117123081436,
+    "Qtd_Vendida": 1.12734995,
+    "PnL_Abs": 0.28,
+    "PnL_Pct": 0.13
   }
 ]
