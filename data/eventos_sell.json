@@ -1798,5 +1798,15 @@
     "Qtd_Vendida": 1.0,
     "PnL_Abs": 76.11,
     "PnL_Pct": 40.92
+  },
+  {
+    "Trade_ID": "20251111-0a880880b9e4",
+    "Ticker": "FLGT",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 28.159918298690375,
+    "Preco_Saida": 30.17215388326098,
+    "Qtd_Vendida": 1.32672,
+    "PnL_Abs": 2.67,
+    "PnL_Pct": 7.15
   }
 ]
