@@ -1908,5 +1908,25 @@
     "Qtd_Vendida": 8.0,
     "PnL_Abs": 1.29,
     "PnL_Pct": 2.32
+  },
+  {
+    "Trade_ID": "20251106-7520f610e641",
+    "Ticker": "LILA",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 8.698600001961804,
+    "Preco_Saida": 8.140335698275623,
+    "Qtd_Vendida": 14.72420849,
+    "PnL_Abs": -8.22,
+    "PnL_Pct": -6.42
+  },
+  {
+    "Trade_ID": "20251031-e6f50b29c64b",
+    "Ticker": "VIAV",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 17.808800015369407,
+    "Preco_Saida": 16.77946519857841,
+    "Qtd_Vendida": 5.35297156,
+    "PnL_Abs": -5.51,
+    "PnL_Pct": -5.78
   }
 ]
