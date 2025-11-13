@@ -1828,5 +1828,15 @@
     "Qtd_Vendida": 1.0,
     "PnL_Abs": 10.62,
     "PnL_Pct": 51.88
+  },
+  {
+    "Trade_ID": "20251024-5c4bf257e11c",
+    "Ticker": "GTX",
+    "Data_Trade": "2025-11-13",
+    "Preco_Entrada": 16.79880000231528,
+    "Preco_Saida": 17.329955766090535,
+    "Qtd_Vendida": 14.76403076,
+    "PnL_Abs": 7.84,
+    "PnL_Pct": 3.16
   }
 ]
