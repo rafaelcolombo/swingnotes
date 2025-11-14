@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "trade_id": "20251114-00628502b34e",
+    "project": "countdown",
+    "ticker": "KULR",
+    "dias_aberto": 0,
+    "quantidade": 100.0,
+    "preco_entrada": 2.6467,
+    "preco_atual": 2.645,
+    "variacao_pct": -0.06423092908149908,
+    "sl_agressivo": 2.42,
+    "sl_tecnico": null,
+    "sl_conservador": 2.31,
+    "tp_agressivo": 2.87,
+    "tp_tecnico": 3.09,
+    "tp_conservador": 3.32
+  }
+]
