@@ -14,5 +14,21 @@
     "tp_agressivo": 2.87,
     "tp_tecnico": 3.09,
     "tp_conservador": 3.32
+  },
+  {
+    "trade_id": "20251114-362fb5e6c6b3",
+    "project": "countdown",
+    "ticker": "APPS",
+    "dias_aberto": 0,
+    "quantidade": 50.0,
+    "preco_entrada": 5.035,
+    "preco_atual": 5.04,
+    "variacao_pct": 0.09930486593843213,
+    "sl_agressivo": 4.42,
+    "sl_tecnico": null,
+    "sl_conservador": 4.12,
+    "tp_agressivo": 5.65,
+    "tp_tecnico": 6.26,
+    "tp_conservador": 6.87
   }
 ]
