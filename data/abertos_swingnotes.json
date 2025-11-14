@@ -1,18 +1,1 @@
-[
-  {
-    "trade_id": "20251113-7a4b91bb5023",
-    "project": "swingnotes",
-    "ticker": "ALB",
-    "dias_aberto": 2,
-    "quantidade": 3.0,
-    "preco_entrada": 116.74000000000001,
-    "preco_atual": 114.57,
-    "variacao_pct": -1.8588315915710307,
-    "sl_agressivo": 110.88,
-    "sl_tecnico": 99.04,
-    "sl_conservador": 107.95,
-    "tp_agressivo": 122.6,
-    "tp_tecnico": 128.46,
-    "tp_conservador": 134.32
-  }
-]
+[]
