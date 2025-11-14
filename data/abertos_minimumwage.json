@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "trade_id": "20251114-0919f588e71c",
+    "project": "minimumwage",
+    "ticker": "DIBS",
+    "dias_aberto": 0,
+    "quantidade": 43.0,
+    "preco_entrada": 4.95,
+    "preco_atual": 4.935,
+    "variacao_pct": -0.3030303030303161,
+    "sl_agressivo": 4.59,
+    "sl_tecnico": 3.87,
+    "sl_conservador": 4.4,
+    "tp_agressivo": 5.31,
+    "tp_tecnico": 5.68,
+    "tp_conservador": 6.04
+  }
+]
