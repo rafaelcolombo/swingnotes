@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "trade_id": "20251114-1332613611e8",
+    "project": "swingnotes",
+    "ticker": "FTHM",
+    "dias_aberto": 0,
+    "quantidade": 345.0,
+    "preco_entrada": 1.04,
+    "preco_atual": 1.02,
+    "variacao_pct": -1.9230769230769273,
+    "sl_agressivo": 0.88,
+    "sl_tecnico": null,
+    "sl_conservador": 0.8,
+    "tp_agressivo": 1.2,
+    "tp_tecnico": 1.36,
+    "tp_conservador": 1.53
+  }
+]
