@@ -1988,5 +1988,25 @@
     "Qtd_Vendida": 1.0,
     "PnL_Abs": 9.15,
     "PnL_Pct": 44.69
+  },
+  {
+    "Trade_ID": "20251113-7a4b91bb5023",
+    "Ticker": "ALB",
+    "Data_Trade": "2025-11-14",
+    "Preco_Entrada": 116.74000000000001,
+    "Preco_Saida": 109.84666666666668,
+    "Qtd_Vendida": 3.0,
+    "PnL_Abs": -20.68,
+    "PnL_Pct": -5.9
+  },
+  {
+    "Trade_ID": "20251113-7572c145ddea",
+    "Ticker": "DHC",
+    "Data_Trade": "2025-11-14",
+    "Preco_Entrada": 4.93,
+    "Preco_Saida": 4.795,
+    "Qtd_Vendida": 12.0,
+    "PnL_Abs": -1.62,
+    "PnL_Pct": -2.74
   }
 ]
