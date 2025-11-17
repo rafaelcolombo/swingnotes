@@ -30,5 +30,21 @@
     "tp_agressivo": 1.84,
     "tp_tecnico": 1.96,
     "tp_conservador": 2.09
+  },
+  {
+    "trade_id": "20251117-e671a4f07f92",
+    "project": "swingnotes",
+    "ticker": "JAZZ",
+    "dias_aberto": 0,
+    "quantidade": 3.0,
+    "preco_entrada": 170.58,
+    "preco_atual": 169.88,
+    "variacao_pct": -0.4103646382928927,
+    "sl_agressivo": 163.7,
+    "sl_tecnico": 139.98,
+    "sl_conservador": 160.27,
+    "tp_agressivo": 177.46,
+    "tp_tecnico": 184.33,
+    "tp_conservador": 191.21
   }
 ]
