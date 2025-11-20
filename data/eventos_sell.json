@@ -2018,5 +2018,15 @@
     "Qtd_Vendida": 13.0,
     "PnL_Abs": 3.64,
     "PnL_Pct": 5.66
+  },
+  {
+    "Trade_ID": "20251117-e671a4f07f92",
+    "Ticker": "JAZZ",
+    "Data_Trade": "2025-11-20",
+    "Preco_Entrada": 170.58,
+    "Preco_Saida": 176.255,
+    "Qtd_Vendida": 2.0,
+    "PnL_Abs": 11.35,
+    "PnL_Pct": 3.33
   }
 ]
