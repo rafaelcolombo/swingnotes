@@ -2038,5 +2038,25 @@
     "Qtd_Vendida": 3.0,
     "PnL_Abs": 5.67,
     "PnL_Pct": 3.1
+  },
+  {
+    "Trade_ID": "20251119-d1f9c0bf4a4d",
+    "Ticker": "EXAS",
+    "Data_Trade": "2025-11-20",
+    "Preco_Entrada": 84.33,
+    "Preco_Saida": 101.115,
+    "Qtd_Vendida": 2.0,
+    "PnL_Abs": 33.57,
+    "PnL_Pct": 19.9
+  },
+  {
+    "Trade_ID": "20251114-1332613611e8",
+    "Ticker": "FTHM",
+    "Data_Trade": "2025-11-20",
+    "Preco_Entrada": 1.04,
+    "Preco_Saida": 1.135,
+    "Qtd_Vendida": 60.0,
+    "PnL_Abs": 5.7,
+    "PnL_Pct": 9.13
   }
 ]
