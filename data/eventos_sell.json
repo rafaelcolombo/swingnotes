@@ -2028,5 +2028,15 @@
     "Qtd_Vendida": 2.0,
     "PnL_Abs": 11.35,
     "PnL_Pct": 3.33
+  },
+  {
+    "Trade_ID": "20251117-e697e3ecf652",
+    "Ticker": "SQM",
+    "Data_Trade": "2025-11-20",
+    "Preco_Entrada": 61.06,
+    "Preco_Saida": 62.949999999999996,
+    "Qtd_Vendida": 3.0,
+    "PnL_Abs": 5.67,
+    "PnL_Pct": 3.1
   }
 ]
