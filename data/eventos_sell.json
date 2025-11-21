@@ -2058,5 +2058,45 @@
     "Qtd_Vendida": 60.0,
     "PnL_Abs": 5.7,
     "PnL_Pct": 9.13
+  },
+  {
+    "Trade_ID": "20251114-362fb5e6c6b3",
+    "Ticker": "APPS",
+    "Data_Trade": "2025-11-21",
+    "Preco_Entrada": 5.035,
+    "Preco_Saida": 4.0402,
+    "Qtd_Vendida": 50.0,
+    "PnL_Abs": -49.74,
+    "PnL_Pct": -19.76
+  },
+  {
+    "Trade_ID": "20251114-00628502b34e",
+    "Ticker": "KULR",
+    "Data_Trade": "2025-11-21",
+    "Preco_Entrada": 2.6467,
+    "Preco_Saida": 2.1603,
+    "Qtd_Vendida": 100.0,
+    "PnL_Abs": -48.64,
+    "PnL_Pct": -18.38
+  },
+  {
+    "Trade_ID": "20251118-a4a9a5a0ed5d",
+    "Ticker": "ARVN",
+    "Data_Trade": "2025-11-21",
+    "Preco_Entrada": 12.999130434782609,
+    "Preco_Saida": 11.12,
+    "Qtd_Vendida": 23.0,
+    "PnL_Abs": -43.22,
+    "PnL_Pct": -14.46
+  },
+  {
+    "Trade_ID": "20251117-641c04dd6c09",
+    "Ticker": "HL",
+    "Data_Trade": "2025-11-21",
+    "Preco_Entrada": 14.6,
+    "Preco_Saida": 12.83,
+    "Qtd_Vendida": 25.0,
+    "PnL_Abs": -44.25,
+    "PnL_Pct": -12.12
   }
 ]
