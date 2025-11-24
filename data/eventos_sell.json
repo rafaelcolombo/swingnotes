@@ -2108,5 +2108,15 @@
     "Qtd_Vendida": 50.0,
     "PnL_Abs": 8.75,
     "PnL_Pct": 16.83
+  },
+  {
+    "Trade_ID": "20251114-519012140c35",
+    "Ticker": "SVC",
+    "Data_Trade": "2025-11-24",
+    "Preco_Entrada": 1.709733333333333,
+    "Preco_Saida": 1.6402,
+    "Qtd_Vendida": 150.0,
+    "PnL_Abs": -10.43,
+    "PnL_Pct": -4.07
   }
 ]
