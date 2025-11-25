@@ -2118,5 +2118,15 @@
     "Qtd_Vendida": 150.0,
     "PnL_Abs": -10.43,
     "PnL_Pct": -4.07
+  },
+  {
+    "Trade_ID": "20251114-1332613611e8",
+    "Ticker": "FTHM",
+    "Data_Trade": "2025-11-25",
+    "Preco_Entrada": 1.04,
+    "Preco_Saida": 1.295,
+    "Qtd_Vendida": 50.0,
+    "PnL_Abs": 12.75,
+    "PnL_Pct": 24.52
   }
 ]
