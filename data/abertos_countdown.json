@@ -54,13 +54,29 @@
     "dias_aberto": 2,
     "quantidade": 13.0,
     "preco_entrada": 24.272307692307695,
-    "preco_atual": 25.4,
-    "variacao_pct": 4.646003676237553,
+    "preco_atual": 25.42,
+    "variacao_pct": 4.728402104329077,
     "sl_agressivo": 23.08,
     "sl_tecnico": 20.4,
     "sl_conservador": 22.49,
     "tp_agressivo": 25.46,
     "tp_tecnico": 26.65,
     "tp_conservador": 27.84
+  },
+  {
+    "trade_id": "20251126-577f37cc26ed",
+    "project": "countdown",
+    "ticker": "ADSK",
+    "dias_aberto": 0,
+    "quantidade": 1.0,
+    "preco_entrada": 305.29,
+    "preco_atual": 304.66,
+    "variacao_pct": -0.20636116479413324,
+    "sl_agressivo": 297.65,
+    "sl_tecnico": 297.59,
+    "sl_conservador": 293.83,
+    "tp_agressivo": 312.93,
+    "tp_tecnico": 320.56,
+    "tp_conservador": 328.2
   }
 ]
