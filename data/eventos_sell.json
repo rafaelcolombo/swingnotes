@@ -2128,5 +2128,15 @@
     "Qtd_Vendida": 50.0,
     "PnL_Abs": 12.75,
     "PnL_Pct": 24.52
+  },
+  {
+    "Trade_ID": "20251119-c463f4debbda",
+    "Ticker": "SGML",
+    "Data_Trade": "2025-12-02",
+    "Preco_Entrada": 10.33,
+    "Preco_Saida": 10.75,
+    "Qtd_Vendida": 29.0,
+    "PnL_Abs": 12.18,
+    "PnL_Pct": 4.07
   }
 ]
