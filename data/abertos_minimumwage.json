@@ -4,7 +4,7 @@
     "project": "minimumwage",
     "ticker": "DIBS",
     "dias_aberto": 13,
-    "quantidade": 30.0,
+    "quantidade": 25.0,
     "preco_entrada": 4.95,
     "preco_atual": 6.265,
     "variacao_pct": 26.565656565656546,
