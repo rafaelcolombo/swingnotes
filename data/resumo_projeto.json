@@ -13,6 +13,19 @@
     "meta_atingido_pct": null
   },
   {
+    "Project": "gemini",
+    "trades_fechados_totalmente": 0,
+    "trades_com_profit": 0,
+    "trades_com_loss": 0,
+    "trades_em_andamento": 1,
+    "pnl_realizado": 0.0,
+    "capital_inicial": 0.0,
+    "pnl_realizado_pct": 0.0,
+    "dias_uteis": 1.0,
+    "meta": null,
+    "meta_atingido_pct": null
+  },
+  {
     "Project": "minimumwage",
     "trades_fechados_totalmente": 3,
     "trades_com_profit": 0,
@@ -30,7 +43,7 @@
     "trades_fechados_totalmente": 96,
     "trades_com_profit": 42,
     "trades_com_loss": 54,
-    "trades_em_andamento": 3,
+    "trades_em_andamento": 2,
     "pnl_realizado": 291.31,
     "capital_inicial": 1000.0,
     "pnl_realizado_pct": 29.131,
