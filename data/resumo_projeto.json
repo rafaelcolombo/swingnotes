@@ -1,23 +1,10 @@
 [
   {
-    "Project": "(sem projeto)",
-    "trades_fechados_totalmente": 0,
-    "trades_com_profit": 0,
-    "trades_com_loss": 0,
-    "trades_em_andamento": 1,
-    "pnl_realizado": 0.0,
-    "capital_inicial": 0.0,
-    "pnl_realizado_pct": 0.0,
-    "dias_uteis": 0.0,
-    "meta": null,
-    "meta_atingido_pct": null
-  },
-  {
     "Project": "countdown",
     "trades_fechados_totalmente": 60,
     "trades_com_profit": 18,
     "trades_com_loss": 42,
-    "trades_em_andamento": 4,
+    "trades_em_andamento": 5,
     "pnl_realizado": 562.43,
     "capital_inicial": 1999.0,
     "pnl_realizado_pct": 28.135567783891947,
