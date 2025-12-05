@@ -1,8 +1,8 @@
 {
   "project": "minimumwage",
-  "total_trades": 1,
-  "valor_alocado_total": 123.75,
-  "valor_atual_total": 152.75,
-  "pnl_total_abs": 29.0,
-  "pnl_total_pct": 23.43
+  "total_trades": 0,
+  "valor_alocado_total": 0,
+  "valor_atual_total": 0,
+  "pnl_total_abs": 0,
+  "pnl_total_pct": 0.0
 }
