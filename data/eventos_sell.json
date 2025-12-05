@@ -2148,5 +2148,15 @@
     "Qtd_Vendida": 5.0,
     "PnL_Abs": 6.88,
     "PnL_Pct": 27.8
+  },
+  {
+    "Trade_ID": "20251114-0919f588e71c",
+    "Ticker": "DIBS",
+    "Data_Trade": "2025-12-05",
+    "Preco_Entrada": 4.95,
+    "Preco_Saida": 5.96,
+    "Qtd_Vendida": 25.0,
+    "PnL_Abs": 25.25,
+    "PnL_Pct": 20.4
   }
 ]
