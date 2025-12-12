@@ -2188,5 +2188,15 @@
     "Qtd_Vendida": 13.0,
     "PnL_Abs": -45.66,
     "PnL_Pct": -14.47
+  },
+  {
+    "Trade_ID": "20251203-95d1ff9810fb",
+    "Ticker": "SNOW",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 266.2,
+    "Preco_Saida": 221.5,
+    "Qtd_Vendida": 2.0,
+    "PnL_Abs": -89.4,
+    "PnL_Pct": -16.79
   }
 ]
