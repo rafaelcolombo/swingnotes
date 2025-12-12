@@ -2198,5 +2198,95 @@
     "Qtd_Vendida": 2.0,
     "PnL_Abs": -89.4,
     "PnL_Pct": -16.79
+  },
+  {
+    "Trade_ID": "20251205-4ba46dd9f436",
+    "Ticker": "BORR",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 4.079894736842105,
+    "Preco_Saida": 4.221578947368421,
+    "Qtd_Vendida": 95.0,
+    "PnL_Abs": 13.46,
+    "PnL_Pct": 3.47
+  },
+  {
+    "Trade_ID": "20251204-c42c242a879d",
+    "Ticker": "CM",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 90.62,
+    "Preco_Saida": 92.76,
+    "Qtd_Vendida": 4.0,
+    "PnL_Abs": 8.56,
+    "PnL_Pct": 2.36
+  },
+  {
+    "Trade_ID": "20251203-e127b630a1f7",
+    "Ticker": "BOX",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 32.089999999999996,
+    "Preco_Saida": 30.07,
+    "Qtd_Vendida": 10.0,
+    "PnL_Abs": -20.2,
+    "PnL_Pct": -6.29
+  },
+  {
+    "Trade_ID": "20251126-577f37cc26ed",
+    "Ticker": "ADSK",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 305.29,
+    "Preco_Saida": 299.97,
+    "Qtd_Vendida": 1.0,
+    "PnL_Abs": -5.32,
+    "PnL_Pct": -1.74
+  },
+  {
+    "Trade_ID": "20251205-2caca2ae100e",
+    "Ticker": "CIO",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 6.949999999999999,
+    "Preco_Saida": 6.949999999999999,
+    "Qtd_Vendida": 36.0,
+    "PnL_Abs": 0.0,
+    "PnL_Pct": 0.0
+  },
+  {
+    "Trade_ID": "20251114-1332613611e8",
+    "Ticker": "FTHM",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 1.04,
+    "Preco_Saida": 1.2369333333333332,
+    "Qtd_Vendida": 150.0,
+    "PnL_Abs": 29.54,
+    "PnL_Pct": 18.94
+  },
+  {
+    "Trade_ID": "20251117-e671a4f07f92",
+    "Ticker": "JAZZ",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 170.58,
+    "Preco_Saida": 163.78,
+    "Qtd_Vendida": 1.0,
+    "PnL_Abs": -6.8,
+    "PnL_Pct": -3.99
+  },
+  {
+    "Trade_ID": "20251117-e697e3ecf652",
+    "Ticker": "SQM",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 61.06,
+    "Preco_Saida": 65.16,
+    "Qtd_Vendida": 2.0,
+    "PnL_Abs": 8.2,
+    "PnL_Pct": 6.71
+  },
+  {
+    "Trade_ID": "20251119-d1f9c0bf4a4d",
+    "Ticker": "EXAS",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 84.33,
+    "Preco_Saida": 101.51,
+    "Qtd_Vendida": 1.0,
+    "PnL_Abs": 17.18,
+    "PnL_Pct": 20.37
   }
 ]
