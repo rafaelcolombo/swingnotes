@@ -1,8 +1,8 @@
 {
   "project": "countdown",
-  "total_trades": 5,
-  "valor_alocado_total": 1195.12,
-  "valor_atual_total": 1204.26,
-  "pnl_total_abs": 9.14,
-  "pnl_total_pct": 0.76
+  "total_trades": 0,
+  "valor_alocado_total": 0.0,
+  "valor_atual_total": 0.0,
+  "pnl_total_abs": 0.0,
+  "pnl_total_pct": 0.0
 }
