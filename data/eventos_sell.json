@@ -2178,5 +2178,15 @@
     "Qtd_Vendida": 35.0,
     "PnL_Abs": 7.0,
     "PnL_Pct": 19.23
+  },
+  {
+    "Trade_ID": "20251125-a47a6b0b5f6f",
+    "Ticker": "RCUS",
+    "Data_Trade": "2025-12-12",
+    "Preco_Entrada": 24.272307692307695,
+    "Preco_Saida": 20.759999999999998,
+    "Qtd_Vendida": 13.0,
+    "PnL_Abs": -45.66,
+    "PnL_Pct": -14.47
   }
 ]
